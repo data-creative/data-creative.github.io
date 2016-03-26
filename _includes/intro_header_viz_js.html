@@ -1,0 +1,34 @@
+<!-- d3.js -->
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+    console.log("MIN", d3.min([6,5,3,9]) )
+
+    var div = d3.select("div.intro-header-viz")
+        .attr("style","background-color:grey;")
+
+    var divSize = div.node().getBoundingClientRect()
+    var height = divSize.height
+    var width = divSize.width
+
+    var svg = div.append("svg")
+        .attr("id","viz")
+        .attr("height", height)
+        .attr("width", width)
+        .attr("style","background-color:steelblue;")
+
+    window.addEventListener('resize', function(event){
+        divSize = div.node().getBoundingClientRect()
+        height = divSize.height
+        width = divSize.width
+        console.log("resizing!", divSize, " H: ", height, " W: ", width)
+
+        svg
+            .attr("height", height)
+            .attr("width", width)
+    });
+
+    //function resizeSvg(){
+    //};
+
+</script>
