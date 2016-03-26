@@ -7,3 +7,25 @@
     background: no-repeat center center;
     background-size: cover;
 }
+
+/* adapted from source: http://stackoverflow.com/a/25978286/670433 */
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    // padding-bottom: 100%; /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+    //background-color:grey;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background-color:steelblue;
+    //opacity: 0.5;
+    height:100%;
+    width:100%;
+    z-index: -1;
+}

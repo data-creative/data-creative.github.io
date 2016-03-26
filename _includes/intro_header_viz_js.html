@@ -4,9 +4,27 @@
 
     console.log("MIN", d3.min([6,5,3,9]) )
 
-    var div = d3.select("div.intro-header-viz")
-        .attr("style","background-color:grey;")
+    // adapted from source: http://stackoverflow.com/a/25978286/670433
+    var svg = d3.select("div.intro-header-viz").append("svg")
+        //responsive SVG needs these 2 attributes and no width and height attr
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .attr("viewBox", "0 0 600 400")
+        //class to make it responsive
+        .classed("svg-content-responsive", true);
 
+    // source: http://stackoverflow.com/a/25978286/670433
+    //var div = d3.select("div.intro-header-viz")
+    //    .attr("style","background-color:grey;")
+    //    .append("div")
+    //        .classed("svg-container", true) //container class to make it responsive
+    //        .append("svg")
+    //            //responsive SVG needs these 2 attributes and no width and height attr
+    //            .attr("preserveAspectRatio", "xMinYMin meet")
+    //            .attr("viewBox", "0 0 600 400")
+    //            //class to make it responsive
+    //            .classed("svg-content-responsive", true);
+
+/*
     var divSize = div.node().getBoundingClientRect()
     var height = divSize.height
     var width = divSize.width
@@ -30,5 +48,6 @@
 
     //function resizeSvg(){
     //};
+*/
 
 </script>

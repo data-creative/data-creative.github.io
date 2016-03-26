@@ -23,4 +23,4 @@
 ## Viz
 
  + http://stackoverflow.com/a/21991405/670433
- + http://stackoverflow.com/a/18520448/670433
+ + http://thenewcode.com/744/Making-SVG-Responsive
