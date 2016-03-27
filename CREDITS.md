@@ -15,6 +15,7 @@
  + http://www.itsgov.com/wp-content/uploads/2014/01/The-Science-Of-Crime-Scene-Forensics-A-Detailed-Overview.jpg
  + https://commons.wikimedia.org/wiki/File:Python_logo_and_wordmark.svg
  + http://www.newcreationschapel.org/new/wp-content/uploads/2012/10/flipping-through-bible-pages.jpg
+ + https://jackrugile.com/lab/fireworks-v1/bg.jpg
 
 ## Content
 
@@ -24,3 +25,12 @@
 
  + http://stackoverflow.com/a/21991405/670433
  + http://thenewcode.com/744/Making-SVG-Responsive
+ + http://www.jeromecukier.net/blog/2015/05/19/you-may-not-need-d3/
+ + http://stackoverflow.com/a/11396681/670433
+ + https://jackrugile.com/lab/fireworks-v1/
+ + https://jackrugile.com/lab/fireworks-v1/bg.jpg
+ + https://github.com/paullewis/Fireworks
+ + http://lab.aerotwist.com/canvas/fireworks/
+ + http://codepen.io/whqet/pen/Auzch
+ + http://creativejs.com/tutorials/creating-fireworks/
+ + http://ggruiz.me/explosions/

@@ -2,52 +2,75 @@
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 
-    console.log("MIN", d3.min([6,5,3,9]) )
+    var hr = document.getElementById("intro-divider")
 
-    // adapted from source: http://stackoverflow.com/a/25978286/670433
     var svg = d3.select("div.intro-header-viz").append("svg")
-        //responsive SVG needs these 2 attributes and no width and height attr
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .attr("viewBox", "0 0 600 400")
-        //class to make it responsive
-        .classed("svg-content-responsive", true);
+        .attr({preserveAspectRatio: "xMinYMin meet", viewBox: "0 0 600 400"}) //responsive SVG needs these 2 attributes and no width and height attr
+        .classed("svg-content-responsive", true); //class to make it responsive
 
-    // source: http://stackoverflow.com/a/25978286/670433
-    //var div = d3.select("div.intro-header-viz")
-    //    .attr("style","background-color:grey;")
-    //    .append("div")
-    //        .classed("svg-container", true) //container class to make it responsive
-    //        .append("svg")
-    //            //responsive SVG needs these 2 attributes and no width and height attr
-    //            .attr("preserveAspectRatio", "xMinYMin meet")
-    //            .attr("viewBox", "0 0 600 400")
-    //            //class to make it responsive
-    //            .classed("svg-content-responsive", true);
+    var myData = [100,200,100,30,10]
+
+    var column = svg.selectAll("rect").data(myData).enter().append("rect")
+        .style({stroke: 'f8f8f8', fill: 'steelblue'})
+        .attr({
+
+          height: function(d){ return d; },
+
+          width: 20,
+
+          x: function(d, i){ return i * 100; },
+
+          y: function(d){
+            var hSvg = svg.node().height.baseVal.value
+            var yHr = hr.getBoundingClientRect().bottom
+            return hSvg - yHr;
+            //return 200;
+          }
+
+        })
+
+
+
+
 
 /*
-    var divSize = div.node().getBoundingClientRect()
-    var height = divSize.height
-    var width = divSize.width
+x = d3.scale.linear()
+        .domain([120,180]) // SCALED_SCORES
+        .range([(0 + margin.left),(svg_width - margin.right)]);
 
-    var svg = div.append("svg")
-        .attr("id","viz")
-        .attr("height", height)
-        .attr("width", width)
-        .attr("style","background-color:steelblue;")
+    y = d3.scale.linear()
+        .domain([0,100]) // PERCENTILES
+        .range([(svg_height - margin.bottom),(0 + margin.top)]); //NOTE: MIN AND MAX INVERTED ON PURPOSE
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     window.addEventListener('resize', function(event){
-        divSize = div.node().getBoundingClientRect()
-        height = divSize.height
-        width = divSize.width
-        console.log("resizing!", divSize, " H: ", height, " W: ", width)
+        var h = svg.node().height.baseVal.value;
+        var w = svg.node().width.baseVal.value
+        //console.log("resizing!", " H: ", Math.round(h), " W: ", Math.round(w))
 
-        svg
-            .attr("height", height)
-            .attr("width", width)
+        var hrPosition = hr.getBoundingClientRect();
+        var hrX = hrPosition.top;
+        //console.log(hrPosition.top, hrPosition.right, hrPosition.bottom, hrPosition.left);
+        //console.log(hrX);
+
+        console.log("SVG H:", Math.round(h), "SVG W:", Math.round(w), "HR X:", hrX)
+
     });
-
-    //function resizeSvg(){
-    //};
-*/
 
 </script>
