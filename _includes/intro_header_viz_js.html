@@ -2,29 +2,38 @@
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script>
 
+    var myData = [100,200,100,30,10]
+
     var hr = document.getElementById("intro-divider")
 
     var svg = d3.select("div.intro-header-viz").append("svg")
         .attr({preserveAspectRatio: "xMinYMin meet", viewBox: "0 0 600 400"}) //responsive SVG needs these 2 attributes and no width and height attr
         .classed("svg-content-responsive", true); //class to make it responsive
 
-    var myData = [100,200,100,30,10]
+    //var hSvg = svg.node().height.baseVal.value
+    //console.log("SVG HEIGHT", hSvg)
 
-    var column = svg.selectAll("rect").data(myData).enter().append("rect")
+    var yScale = d3.scale.linear()
+        .domain([0, d3.max(myData)])
+        .range([hSvg,0]); //NOTE: MIN AND MAX INVERTED ON PURPOSE
+
+    var rect = svg.selectAll("rect").data(myData).enter().append("rect")
         .style({stroke: 'f8f8f8', fill: 'steelblue'})
         .attr({
+          width: 20,
 
           height: function(d){ return d; },
 
-          width: 20,
 
           x: function(d, i){ return i * 100; },
 
           y: function(d){
             var hSvg = svg.node().height.baseVal.value
-            var yHr = hr.getBoundingClientRect().bottom
-            return hSvg - yHr;
-            //return 200;
+
+            //var yHr = hr.getBoundingClientRect().bottom
+            //return hSvg - yHr;
+            //return yScale(5);
+            return hSvg;
           }
 
         })
@@ -38,9 +47,7 @@ x = d3.scale.linear()
         .domain([120,180]) // SCALED_SCORES
         .range([(0 + margin.left),(svg_width - margin.right)]);
 
-    y = d3.scale.linear()
-        .domain([0,100]) // PERCENTILES
-        .range([(svg_height - margin.bottom),(0 + margin.top)]); //NOTE: MIN AND MAX INVERTED ON PURPOSE
+
 */
 
 
@@ -60,16 +67,18 @@ x = d3.scale.linear()
 
 
     window.addEventListener('resize', function(event){
-        var h = svg.node().height.baseVal.value;
-        var w = svg.node().width.baseVal.value
+        var hSvg = svg.node().height.baseVal.value;
+        var wSvg = svg.node().width.baseVal.value
         //console.log("resizing!", " H: ", Math.round(h), " W: ", Math.round(w))
 
         var hrPosition = hr.getBoundingClientRect();
-        var hrX = hrPosition.top;
+        var xHr = hrPosition.top;
         //console.log(hrPosition.top, hrPosition.right, hrPosition.bottom, hrPosition.left);
         //console.log(hrX);
 
-        console.log("SVG H:", Math.round(h), "SVG W:", Math.round(w), "HR X:", hrX)
+        console.log("SVG H:", Math.round(hSvg), "SVG W:", Math.round(wSvg), "HR X:", xHr)
+
+        yScale.range([hSvg,0])
 
     });
 
