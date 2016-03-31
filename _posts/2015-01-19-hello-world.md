@@ -24,6 +24,46 @@ def my_method
 end
 ````
 
+``` rb
+def my_method
+  "my_#{interpolated}_string"
+end
+```
+
+```rb
+def my_method
+  "my_#{interpolated}_string"
+end
+```
+
+``` ruby
+def my_method
+  "my_#{interpolated}_string"
+end
+```
+
+
+~~~ ruby
+def my_method
+  "my_#{interpolated}_string"
+end
+~~~
+
+~~~ruby
+def my_method
+  "my_#{interpolated}_string"
+end
+~~~
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+
+
 This post should render html tables for tables written in markdown.
 
 header1 | header2 | header3
