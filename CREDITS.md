@@ -31,3 +31,13 @@
 ## Other
 
  + http://www.lipsum.com/feed/html
+
+## View-Template Engine
+
+ + http://stackoverflow.com/a/12303624/670433
+ + http://www.jokecamp.com/blog/listing-jekyll-posts-by-tag/
+ + https://talk.jekyllrb.com/t/get-all-tags-uniques-in-multiple-collection-pages-without-a-plugin/1221/3
+ + https://docs.shopify.com/themes/liquid/filters/array-filters
+ + https://gist.github.com/pepelsbey/9334494
+ + http://stackoverflow.com/questions/13638967/listing-unique-data-from-liquid-objects
+ + https://docs.shopify.com/themes/liquid/tags/variable-tags

@@ -8,6 +8,43 @@
 						<h1>{{ page.title }}</h1>
 						<h3>{{ page.subTitle }}</h3>
 						<hr class="intro-divider">
+
+
+						<p>
+							Tags:
+						</p>
+						<ul class="list-inline">
+							{% assign sorted_items = site.tags | sort %}
+							{% for item in sorted_items %}
+							  {% assign tag = item | first %}
+							  {% assign posts = item | last %}
+							  <li>{{tag | downcase | replace:" ","-" }}  ({{ posts | size }})</li>
+							{% endfor %}
+						</ul>
+
+
+
+
+						<p>
+							Technologies:
+						</p>
+
+						{% assign technologies =  site.posts | map: 'technologies'  %}
+						<ul class="list-inline">
+							{% for item in technologies %}
+								<li>{{ item }} </li>
+							{% endfor %}
+						</ul>
+
+						{{technologies}}
+
+
+
+
+
+
+
+
 					</div>
 				</div>
 			</div>
