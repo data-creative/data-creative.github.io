@@ -1,6 +1,12 @@
 
+/*
 div.dropdown-toggle {
   cursor:pointer;
   padding:15px 15px;
   color:#777;
+}
+*/
+
+.shadowed {
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }

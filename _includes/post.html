@@ -31,7 +31,7 @@
               <ul class="list-inline" style="display:inline;">
                 {% assign sorted_technologies = page.technologies | sort %}
                 {% for item in sorted_technologies %}
-                  <li style="text-shadow: 2px 2px 3px rgba(0,0,0,0.6);">{{item}}</li>
+                  <li class="shadowed">{{item}}</li>
                 {% endfor %}
               </ul>
             </div>
