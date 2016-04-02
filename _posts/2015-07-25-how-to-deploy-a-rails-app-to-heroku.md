@@ -2,12 +2,19 @@
 layout: post
 title:  "How to deploy a Ruby on Rails app to Heroku"
 author: MJ Rossetti
-categories: posts
+categories:
+ - posts
+ - process-documentation
 img: heroku-logo.png
 tags: none
 published: true
 icon_class: none
-technologies: heroku
+technologies:
+ - ruby
+ - rails
+ - rake
+ - bundler
+ - heroku
 credits:
  - https://github.com/heroku/heroku
  - https://devcenter.heroku.com/categories/command-line

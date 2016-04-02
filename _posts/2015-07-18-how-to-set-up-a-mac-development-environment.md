@@ -2,13 +2,28 @@
 layout: post
 title:  "How to set up a Mac OS-X development environment"
 author: MJ Rossetti
-categories: posts
+categories:
+ - posts
+ - process-documentation
 img: macbook-air-side.png
 use_img_as_post_header: true
 tags: none
 published: true
 icon_class: none
-technologies: mac os-x chrome atom homebrew ruby bundler python lunchy postgresql mysql
+technologies:
+ - mac os-x
+ - chrome
+ - atom
+ - homebrew
+ - ruby
+ - bundler
+ - python
+ - pip
+ - node.js
+ - lunchy
+ - postgresql
+ - mysql
+ - mongodb
 credits:
   - http://octopress.org/docs/setup/rbenv/
   - https://help.github.com/articles/associating-text-editors-with-git/#using-atom-as-your-editor
@@ -31,6 +46,8 @@ credits:
   - http://blog.grayghostvisuals.com/git/how-to-keep-git-updated/
   - http://lifehacker.com/343328/create-a-keyboard-shortcut-for-any-menu-action-in-any-program
   - http://postgresapp.com/documentation/gui-tools.html
+  - https://docs.mongodb.org/v2.4/tutorial/install-mongodb-on-os-x/
+  - https://docs.mongodb.org/manual/mongo/
 ---
 
 This document describes the process of configuring a new Mac OS-X development environment from scratch.
@@ -114,7 +131,7 @@ Re-configure Ghostery, or any other plugins as necessary.
 
 Create a new [Apple ID](https://appleid.apple.com), and verify your email.
 
-Download Xcode. It might take 30 minutes. View progress from the Launchpad app.
+Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
 
 ## Homebrew Package Manager
 
@@ -262,8 +279,20 @@ brew linkapps python
 
 ### Node
 
+Install [node.js](https://nodejs.org/en/).
+  This also installs the [node package manager (npm)](https://www.npmjs.com/).
+
 ```` sh
 brew install node
+````
+
+Install global npm modules.
+
+```` sh
+npm install express-generator -g # enables app-generation CLI
+npm install nodemon -g # obviates need to restart dev server every time a file is changed
+npm install -g node-inspector # allows you to insert debugging breakpoints
+npm install -g knex # enables a database migration CLI
 ````
 
 ### Bower
@@ -394,6 +423,50 @@ Finally, install [Sequel Pro](http://www.sequelpro.com/download) database manage
 ```` sh
 brew cask install sequel-pro
 ````
+
+
+
+### Mongodb
+
+Install [mongodb](https://www.mongodb.org/).
+
+```` sh
+brew install mongodb
+````
+
+Follow post-installation instructions.
+
+```` sh
+ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
+lunchy start mongodb
+````
+
+Run mongo.
+
+```` sh
+mongo
+````
+
+FYI - the mongo config file specifies the expected paths to the mongo data directory and logfile.
+
+```` sh
+cat /usr/local/etc/mongod.conf
+````
+
+Helpful mongo shell commands:
+
+````
+db # to show the active database
+show dbs # to show all databases (this doesn't work?)
+use myNewDatabase # create/use a new database
+show collections # list all collections in the current database (alternate)
+db.getCollectionNames() # list all collections in the current database
+db.myCollection.insert( { x: 1 } ); # insert a new record
+db.myCollection.insert( { y: 2 } );
+db.myCollection.find().pretty() # print collection
+db.myCollection.find({x:1}).pretty() # find a record matching given query conditions
+````
+
 
 
 

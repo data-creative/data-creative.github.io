@@ -2,12 +2,19 @@
 layout: post
 title:  "How to create and manage a Ruby gem"
 author: MJ Rossetti
-categories: posts
+categories:
+ - posts
+ - process-documentation
 img: rubygems_logo_red.png
 tags: none
 published: true
 icon_class: none
-technologies: ruby rubygems bundler rake rails
+technologies:
+ - ruby
+ - rubygems
+ - bundler
+ - rake
+ - rails
 credits:
   - http://guides.rubygems.org/make-your-own-gem/
   - http://rakeroutes.com/blog/lets-write-a-gem-part-one/

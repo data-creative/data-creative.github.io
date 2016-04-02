@@ -1,5 +1,17 @@
 # Credits, Notes, and Reference
 
+## Hosting
+
+ + https://pages.github.com
+
+## Blogging Engine
+
+ +  https://jekyllrb.com/
+
+## Theme
+
+ + https://github.com/swcool/landing-page-theme
+
 ## Images
 
  + https://github.com/gwu-business/salad-system-requirements/blob/52aa012e265335e65eb8136c7fc0e4d9bc254221/requirements/business-processes/diagrams/to-be-menu-update-process-diagram.png https://github.com/gwu-business/201503-istm-4121-10/blob/3d75fe5bc2bcca1be2571bb98a18e27a3f9cf23e/resources/exams/final/answers/3-blog-erd.png
@@ -17,7 +29,7 @@
  + http://www.newcreationschapel.org/new/wp-content/uploads/2012/10/flipping-through-bible-pages.jpg
  + https://jackrugile.com/lab/fireworks-v1/bg.jpg
 
-## Content
+## Other
 
  + http://www.lipsum.com/feed/html
 

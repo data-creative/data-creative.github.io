@@ -11,12 +11,7 @@ copyright: Copyright &copy; 2016 Data Creative, LLC.
 repository: https://github.com/data-creative/data-creative.info/
 #url: "http://data-creative.info"
 baseurl: ""
-credits: >
-  Credits:
-  <a href="https://pages.github.com/">GitHub Pages</a>,
-  <a href="https://jekyllrb.com/">Jekyll</a>,
-  <a href="https://github.com/swcool/landing-page-theme">Landing Page Theme</a>,
-  <a href="https://github.com/data-creative/data-creative.github.io/blob/master/CREDITS.md">et al.</a>
+
 
 # ----------------------- #
 #    Jekyll & Plugins     #

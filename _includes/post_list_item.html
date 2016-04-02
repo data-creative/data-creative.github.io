@@ -1,0 +1,34 @@
+<hr class="section-heading-spacer">
+<div class="clearfix"></div>
+
+<h2 class="section-heading">
+  <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+</h2>
+
+<p>
+  Published:
+  <span style="font-weight:normal;">
+    {{ post.date | date: "%Y-%m-%d" }}
+  </span>
+</p>
+
+{% if post.author %}
+<p>
+  By:
+  <span style="font-weight:normal;">
+    {{ post.author }}
+  </span>
+</p>
+{% endif %}
+
+{% if post.technologies %}
+<div>
+  <span style="padding-right:5px;">Technologies:</span>
+  <ul class="list-inline" style="display:inline;">
+    {% assign sorted_technologies = post.technologies | sort %}
+    {% for item in sorted_technologies %}
+      <li style="font-weight:normal; padding-left:0; padding-right:0;">{{item}}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}

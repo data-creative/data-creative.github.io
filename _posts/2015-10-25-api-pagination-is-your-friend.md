@@ -2,13 +2,18 @@
 layout: post
 title:  "API Pagination is your friend"
 author: MJ Rossetti
-categories: posts
+categories:
+ - posts
+ - best-practices
 img: flipping-through-pages.jpg
 use_img_as_post_header: true
 tags: none
 published: true
 icon_class: none
-technologies: html json
+technologies:
+ - html
+ - json
+ - curl
 ---
 
 Pagination has a mixed reputation among developers who write applications that consume API data.

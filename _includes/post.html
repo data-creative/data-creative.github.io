@@ -17,7 +17,26 @@
 					<div class="intro-message">
 						<h1>{{ page.title }}</h1>
             <hr class="intro-divider">
-						<h3>{{ page.subTitle }} {{ page.date | date: "%Y-%m-%d" }}</h3>
+            <h3>
+            {% if page.author %}
+              Posted by {{ page.author }}
+              <span class="text-nowrap">on {{ page.date | date: "%Y-%m-%d" }}</span>
+            {% else %}
+              {{ page.date | date: "%Y-%m-%d" }}
+            {% endif %}
+            </h3>
+
+            {% if page.technologies %}
+            <div>
+              <ul class="list-inline" style="display:inline;">
+                {% assign sorted_technologies = page.technologies | sort %}
+                {% for item in sorted_technologies %}
+                  <li style="text-shadow: 2px 2px 3px rgba(0,0,0,0.6);">{{item}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+
 					</div>
 				</div>
 			</div>

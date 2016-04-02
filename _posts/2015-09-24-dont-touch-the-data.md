@@ -2,13 +2,18 @@
 layout: post
 title:  "Don't Touch the Data"
 author: MJ Rossetti
-categories: posts
+categories:
+ - posts
+ - best-practices
 img: scene-of-crime.jpg
 use_img_as_post_header: true
 tags: none
 published: true
 icon_class: none
-technologies: ruby python r
+technologies:
+ - ruby
+ - python
+ - r
 credits:
  - https://www.archaeological.org/pdfs/AIATourismGuidelines.pdf
 ---
