@@ -8,10 +8,16 @@
 
     var svg = d3.select("div.intro-header-viz").append("svg")
         .attr({preserveAspectRatio: "xMinYMin meet", viewBox: "0 0 600 400"}) //responsive SVG needs these 2 attributes and no width and height attr
-        .classed("svg-content-responsive", true); //class to make it responsive
+        .classed("svg-content-responsive", true) //class to make it responsive
+      .append("g")
+        .attr("transform", "translate(" + 20 + "," + 20 + ")");
 
     //var hSvg = svg.node().height.baseVal.value
     //console.log("SVG HEIGHT", hSvg)
+
+    debugger;
+
+    var hSvg = svg.node().height.baseVal.value
 
     var yScale = d3.scale.linear()
         .domain([0, d3.max(myData)])
@@ -21,10 +27,7 @@
         .style({stroke: 'f8f8f8', fill: 'steelblue'})
         .attr({
           width: 20,
-
           height: function(d){ return d; },
-
-
           x: function(d, i){ return i * 100; },
 
           y: function(d){
@@ -33,7 +36,8 @@
             //var yHr = hr.getBoundingClientRect().bottom
             //return hSvg - yHr;
             //return yScale(5);
-            return hSvg;
+            // return hSvg;
+            return 5
           }
 
         })
