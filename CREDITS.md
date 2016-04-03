@@ -12,6 +12,12 @@
 
  + https://github.com/swcool/landing-page-theme
 
+## Contact Form
+
+ + https://github.com/kuanb/kuanb.github.io/blob/7211a3a45d6714a9e17549bade977101d78c7cf5/contact.html
+ + http://formspree.io/
+
+
 ## Images
 
  + https://github.com/gwu-business/salad-system-requirements/blob/52aa012e265335e65eb8136c7fc0e4d9bc254221/requirements/business-processes/diagrams/to-be-menu-update-process-diagram.png https://github.com/gwu-business/201503-istm-4121-10/blob/3d75fe5bc2bcca1be2571bb98a18e27a3f9cf23e/resources/exams/final/answers/3-blog-erd.png
@@ -43,6 +49,10 @@
  + https://api.jquery.com/removeclass/
  + http://stackoverflow.com/questions/7092320/jquery-how-to-remove-class-for-each-element
  + http://stackoverflow.com/questions/3458779/how-can-i-do-sub-selects-on-already-selected-element
+
+## Post Revision Links
+
+ + https://github.com/benbalter/benbalter.github.com/blob/711e3313e489688d0f0e602030e59184a9d55621/_includes/improve.html
 
 ## Other
 
