@@ -9,3 +9,43 @@ div.page-heading {
   margin-top:2.5em;
   margin-bottom:2em;
 }
+
+
+
+/* A/B TESTING HEADER IMAGES */
+
+.intro-headerb {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/geo-bg.png) no-repeat center center;
+    background-size: cover;
+}
+
+.intro-headerc {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/laidback-laptop-bg.png) no-repeat center center;
+    background-size: cover;
+}
+
+.intro-headerd {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/courthack-focus.png) no-repeat center center;
+    background-size: cover;
+}
+
+.intro-headere {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/posts/income-and-affordability-map.png) no-repeat center center;
+    background-size: cover;
+}
