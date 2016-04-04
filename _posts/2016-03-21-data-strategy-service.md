@@ -3,6 +3,7 @@ layout: default
 img: to-be-menu-update-process-diagram.png
 category: services
 title: Data Strategy
+identifier: strategy
 description: |
 ---
 

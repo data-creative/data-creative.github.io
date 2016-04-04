@@ -1,0 +1,43 @@
+<section id="post-list">
+<!-- A List of Posts (don't change positioning and styling classes without also updating /_includes/blog_js.html )-->
+{% for post in site.categories["posts"] %}
+  {% if post.technologies %}
+    {% assign tech_list_str = post.technologies | sort | join(" ") %}
+  {% else %}
+    {% assign tech_list_str = "" %}
+  {% endif %}
+
+  {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+    {% if thecycle == 'odd' %}
+
+    <div class="content-section-a post" data-technologies="{{ tech_list_str }}">
+        <div class="container">
+            <div class="row">
+                <div class="post_list_item col-lg-5 col-sm-6" style="margin-bottom:1.5em;">
+										{% include post_list_item.html %}
+                </div>
+                <div class="post_list_image col-lg-5 col-lg-offset-2 col-sm-6">
+                    {% include post_list_image.html %}
+                </div>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.content-section-a -->
+
+    {% else %}
+
+    <div class="content-section-b post" data-technologies="{{ tech_list_str }}">
+        <div class="container">
+            <div class="row">
+                <div class="post_list_item col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6" style="margin-bottom:1.5em;">
+									{% include post_list_item.html %}
+                </div>
+                <div class="post_list_image col-lg-5 col-sm-pull-6  col-sm-6">
+                  {% include post_list_image.html %}
+                </div>
+            </div>
+        </div> <!-- /.container -->
+    </div> <!-- /.content-section-b -->
+
+    {% endif %}
+{% endfor %}
+</section>

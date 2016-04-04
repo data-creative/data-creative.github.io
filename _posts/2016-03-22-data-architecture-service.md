@@ -3,6 +3,7 @@ layout: default
 img: blog-erd-transparent.png
 category: services
 title: Data Architecture
+identifier: architecture
 description: |
 ---
 

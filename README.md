@@ -1,10 +1,23 @@
 # data-creative.info
 
-A business website and blog.
+A business [website](http://data-creative.info/) and [blog](http://data-creative.info/blog/).
+
+## Usage
+
+### Blog Post Filtering API
+
+Filter Blog Posts by technology. Specify the name of one technology using the url parameter, `tech`, replacing spaces with dashes as necessary.
+
+```sh
+curl http://data-creative.info/blog/?tech=ruby
+curl http://data-creative.info/blog/?tech=JSON
+curl http://data-creative.info/blog/?tech=d3.js
+curl http://data-creative.info/blog/?tech=amazon-web-services
+```
 
 ## Contributing
 
-Edits and suggestions welcome.
+Content edits and code contributions are both welcome. Fork the repo and submit a pull request. Thanks!
 
 ### Installation
 
@@ -21,8 +34,6 @@ Start local web server and view site at localhost:4000.
 ```` sh
 bundle exec jekyll serve --watch
 ````
-
-Edit an existing post in the [posts](/_posts) directory, create a new post, or implement a new feature. Then create a [pull request](https://github.com/data-creative/data-creative.github.io/pulls/).
 
 ### Production
 

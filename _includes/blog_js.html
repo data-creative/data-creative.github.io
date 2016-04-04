@@ -1,0 +1,77 @@
+<script type="text/javascript">
+
+    if (location.search != "") {
+        console.log("DETECTED SOME URL PARAMS");
+        var selectedTech = location.search.split("?tech=")[1].trim().toLowerCase();
+        console.log("SELECTED TECH:", selectedTech);
+
+        if (selectedTech != "") {
+            // UPDATE TECH SELECTION
+            //d3.select('span#selected-technology')
+            //    .append("h3")
+            //        .text("Technology: "+selectedTech);
+
+            // FIND SELECTED POSTS
+            var $selectedPosts = $( "div.post[data-technologies*='"+selectedTech+"']" );
+            var $unselectedPosts = $( "div.post:not([data-technologies*='"+selectedTech+"'])" );
+            console.log("SELECTED:", $selectedPosts.length, "UNSELECTED:", $unselectedPosts.length);
+
+            // UPDATE RESPONSE MESSAGE
+            var responseMessage = d3.select("span#technology-response-message").append("p")
+                .classed("text-center",1)
+                .style("margin-bottom", "2em");
+
+            if ( $selectedPosts.length == 0 ) {
+                console.log("OOPS, NO MATCHING POSTS");
+                var a = "<a href='/blog?tech=ruby'>'ruby'</a>";
+                var b = "<a href='/blog'>all posts</a>";
+                responseMessage.html("Sorry, found no posts matching the selected technology, '" + selectedTech + "'. Why don't you try " + a + " instead? Or "+b+"...");
+            } else {
+                responseMessage.html("Found " + $selectedPosts.length + " posts matching the selected technology, '" + selectedTech + "'.");
+                    //.html("Found " + $selectedPosts.length + " matching posts.")
+            };
+
+            // KEEP SELECTED POSTS ONLY
+            $unselectedPosts.each(function(i, el){
+                el.remove();
+            });
+
+            // RE-STYLE REMAINING POSTS (see /_includes/post_list for initial styles)
+
+            var liClassListA = "col-lg-5 col-sm-6";
+            var imgClassListA = liClassListA+" col-lg-offset-2";
+
+            var classListB = "col-lg-5 col-sm-6";
+            var liClassListB = classListB+" col-lg-offset-1 col-sm-push-6";
+            var imgClassListB = classListB+" col-sm-pull-6";
+
+            $selectedPosts.each(function(i, el){
+                console.log(el.classList);
+                $(this).removeClass("content-section-a content-section-b"); // clear both striping classes
+
+                if (i % 2) {
+                    console.log("B",i)
+                    $(this).addClass("content-section-b");
+                    $(this).find(".post_list_item")
+                        .removeClass()
+                        .addClass(liClassListB);
+                    $(this).find(".post_list_image")
+                        .removeClass()
+                        .addClass(imgClassListB);
+                } else {
+                    console.log("A",i)
+                    $(this).addClass("content-section-a");
+                    $(this).find(".post_list_item")
+                        .removeClass()
+                        .addClass(liClassListA);
+                    $(this).find(".post_list_image")
+                        .removeClass()
+                        .addClass(imgClassListA);
+                };
+            });
+
+        }; // if there is a selected technology in the url params
+
+    }; // if url params are present
+
+</script>
