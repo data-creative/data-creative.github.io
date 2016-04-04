@@ -22,7 +22,8 @@ div.page-heading {
     //background: url(../img/geo-bg.png) no-repeat center center;
     //background: url(../img/nyc-targeting.png) no-repeat center center;
     //background: url(../img/us-income-map.png) no-repeat center center;
-    background: url(../img/us-income-map2.png) no-repeat center center;
+    //background: url(../img/us-income-map2.png) no-repeat center center;
+    background: url(../img/courthack-2.png) no-repeat center center;
     background-size: cover;
 }
 
@@ -31,7 +32,8 @@ div.page-heading {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/laidback-laptop-bg.png) no-repeat center center;
+    //background: url(../img/laidback-laptop-bg.png) no-repeat center center;
+    background: url(../img/laidback-2.png) no-repeat center center;
     background-size: cover;
 }
 
@@ -40,7 +42,9 @@ div.page-heading {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/courthack-focus.png) no-repeat center center;
+    //background: url(../img/courthack-focus.png) no-repeat center center;
+    // background: url(../img/courthack-6.png) no-repeat center center;
+    background: url(../img/laidback-3.png) no-repeat center center;
     background-size: cover;
 }
 
