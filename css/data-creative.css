@@ -9,3 +9,16 @@ div.page-heading {
   margin-top:2.5em;
   margin-bottom:2em;
 }
+
+
+
+
+.footer-right {
+  text-align: right;
+}
+
+@media(max-width:500px) {
+  .footer-right {
+    text-align: left;
+  }
+}
