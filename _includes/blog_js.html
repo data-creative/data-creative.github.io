@@ -2,36 +2,53 @@
 
     if (location.search != "") {
         console.log("DETECTED SOME URL PARAMS");
-        var selectedTech = location.search.split("?tech=")[1].trim().toLowerCase();
-        console.log("SELECTED TECH:", selectedTech);
+        var requestedTech = location.search.split("?tech=")[1];
+        var requestedCat = location.search.split("?cat=")[1];
+        var validTech = !(typeof(requestedTech) == "undefined");
+        var validCat = !(typeof(requestedCat) == "undefined");
+        var validRequest = (validTech || validCat) && !(validTech && validCat); // api only accepts either param, not both
 
-        if (selectedTech != "") {
-            // UPDATE TECH SELECTION
-            //d3.select('span#selected-technology')
-            //    .append("h3")
-            //        .text("Technology: "+selectedTech);
+        if (validRequest == true) {
+            console.log("API REQUEST IS VALID");
 
-            // FIND SELECTED POSTS
-            var $selectedPosts = $( "div.post[data-technologies*='"+selectedTech+"']" );
-            var $unselectedPosts = $( "div.post:not([data-technologies*='"+selectedTech+"'])" );
+            // FILTER POSTS
+
+            var allPostsLinkTagStr = "<a href='/blog'>all posts</a>";
+
+            if (validTech == true) {
+                var selectedTech = requestedTech.trim().toLowerCase();
+                console.log("SELECTED TECH:", selectedTech);
+                var $selectedPosts = $( "div.post[data-technologies*='"+selectedTech+"']" );
+                var $unselectedPosts = $( "div.post:not([data-technologies*='"+selectedTech+"'])" );
+                var suggestedTechLinkTagStr = "<a href='/blog?tech=ruby'>'ruby'</a>";
+                var errorMessageContent = "Sorry, found no posts matching the selected technology, '" + selectedTech + "'. Why don't you try " + suggestedTechLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
+                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected technology, '" + selectedTech + "'."
+            } else if (validCat == true) {
+                var selectedCat = requestedCat.trim().toLowerCase();
+                console.log("SELECTED CATEGORY:", selectedCat);
+                var $selectedPosts = $( "div.post[data-categories*='"+selectedCat+"']" );
+                var $unselectedPosts = $( "div.post:not([data-categories*='"+selectedCat+"'])" );
+                var suggestedCatLinkTagStr = "<a href='/blog?cat=data-visualization'>'data-visualization'</a>";
+                var errorMessageContent = "Sorry, found no posts matching the selected category, '" + selectedCat + "'. Why don't you try " + suggestedCatLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
+                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected category, '" + selectedCat + "'."
+            };
             console.log("SELECTED:", $selectedPosts.length, "UNSELECTED:", $unselectedPosts.length);
 
             // UPDATE RESPONSE MESSAGE
-            var responseMessage = d3.select("span#technology-response-message").append("p")
+
+            var responseMessage = d3.select("span#api-response-message").append("p")
                 .classed("text-center",1)
                 .style("margin-bottom", "2em");
 
             if ( $selectedPosts.length == 0 ) {
                 console.log("OOPS, NO MATCHING POSTS");
-                var a = "<a href='/blog?tech=ruby'>'ruby'</a>";
-                var b = "<a href='/blog'>all posts</a>";
-                responseMessage.html("Sorry, found no posts matching the selected technology, '" + selectedTech + "'. Why don't you try " + a + " instead? Or "+b+"...");
+                responseMessage.html(errorMessageContent);
             } else {
-                responseMessage.html("Found " + $selectedPosts.length + " posts matching the selected technology, '" + selectedTech + "'.");
-                    //.html("Found " + $selectedPosts.length + " matching posts.")
+                responseMessage.html(successMessageContent);
             };
 
             // KEEP SELECTED POSTS ONLY
+
             $unselectedPosts.each(function(i, el){
                 el.remove();
             });
@@ -70,7 +87,7 @@
                 };
             });
 
-        }; // if there is a selected technology in the url params
+        }; // if there is a valid api request
 
     }; // if url params are present
 

@@ -8,10 +8,16 @@
     {% assign tech_list_str = "" %}
   {% endif %}
 
+  {% if post.categories %}
+    {% assign cat_list_str = post.categories | sort | join(" ") %}
+  {% else %}
+    {% assign cat_list_str = "" %}
+  {% endif %}
+
   {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
     {% if thecycle == 'odd' %}
 
-    <div class="content-section-a post" data-technologies="{{ tech_list_str }}">
+    <div class="content-section-a post" data-technologies="{{ tech_list_str }}" data-categories="{{ cat_list_str }}">
         <div class="container">
             <div class="row">
                 <div class="post_list_item col-lg-5 col-sm-6" style="margin-bottom:1.5em;">
@@ -26,7 +32,7 @@
 
     {% else %}
 
-    <div class="content-section-b post" data-technologies="{{ tech_list_str }}">
+    <div class="content-section-b post" data-technologies="{{ tech_list_str }}" data-categories="{{ cat_list_str }}">
         <div class="container">
             <div class="row">
                 <div class="post_list_item col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6" style="margin-bottom:1.5em;">
