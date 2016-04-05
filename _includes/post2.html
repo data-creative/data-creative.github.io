@@ -7,6 +7,7 @@
 				<h1>{{ page.title }}</h1>
 
         <p>
+					<i class="fa fa-calendar fa-fw"></i>
           Published:
           <span class="text-nowrap" style="font-weight:normal;">
             {{ page.date | date: "%Y-%m-%d" }}
@@ -15,6 +16,7 @@
 
         {% if page.author %}
         <p>
+					<i class="fa fa-user fa-fw"></i>
           By:
           <span style="font-weight:normal;">
             <a href="/team">{{ page.author }}</a>
@@ -22,9 +24,30 @@
         </p>
         {% endif %}
 
+				{% if page.categories %}
+				<div style="margin-bottom:10px;">
+				  <span style="padding-right:5px;">
+				    <i class="fa fa-folder-open fa-fw"></i>
+				    Category:
+				  </span>
+				  <ul class="list-inline" style="display:inline;">
+				    {% assign sorted_categories = page.categories | sort %}
+				    {% for item in sorted_categories %}
+				      <li style="font-weight:normal; padding-left:0; padding-right:0;">
+
+				        <a href="{{home_path_prefix}}blog?cat={{item}}">{{item}}</a>
+				      </li>
+				    {% endfor %}
+				  </ul>
+				</div>
+				{% endif %}
+
         {% if page.technologies %}
         <div>
-          <span style="padding-right:5px;">Technologies:</span>
+          <span style="padding-right:5px;">
+						<i class="fa fa-tags fa-fw"></i>
+						Technologies:
+					</span>
           <ul class="list-inline" style="display:inline;">
             {% assign sorted_technologies = page.technologies | sort %}
             {% for item in sorted_technologies %}

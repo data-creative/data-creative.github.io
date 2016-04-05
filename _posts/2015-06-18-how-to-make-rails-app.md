@@ -3,7 +3,6 @@ layout: post
 title:  "How to create a Ruby on Rails application"
 author: MJ Rossetti
 categories:
- - posts
  - process-documentation
 img: rails-logo.svg
 tags: none

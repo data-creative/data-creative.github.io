@@ -26,8 +26,27 @@
             {% endif %}
             </h3>
 
+            {% if page.categories %}
+            <div>
+              <span style="padding-right:5px;">
+                <i class="fa fa-hdd-o fa-fw"></i>
+                Category:
+              </span>
+              <ul class="list-inline" style="display:inline;">
+                {% assign sorted_categories = page.categories | sort %}
+                {% for item in sorted_categories %}
+                  <li style="text-shadow: 2px 2px 3px rgba(0,0,0,0.6);">{{item}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+            {% endif %}
+
             {% if page.technologies %}
             <div>
+              <span style="padding-right:5px;">
+                <i class="fa fa-hdd-o fa-fw"></i>
+                Technologies:
+              </span>
               <ul class="list-inline" style="display:inline;">
                 {% assign sorted_technologies = page.technologies | sort %}
                 {% for item in sorted_technologies %}

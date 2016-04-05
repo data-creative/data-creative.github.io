@@ -3,8 +3,7 @@ layout: post
 title:  "Google Sheet Reader - Ruby Library"
 author: MJ Rossetti
 categories:
- - posts
- - open-source-libraries
+ - open-source-library
 img: rubygems_logo_red.png
 tags: none
 published: true

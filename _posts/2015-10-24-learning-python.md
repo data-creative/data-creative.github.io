@@ -3,7 +3,6 @@ layout: post
 title:  "Learning Python"
 author: MJ Rossetti
 categories:
- - posts
  - process-documentation
 img: python-logo.png
 tags: python pip

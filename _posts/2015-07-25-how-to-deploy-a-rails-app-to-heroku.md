@@ -3,7 +3,6 @@ layout: post
 title:  "How to deploy a Ruby on Rails app to Heroku"
 author: MJ Rossetti
 categories:
- - posts
  - process-documentation
 img: heroku-logo.png
 tags: none

@@ -3,7 +3,6 @@ layout: post
 title:  "Working with databases on Heroku"
 author: MJ Rossetti
 categories:
- - posts
  - process-documentation
 img: heroku-logo.png
 tags: none

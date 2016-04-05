@@ -1,6 +1,7 @@
 <section id="post-list">
 <!-- A List of Posts (don't change positioning and styling classes without also updating /_includes/blog_js.html )-->
-{% for post in site.categories["posts"] %}
+{% for post in site.posts %}
+{% if post.layout == "post" %}
   {% if post.technologies %}
     {% assign tech_list_str = post.technologies | sort | join(" ") %}
   {% else %}
@@ -39,5 +40,6 @@
     </div> <!-- /.content-section-b -->
 
     {% endif %}
+{% endif %}
 {% endfor %}
 </section>

@@ -7,10 +7,12 @@
 ## Blogging Engine
 
  +  https://jekyllrb.com/
+ + https://jekyllrb.com/docs/variables/
 
 ## Theme
 
  + https://github.com/swcool/landing-page-theme
+ + http://getbootstrap.com/
 
 ## Contact Form
 
@@ -34,6 +36,7 @@
 
 ## Icons
 
+ + https://fortawesome.github.io/Font-Awesome/icons/
  + http://barrymieny.deviantart.com/art/Layered-Database-Source-Documents-348798124
  + http://www.kylejlarson.com/blog/adding-an-icon-for-iphone-ipad-android-to-your-website/
  + http://webdesign.tutsplus.com/articles/quick-tip-give-your-website-an-ios-home-screen-icon--webdesign-10067

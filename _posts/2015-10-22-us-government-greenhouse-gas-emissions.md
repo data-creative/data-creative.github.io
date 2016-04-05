@@ -3,8 +3,7 @@ layout: post
 title:  "US Government Greenhouse Gas Emissions"
 author: MJ Rossetti
 categories:
- - posts
- - data-visualizations
+ - data-visualization
 img: us-government-greenhouse-gas-emissions-by-agency.png
 use_img_as_post_header: true
 tags: gsa hackathon environment greenhouse gas emissions data-visualization

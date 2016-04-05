@@ -2,7 +2,8 @@
 layout: post
 title:  "The Life and Death of the Open Data Portal"
 author: MJ Rossetti
-categories: posts
+categories:
+ - opinion
 tags: open-data
 published: false
 icon_class:
