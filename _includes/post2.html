@@ -19,7 +19,7 @@
 					<i class="fa fa-user fa-fw"></i>
           By:
           <span style="font-weight:normal;">
-            <a href="/team">{{ page.author }}</a>
+            <a href="/team" title="view author bio">{{ page.author }}</a>
           </span>
         </p>
         {% endif %}
@@ -35,7 +35,7 @@
 				    {% for item in sorted_categories %}
 				      <li style="font-weight:normal; padding-left:0; padding-right:0;">
 
-				        <a href="{{home_path_prefix}}blog?cat={{item}}">{{item}}</a>
+				        <a href="{{home_path_prefix}}blog?cat={{item}}" title="filter posts matching this category">{{item}}</a>
 				      </li>
 				    {% endfor %}
 				  </ul>
@@ -53,7 +53,7 @@
             {% for item in sorted_technologies %}
               <li style="font-weight:normal; padding-left:0; padding-right:0;">
 
-                <a href="{{home_path_prefix}}blog?tech={{item}}">{{item}}</a>
+                <a href="{{home_path_prefix}}blog?tech={{item}}" title="filter posts matching this technology">{{item}}</a>
               </li>
             {% endfor %}
           </ul>
