@@ -15,6 +15,7 @@ technologies:
  - javascript
  - d3.js
  - git
+ - csv
 ---
 
 <!--

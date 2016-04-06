@@ -16,6 +16,7 @@ technologies:
  - mapbox.js
  - d3.js
  - git
+ - csv
 ---
 
 <!--

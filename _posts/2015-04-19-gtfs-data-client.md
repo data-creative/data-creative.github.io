@@ -14,6 +14,7 @@ technologies:
  - rails
  - relational-database
  - git
+ - csv
 ---
 
 <!--

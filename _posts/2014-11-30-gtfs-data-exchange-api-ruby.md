@@ -15,6 +15,8 @@ technologies:
  - rubygems
  - bundler
  - git
+ - json
+ - csv
 ---
 
 A ruby wrapper for the [GTFS Data Exchange API](http://www.gtfs-data-exchange.com/api).

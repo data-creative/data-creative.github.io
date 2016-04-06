@@ -9,6 +9,15 @@ use_img_as_post_header: true
 tags: metro-north-railroad gtfs open-transit-data map data-visualization
 published: true
 icon_class: train
+technologies:
+ - html
+ - css
+ - javascript
+ - rails
+ - json
+ - d3.js
+ - git
+ - csv
 ---
 
 <!--
