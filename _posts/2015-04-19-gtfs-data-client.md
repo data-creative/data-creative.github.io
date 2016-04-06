@@ -12,9 +12,14 @@ icon_class: train
 technologies:
  - ruby
  - rails
- - relational-database
+ - sql
+ - mysql
  - git
  - csv
+ - javascript
+ - d3.js
+ - mapbox.js
+ - twitter-bootstrap
 ---
 
 <!--

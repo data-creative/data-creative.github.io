@@ -24,6 +24,8 @@ technologies:
  - mysql
  - mongodb
  - git
+ - javascript
+ - sql
 credits:
   - http://octopress.org/docs/setup/rbenv/
   - https://help.github.com/articles/associating-text-editors-with-git/#using-atom-as-your-editor

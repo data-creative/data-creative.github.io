@@ -13,6 +13,7 @@ technologies:
  - mysql
  - postgresql
  - ssh
+ - sql
 credits :
   - http://stackoverflow.com/questions/9822313/remote-connect-to-cleardb-heroku-database
   - https://getsatisfaction.com/cleardb/topics/unable_to_download_cert_error_207

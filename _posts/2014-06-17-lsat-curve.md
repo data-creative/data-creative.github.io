@@ -17,7 +17,6 @@ technologies:
  - json
  - d3.js
  - git
- - json
 ---
 
 <!--
