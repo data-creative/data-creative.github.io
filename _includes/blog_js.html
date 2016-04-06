@@ -20,17 +20,17 @@
                 console.log("SELECTED TECH:", selectedTech);
                 var $selectedPosts = $( "div.post[data-technologies*='"+selectedTech+"']" );
                 var $unselectedPosts = $( "div.post:not([data-technologies*='"+selectedTech+"'])" );
-                var suggestedTechLinkTagStr = "<a href='/blog?tech=ruby'>'ruby'</a>";
-                var errorMessageContent = "Sorry, found no posts matching the selected technology, '" + selectedTech + "'. Why don't you try " + suggestedTechLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
-                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected technology, '" + selectedTech + "'."
+                var suggestedTechLinkTagStr = "<a href='/blog?tech=ruby'><code>ruby</code></a>";
+                var errorMessageContent = "Sorry, found no posts matching the selected technology, <code>" + selectedTech + "</code>. </br> Why don't you try " + suggestedTechLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
+                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected technology, <code>" + selectedTech + "</code>."
             } else if (validCat == true) {
                 var selectedCat = requestedCat.trim().toLowerCase();
                 console.log("SELECTED CATEGORY:", selectedCat);
                 var $selectedPosts = $( "div.post[data-categories*='"+selectedCat+"']" );
                 var $unselectedPosts = $( "div.post:not([data-categories*='"+selectedCat+"'])" );
-                var suggestedCatLinkTagStr = "<a href='/blog?cat=data-visualization'>'data-visualization'</a>";
-                var errorMessageContent = "Sorry, found no posts matching the selected category, '" + selectedCat + "'. Why don't you try " + suggestedCatLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
-                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected category, '" + selectedCat + "'."
+                var suggestedCatLinkTagStr = "<a href='/blog?cat=data-visualization'><code>data-visualization</code></a>";
+                var errorMessageContent = "Sorry, found no posts matching the selected category, <code>" + selectedCat + "</code>. </br> Why don't you try " + suggestedCatLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
+                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected category, <code>" + selectedCat + "</code>."
             };
             console.log("SELECTED:", $selectedPosts.length, "UNSELECTED:", $unselectedPosts.length);
 
