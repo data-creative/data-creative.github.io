@@ -16,6 +16,7 @@ technologies:
  - d3.js
  - git
  - csv
+ - highcharts.js
 ---
 
 <!--
