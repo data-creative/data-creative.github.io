@@ -15,6 +15,7 @@ technologies:
  - mysql
  - bundler
  - rake
+ - git
 credits:
  - http://levvel.io/blog-post/deploying-rails-4-postgresql-to-aws-opsworks/
  - http://docs.aws.amazon.com/opsworks/latest/userguide/attributes-json-deploy.html#attributes-json-deploy-app-db

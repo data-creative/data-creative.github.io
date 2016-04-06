@@ -16,6 +16,7 @@ technologies:
  - rails
  - mysql
  - passenger
+ - git
 ---
 
 This document describes the process of deploying an existing Ruby on Rails application to a production server, in this case an AWS EC2 instance.

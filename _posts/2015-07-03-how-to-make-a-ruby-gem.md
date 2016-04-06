@@ -14,6 +14,7 @@ technologies:
  - bundler
  - rake
  - rails
+ - git
 credits:
   - http://guides.rubygems.org/make-your-own-gem/
   - http://rakeroutes.com/blog/lets-write-a-gem-part-one/

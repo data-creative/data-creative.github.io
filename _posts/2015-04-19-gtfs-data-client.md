@@ -13,6 +13,7 @@ technologies:
  - ruby
  - rails
  - relational-database
+ - git
 ---
 
 <!--

@@ -15,6 +15,7 @@ technologies:
  - rubygems
  - bundler
  - rake
+ - git
 ---
 
 A ruby library

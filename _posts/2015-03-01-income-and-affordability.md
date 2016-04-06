@@ -15,6 +15,7 @@ technologies:
  - javascript
  - mapbox.js
  - d3.js
+ - git
 ---
 
 <!--

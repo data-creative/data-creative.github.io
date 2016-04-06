@@ -16,6 +16,7 @@ technologies:
  - rails
  - json
  - d3.js
+ - git
 ---
 
 <!--

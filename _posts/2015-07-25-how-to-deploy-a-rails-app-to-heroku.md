@@ -14,6 +14,7 @@ technologies:
  - rake
  - bundler
  - heroku
+ - git
 credits:
  - https://github.com/heroku/heroku
  - https://devcenter.heroku.com/categories/command-line
