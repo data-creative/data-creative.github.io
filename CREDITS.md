@@ -33,6 +33,8 @@
  + http://www.itsgov.com/wp-content/uploads/2014/01/The-Science-Of-Crime-Scene-Forensics-A-Detailed-Overview.jpg
  + https://commons.wikimedia.org/wiki/File:Python_logo_and_wordmark.svg
  + http://www.newcreationschapel.org/new/wp-content/uploads/2012/10/flipping-through-bible-pages.jpg
+ + https://developer.ibm.com/bluemix/wp-content/uploads/sites/20/2015/03/nodejs.png
+ + http://codingxperience.com/system/topics/images/000/000/011/original/nodejs-green.png?1440502191
 
 ## Icons
 
