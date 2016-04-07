@@ -43,7 +43,7 @@
 				{% endif %}
 
         {% if page.technologies %}
-        <div>
+        <div style="margin-bottom:10px;">
           <span style="padding-right:5px;">
 						<i class="fa fa-tags fa-fw"></i>
 						Technologies:
@@ -60,6 +60,25 @@
         </div>
         {% endif %}
 
+				{% if page.repo_url %}
+				<p>
+					<i class="fa fa-git fa-fw"></i>
+            Repository URL:
+          <span style="font-weight:normal;">
+            <a href="{{ page.repo_url }}" title="view repository">{{ page.repo_url }}</a>
+          </span>
+        </p>
+				{% endif %}
+
+				{% if page.project_url %}
+				<p>
+					<i class="fa fa-link fa-fw"></i>
+          Project URL:
+          <span style="font-weight:normal;">
+            <a href="{{ page.project_url }}" title="view project page">{{ page.project_url }}</a>
+          </span>
+        </p>
+				{% endif %}
 
 			</div>
 		</div><!-- /.row -->
