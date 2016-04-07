@@ -17,6 +17,7 @@ technologies:
  - httparty
  - citybikes-api
  - git
+ - api
 ---
 
 A ruby interface to the [CityBikes API](http://api.citybik.es/v2/) (v2).

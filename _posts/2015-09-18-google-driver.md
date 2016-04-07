@@ -16,6 +16,8 @@ technologies:
  - bundler
  - rake
  - git
+ - api
+ - google-apis
 ---
 
 A ruby library

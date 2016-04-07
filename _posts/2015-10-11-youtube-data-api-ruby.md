@@ -16,6 +16,7 @@ technologies:
  - bundler
  - google-apis
  - git
+ - api
 ---
 
 A ruby interface to the [YouTube Data API](https://developers.google.com/youtube/v3/docs/).
