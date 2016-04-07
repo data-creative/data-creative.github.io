@@ -5,6 +5,8 @@ author: MJ Rossetti
 categories:
  - data-visualization
 img: lsat-curve.png
+repo_url: https://github.com/s2t2/lsat-curve
+project_url: http://s2t2.github.io/lsat-curve/
 use_img_as_post_header: true
 tags: law-school admissions-test score data-visualization
 published: true
@@ -29,8 +31,6 @@ Law School Admissions Test (LSAT) score distributions,
  from Cambridge LSAT,
  manually converted to [JSON](https://github.com/s2t2/lsat-curve/blob/master/lsat_curve.json),
  and plotted on a graph.
-
-View the data visualization live at [http://s2t2.github.io/lsat-curve/](http://s2t2.github.io/lsat-curve/) or check out the source code at [https://github.com/s2t2/lsat-curve](https://github.com/s2t2/lsat-curve).
 
 <!--hr-->
 

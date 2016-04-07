@@ -1,10 +1,12 @@
 ---
 layout: post
-title:  "GTFS Data Client"
+title:  "Branford Station (a GTFS Data Client)"
 author: MJ Rossetti
 categories:
  - open-source-service
 img: gtfs-data-client-map.png
+repo_url: https://github.com/data-creative/branford-station
+project_url: https://branford-station.herokuapp.com/
 use_img_as_post_header: true
 tags: gtfs open-transit-data gtfs-data-exchange google-transit-data-feed
 published: true
@@ -12,6 +14,7 @@ icon_class: train
 technologies:
  - ruby
  - rails
+ - rspec
  - sql
  - mysql
  - git
@@ -20,6 +23,7 @@ technologies:
  - d3.js
  - mapbox.js
  - twitter-bootstrap
+ - gtfs
 ---
 
 <!--
@@ -29,6 +33,3 @@ technologies:
 An open source web application that integrates
  [General Transit Feed Specification (GTFS)](https://developers.google.com/transit/gtfs/)
  data from participating transit agencies.
-
-View the application live at [https://branford-station.herokuapp.com/](https://branford-station.herokuapp.com/),
- or check out the source code at [https://github.com/data-creative/branford_station](https://github.com/data-creative/branford_station).

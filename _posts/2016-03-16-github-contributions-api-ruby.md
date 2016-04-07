@@ -7,14 +7,16 @@ img: rubygems_logo_red.png
 repo_url: https://github.com/data-creative/github-contributions-api-ruby
 project_url: https://rubygems.org/gems/github_contributions_api
 categories:
- - open-source-libraries
+ - open-source-library
 technologies:
  - ruby
  - rubygems
  - bundler
  - github
+ - git
  - json
  - api
+ - rspec
 ---
 
 I wanted to get a comprehensive history of my GitHub commits and store them in a database.

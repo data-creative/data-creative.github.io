@@ -5,6 +5,8 @@ author: MJ Rossetti
 categories:
  - open-source-library
 img: rubygems_logo_red.png
+repo_url: https://github.com/data-creative/youtube-data-api-ruby
+project_url: https://rubygems.org/gems/youtube_data_api
 tags: youtube google api
 published: true
 icon_class: book
@@ -20,5 +22,3 @@ technologies:
 ---
 
 A ruby interface to the [YouTube Data API](https://developers.google.com/youtube/v3/docs/).
-
-Check out the source code at [https://github.com/data-creative/youtube-data-api-ruby](https://github.com/data-creative/youtube-data-api-ruby).

@@ -15,6 +15,7 @@ technologies:
  - rake
  - rails
  - git
+ - rspec
 credits:
   - http://guides.rubygems.org/make-your-own-gem/
   - http://rakeroutes.com/blog/lets-write-a-gem-part-one/

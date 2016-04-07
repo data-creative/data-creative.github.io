@@ -18,6 +18,7 @@ technologies:
  - mapbox.js
  - git
  - csv
+ - gtfs
 ---
 
 <!--

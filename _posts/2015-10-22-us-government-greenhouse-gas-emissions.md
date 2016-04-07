@@ -5,6 +5,8 @@ author: MJ Rossetti
 categories:
  - data-visualization
 img: us-government-greenhouse-gas-emissions-by-agency.png
+repo_url: https://github.com/data-creative/us-gov-greenhouse-gas-emissions
+project_url: http://data-creative.info/us-gov-greenhouse-gas-emissions/
 use_img_as_post_header: true
 tags: gsa hackathon environment greenhouse gas emissions data-visualization
 published: true
@@ -29,9 +31,6 @@ US Government
  visualized in response to a [hackathon](http://open.gsa.gov/Digital-Innovation-Hackathon-Fall2015/) challenge.
 
 According to the data, the US Postal Service is the top emitter and operates the most vehicles by wide margins.
-
-View the tool live at [http://data-creative.info/us-gov-greenhouse-gas-emissions/](http://data-creative.info/us-gov-greenhouse-gas-emissions/)
- or check out the source code at [https://github.com/data-creative/us-gov-greenhouse-gas-emissions](https://github.com/data-creative/us-gov-greenhouse-gas-emissions).
 
 Edit: this solution was named one of three winners.
 
