@@ -6,13 +6,24 @@ A business [website](http://data-creative.info/) and [blog](http://data-creative
 
 ### Blog Post Filtering API
 
-Filter Blog Posts by technology. Specify the name of one technology using the url parameter, `tech`, replacing spaces with dashes as necessary.
+#### Filtering by Technology
+
+Filter blog posts by technology. Specify the name of one technology using the url parameter, `tech`, replacing spaces with dashes as necessary.
 
 ```sh
-curl http://data-creative.info/blog/?tech=ruby
-curl http://data-creative.info/blog/?tech=JSON
-curl http://data-creative.info/blog/?tech=d3.js
-curl http://data-creative.info/blog/?tech=amazon-web-services
+GET http://data-creative.info/blog/?tech=ruby
+GET http://data-creative.info/blog/?tech=JSON
+GET http://data-creative.info/blog/?tech=d3.js
+GET http://data-creative.info/blog/?tech=amazon-web-services
+```
+
+#### Filtering by Category
+
+Filter blog posts by category. Specify the name of one category using the url parameter, `cat`, replacing spaces with dashes as necessary.
+
+```sh
+GET http://data-creative.info/blog/?cat=open-source-library
+GET http://data-creative.info/blog/?cat=process-documentation
 ```
 
 ## Contributing
