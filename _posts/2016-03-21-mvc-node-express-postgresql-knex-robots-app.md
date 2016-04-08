@@ -79,7 +79,7 @@ npm install nodemon -g
 
 When running a development web server, *Nodemon* obviates the need to restart the server each time a file is changed.
 
-### Install and Configure Database
+### Install PostgreSQL and Create a Database User
 
 Follow [these instructions](http://data-creative.info/process-documentation/2015/07/18/how-to-set-up-a-mac-development-environment/#postgresql) to install *PostgreSQL* on your local machine, if necessary. Many *Rails* developers should already have *PostgreSQL* installed.
 
@@ -93,7 +93,7 @@ ALTER USER robot WITH SUPERUSER;
 \q
 ````
 
-## Generate a New Application
+## Generate a New Express Application
 
 You don't need to create from scratch all the files needed to make a new *Express* application. Instead, make use of the [Express Generator](http://expressjs.com/en/starter/generator.html) to create the initial directory skeleton for you. Think of this as the equivalent to running `rails g my_app`.
 
@@ -157,57 +157,257 @@ git init .
 git commit -am "generating new express app"
 ````
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Upgrade Local Web Server
 
-After demonstrating with success the ability to run the web application, shut down the web server with `ctrl-c`, and reconfigure the `___/____.js` script to use *nodemon* instead.
+After demonstrating with success the ability to run the web application, shut down the web server with `ctrl-c`.
+
+Revise `package.json` to use *nodemon* instead of *node* to start the web server.
 
 ````
-// ___/___.js
-________
-________
-________
+// package.json
+...
+"scripts": {
+    "start": "nodemon ./bin/www",
+},
+...
 ````
 
 Restart the web server.
 
 ```` sh
-nodemon _______
+DEBUG=robots_app:* npm start
 ````
 
-## Install Remaining Package Dependencies
 
-As mentioned in the introduction, for this project, we will also declare package dependencies on the *PostgreSQL* library.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Configure Views and Routes
+
+Now let's start customizing the directory structure to fit familiar *Rails* conventions.
+
+```` sh
+mkdir -p app/views/robots
+mkdir -p app/models
+mv routes app/controllers
+mv app/controllers/index.js app/controllers/home_controller.js
+mv app/controllers/users.js app/controllers/robots_controller.js
+````
+
+Modify the controllers. We'll use a home controller and a robots controller. In the robots controller there will be the usual `CRUD` actions. Use the following templates for now:
+
+```` js
+// app/controllers/home_controller.js
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  console.log("VISITED THE HOME PAGE")
+  res.redirect('/robots')
+});
+
+module.exports = router;
+````
+
+```` js
+// app/controllers/robots_controller.js
 
 ````
-npm install pg --save
+
+> Disclaimer: There's probably a better way to declare the robots controller actions in a way which prevents name collisions/ conforms to tighter RESTful standards. Add a comment if you have any tips...
+
+As you'll notice, all actions in the robots controller make database calls. These won't work until we configure the database connection. Let's do that now.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Configure Models and Migrations
+
+Install and initialize *Knex*.
+
+```` sh
+npm install knex -g
+npm install knex --save
+knex init .
 ````
+
+Create a database directory structure which resemble *Rails* conventions.
+
+```` sh
+mkdir -p db/
+mv knexfile.js db/config.js
+touch db.js
+touch db/create.sql
+touch db/seed.js # touch db/seeds/create_robots.js
+mkdir -p db/migrations/ # or name the directory db/migrate if you are yearning for exact rails conventions
+````
+
+Use the file templates below to configure the database connection and schema.
+
+```` js
+// db.js
+
+var config      = require('./db/config');
+var env         = process.env.NODE_ENV || 'development';
+var knex        = require('knex')(config[env]);
+
+module.exports = knex;
+````
+
+```` js
+// db/config.js (formerly known as knexfile.js
+
+module.exports = {
+  development: {
+    client: 'pg',
+    connection: {
+      user: 'robot',
+      password: 'r0b0t!',
+      database: 'robots_dev'
+    },
+    migrations: {
+      directory: __dirname+"/migrations"
+    },
+    seeds: {
+      directory: __dirname // __dirname+"/seeds"
+    }
+  },
+
+  production: {
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
+    migrations: {
+      directory: __dirname+"/migrations"
+    },
+    seeds: {
+      directory: __dirname // __dirname+"/seeds"
+    }
+  }
+};
+````
+
+```` js
+// db/create.sql
+DROP DATABASE IF EXISTS robots_dev;
+CREATE DATABASE robots_dev;
+GRANT ALL PRIVILEGES ON DATABASE robots_dev to robot;
+````
+
+```` js
+// db/seed.js
+
+exports.seed = function(knex, Promise) {
+  var robotPromises = [];
+  var robots = [{name:"r2d2"}, {name:"c3po"}, {name:"bb8"}]
+
+  robots.forEach(function(bot){
+    var robot_name = bot["name"]
+    console.log('Robot name: ' + robot_name);
+
+    knex('robots').where({name: robot_name}).then(function(robots){
+      if (robots.length > 0) {
+        console.log('Found existing robot named '+robot_name);
+      } else {
+        var insertion_promise = knex('robots').insert([{'name': robot_name}], 'id')
+        robotPromises.push(insertion_promise);
+      };
+    });
+  });
+
+  return Promise.all(robotPromises);
+};
+````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -223,34 +423,17 @@ npm install pg --save
 
 
 
+## Install Remaining Package Dependencies
 
+As mentioned in the introduction, for this project, we will also declare package dependencies on the *PostgreSQL* library.
 
+````
+npm install pg --save
+````
 
-
-
-
-
-
-
-
-## Create Database
+## Create the Database
 
 Create a new directory in your application directory called `db/`. *Rails* developers should be familiar with having a `db/` directory in their applications which contains database-related scripts.
-
-Place inside your irectory a new database creation script called `db/create.sql`:
-
-```` sh
-mkdir db/
-touch db/create.sql
-atom db/create.sql
-````
-
-```` sql
--- db/create.sql
-DROP DATABASE IF EXISTS robots_dev;
-CREATE DATABASE robots_dev;
-GRANT ALL PRIVILEGES ON DATABASE robots_dev to robot;
-````
 
 Use the new database user to run the database creation script. *Rails* developers should find this familiar to running `rake db:create`.
 
