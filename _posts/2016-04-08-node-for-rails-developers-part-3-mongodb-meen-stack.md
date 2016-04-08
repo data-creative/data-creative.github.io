@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 3 - MongoDB and the MEEN Stack"
+title:  "Node.js for Rails developers, Part 3 (MongoDB and the MEEN Stack)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
@@ -23,9 +23,9 @@ credits:
 
 This post is the second in a three-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
 
-  + [Part 1 - An Introduction to *Node* and *Express*](/process-documentation/2016/04/06/node-for-rails-developers-part-1-node-and-express/)
-  + [Part 2 - *PostgreSQL* and the *PEEN Stack*](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
-  + [Part 3 - *MongoDB* and the *MEEN Stack*](/process-documentation/2016/04/08/node-for-rails-developers-part-3-meen-stack/)
+  + [Part 1 (An Introduction to *Node* and *Express*)](/process-documentation/2016/04/06/node-for-rails-developers-part-1-node-and-express/)
+  + [Part 2 (*PostgreSQL* and the *PEEN Stack*)](/process-documentation/2016/04/07/node-for-rails-developers-part-2-postgresql-peen-stack/)
+  + [Part 3 (*MongoDB* and the *MEEN Stack*)](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)
 
 In Part 1, we set up a default web application and demonstrated the ability to run a local web server.
 
