@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Creating an MVC sticky-notes app with Node.js, Express.js, and Mongodb"
+title:  "Creating an MVC sticky-notes app with Node.js, Express.js, and MongoDB"
 author: MJ Rossetti
 published: false
 img: express-sticky-notes.png

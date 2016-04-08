@@ -428,9 +428,9 @@ brew cask install sequel-pro
 
 
 
-### Mongodb
+### MongoDB
 
-Install [mongodb](https://www.mongodb.org/).
+Install [mongoDB](https://www.mongodb.org/).
 
 ```` sh
 brew install mongodb
