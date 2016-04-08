@@ -22,9 +22,9 @@ credits:
 
 This post is the first in a three-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
 
-  + Part 1 - An Introduction to *Node* and *Express*
-  + Part 2 - *PostgreSQL* and the *PEEN Stack*
-  + Part 3 - *MongoDB* and the *MEEN Stack*
+  + [Part 1 - An Introduction to *Node* and *Express*](/process-documentation/2016/04/06/node-for-rails-developers-part-1-node-and-express/)
+  + [Part 2 - *PostgreSQL* and the *PEEN Stack*](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
+  + [Part 3 - *MongoDB* and the *MEEN Stack*](/process-documentation/2016/04/08/node-for-rails-developers-part-3-meen-stack/)
 
 ## Choose a Friendly Stack
 
@@ -65,7 +65,7 @@ Use *Homebrew* to install *Node*.
 brew install node
 ````
 
-This will also install the primary *Node* package manager called *npm*. Rails developers should think of *npm* as being similar to *bundler*.
+This will also install the primary *Node* package manager called *npm*. *Rails* developers should think of *npm* as being similar to *bundler*.
 
 Use *npm* to install global modules. The difference between installing an *npm* module locally and installing it globally is that local installations are project-specific, whereas global installations allow the module to be invoked from the command line. Pass the `-g` flag when installing to denote a global installation.
 
@@ -144,9 +144,9 @@ git commit -am "generating new express app"
 
 ## Upgrade Local Web Server
 
-After demonstrating with success the ability to run the web application, shut down the web server with `ctrl-c`.
+After demonstrating the ability to view the application locally in a browser, stop the web server by typing `ctrl-c`.
 
-Revise `package.json` to use *nodemon* instead of *node* to start the web server.
+Revise `package.json`, specifically the section which specifies scripts. Modify the web server start script to use *nodemon* instead of *node*.
 
 ````
 // package.json
@@ -162,3 +162,7 @@ Restart the web server.
 ```` sh
 DEBUG=robots_app:* npm start
 ````
+
+Nice. We're ready to connect the app to a database.
+
+[Continue to Part 2 - *PostgreSQL* and the *PEEN Stack* -->](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
