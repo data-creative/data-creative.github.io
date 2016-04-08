@@ -163,6 +163,380 @@ Restart the web server.
 DEBUG=robots_app:* npm start
 ````
 
-Nice. We're ready to connect the app to a database.
 
-[Continue to Part 2 (*PostgreSQL* and the *PEEN Stack*) -->](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Create Controllers and Views
+
+It's a same time to flesh-out the application's views according to *Rails* conventions.
+
+```` sh
+mkdir -p app/views
+````
+
+
+
+### Create Controllers
+
+Now let's add the application's controllers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Create View Partials
+
+Let's add view partials using the templates provided below:
+
+> NOTE: the underscored names are a personal preference for view partials. Feel free to use non-underscorized names.
+
+```` sh
+mv views/error.ejs app/views/_error.ejs
+rm -rf views/
+touch app/views/_footer.ejs
+touch app/views/_head.ejs
+touch app/views/_header.ejs
+````
+
+```` html
+<!-- app/views/_head.ejs -->
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+````
+
+```` html
+<!-- app/views/_header.ejs -->
+<header>
+  <!-- FYI: this is where flash messages will go -->
+  <h1><a href="/"><%= title %></a></h1>
+  <a type="button" class="btn btn-primary pull-right" href="/robots/new">
+    <span class="glyphicon glyphicon-plus"></span> new
+  </a>
+</header>
+
+<h2><%= page_title %></h2>
+````
+
+```` html
+<!-- app/views/_footer.ejs -->
+<hr style="margin-top:2em;">
+<footer>
+  <p>
+    <a href="#" title="link to source code">source</a>
+  </p>
+</footer>
+````
+
+### Create CRUD Views
+
+Now let's add more views to handle basic CRUD functionality for our robots app, including robot-specific view partials:
+
+```` sh
+mkdir -p app/views/robots/
+mkdir -p app/views/robots/table
+touch app/views/robots/index.ejs
+touch app/views/robots/show.ejs
+touch app/views/robots/table/_row.ejs
+touch app/views/robots/table/_header_row.ejs
+touch app/views/robots/new.ejs
+touch app/views/robots/edit.ejs
+touch app/views/robots/_form.ejs
+````
+
+In this example, the index page and the show page share a table partial.
+
+```` html
+<!-- app/views/robots/index.ejs -->
+<!DOCTYPE html>
+<html>
+  <% include ../_head %>
+  <body>
+    <% include ../_header %>
+
+    <table class="table table-bordered table-hover table-responsive" style="width:100%">
+      <% include table/_header_row %>
+      <% robots.forEach(function(robot){ %>
+        <% include table/_row %>
+      <% }); %>
+    </table>
+
+    <% include ../_footer %>
+  </body>
+</html>
+````
+
+```` html
+<!-- app/views/robots/show.ejs -->
+<!DOCTYPE html>
+<html>
+  <% include ../_head %>
+  <body>
+    <% include ../_header %>
+
+    <table class="table table-bordered table-hover table-responsive" style="width:100%">
+      <% include table/_header_row %>
+      <% include table/_row %>
+    </table>
+
+    <% include ../_footer %>
+  </body>
+</html>
+````
+
+
+```` html
+<!-- app/views/robots/table/_header_row.ejs -->
+<tr>
+  <th>Id</th>
+  <th>Title</th>
+  <th>Description</th>
+  <th>Created At</th>
+  <th>Updated At</th>
+  <th>&nbsp;</th>
+  <th>&nbsp;</th>
+</tr>
+````
+
+```` html
+<!-- app/views/robots/table/_row.ejs -->
+<% robot_path = '/robots/'+robot.id %>
+<% edit_robot_path = '/robots/'+robot.id+'/edit' %>
+<% destroy_robot_path = '/robots/'+robot.id+'/destroy' %>
+
+<tr>
+  <td><%= robot.id %></td>
+  <td><a href="<%= robot_path %>"><%= robot.name %></a></td>
+  <td><%= robot.description %></td>
+  <td><%= moment(robot.created_at).tz(moment.tz.guess(robot.created_at)).format('YYYY-MM-DD @ HH:mm:ss zz') %></td>
+  <td><%= moment(robot.updated_at).tz(moment.tz.guess(robot.updated_at)).format('YYYY-MM-DD @ HH:mm:ss zz') %></td>
+  <td>
+    <form action=<%= edit_robot_path %> method='GET'>
+      <button class='btn btn-warning' type='submit'>
+        <span class="glyphicon glyphicon-pencil"></span> edit
+      </button>
+    </form>
+  </td>
+  <td>
+    <form action=<%= destroy_robot_path %> method='POST'>
+      <button class='btn btn-danger' type='submit'>
+        <span class="glyphicon glyphicon-trash"></span> delete
+      </button>
+    </form>
+  </td>
+</tr>
+````
+
+The new page and edit page share a form partial.
+
+```` html
+<!-- app/views/robots/new.ejs -->
+<!DOCTYPE html>
+<html>
+  <% include ../_head %>
+  <body>
+    <% include ../_header %>
+
+    <% include _form %>
+
+    <% include ../_footer %>
+  </body>
+</html>
+````
+
+```` html
+<!-- app/views/robots/edit.ejs -->
+<!DOCTYPE html>
+<html>
+  <% include ../_head %>
+  <body>
+    <% include ../_header %>
+
+    <% include _form %>
+
+    <% include ../_footer %>
+  </body>
+</html>
+
+````
+
+```` html
+<!-- app/views/robots/_form.ejs -->
+<% if(locals.robot){ %>
+  <% var action = '/robot/' + robot.id + '/update' %>
+  <% var robot_name = robot.name %>
+  <% var robot_description = robot.description %>
+<% } else { %>
+  <% var action = '/robots/new' %>
+<% }; %>
+
+<form class="form-horizontal" method="POST" action=<%= action %>>
+  <div class="form-group">
+    <label for="robotName" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="robotName" placeholder="My Robot" value="<%= robot_name %>">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="robotDescription" class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" rows="3" name="robotDescription" placeholder="All the things..."><%= robot_description %></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+  </div>
+</form>
+````
+
+### Configure Routing
+
+Finally, we will configure the application to recognize the location of files according to our revised directory structure.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Congratulations. Now let's make this application more dynamic by connecting to a datastore and implementing flash messages.
+
+Choose your own adventure, depending on the desired datastore:
+
+ + [Continue to Part 2 (*PostgreSQL* and the *PEEN Stack*) -->](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
+ + OR [Skip to Part 3 (*MongoDB* and the *MEEN Stack*) -->](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)
