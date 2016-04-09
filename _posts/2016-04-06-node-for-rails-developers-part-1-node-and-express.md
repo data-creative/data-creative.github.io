@@ -18,6 +18,7 @@ credits:
  - https://github.com/data-creative/express-robots/blob/master/LEARNING.md
  - https://github.com/data-creative/express-robots/blob/master/README.md
  - http://data-creative.info/process-documentation/2015/07/18/how-to-set-up-a-mac-development-environment/
+ - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 ---
 
 This post is the first in a three-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
@@ -39,7 +40,7 @@ The *MEAN Stack* is one of today's [popular technology stacks](http://techstacks
 
 If you're a *Rails* developer, you might not have used any of these technologies before. In this case, you should endeavor to start small. Which are the minimum technologies you can use to get started? And which can you skip for now with the intention of exploring later as you build upon your foundation of understanding?
 
-Well, your main objective is to gain familiarity with *Node*, so you can't skip that. *Node* let's you write in *JavaScript* on the server-side. For *Rails* developers, this takes the place of the *Ruby* language.
+Well, since your main objective is to gain familiarity with *Node*, you can't skip that. *Node* lets you write in *JavaScript* on the server-side. For *Rails* developers, this takes the place of the *Ruby* language.
 
 And you should know *Express* is an indispensable part of the stack, as it handles at minimum the web server and request-routing logic. *Rails* developers should think of *Express* as an application framework akin to *Rails*.
 
@@ -112,7 +113,7 @@ Later, we will modify our application's directory structure and configuration to
 ## Install Package Dependencies
 
 Next, install package dependences.
- The installation command's `--save` flag registers the module as a dependency in the `package.json` file. For *Rails* developers, just as *npm* equates to *bundler*, `package.json` is like a `Gemfile`.
+ The installation command's `--save` flag registers the module as a dependency in the `package.json` file. For *Rails* developers, just as *npm* is like *bundler*, `package.json` is like the `Gemfile`.
 
 ```` sh
 cd robots_app
@@ -201,78 +202,216 @@ DEBUG=robots_app:* npm start
 
 ## Create Controllers and Views
 
-It's a same time to flesh-out the application's views according to *Rails* conventions.
+It's time to revise the application's directory structure to confirm more closely with *Rails* conventions.
 
 ```` sh
+mkdir -p app/controllers
 mkdir -p app/views
 ````
 
+Let's also install the `moment-timezone` module, which we will use in our views to format date strings.
 
+```` sh
+npm install moment-timezone --save
+````
+
+### Configure Routing
+
+Let's configure the application to recognize the location of files according to our desired directory structure. Revise `app.js`, to resemble the template below. Observe additions denoted by `ADDITION!` and changes denoted by `EDIT!`
+
+```` js
+// app.js
+
+var express = require('express');
+var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var moment = require('moment-timezone'); // ADDITION!
+
+var home_routes = require('./app/controllers/home_controller'); // EDIT! was: var routes = require('./routes/index');
+var robot_routes = require('./app/controllers/robots_controller'); // EDIT! was: var users = require('./routes/users');
+
+var app = express();
+
+app.locals.moment = moment;  // ADDITION! this makes moment available as a variable in every EJS page
+app.locals.title = "Robots App!" // ADDITION! set a common title for all EJS views
+
+// view engine setup
+app.set('views', path.join(__dirname, 'app/views')); // EDIT! was: app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', home_routes); // EDIT! was: app.use('/', routes);
+app.use('/', robot_routes); // EDIT! was: app.use('/users', users);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('_error', { // EDIT! was: res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('_error', { // EDIT! was: res.render('error', {
+    message: err.message,
+    error: {}
+  });
+});
+
+module.exports = app;
+````
 
 ### Create Controllers
 
-Now let's add the application's controllers.
+Now let's add the application's controllers using the templates below.
+
+```` sh
+mv routes/index.js app/controllers/home_controller.js
+touch app/controllers/robots_controller.js
+rm -rf routes/
+````
 
 
+```` js
+// app/controllers/home_controller.js
 
+var express = require('express');
+var router = express.Router();
 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  console.log("VISITED THE HOME PAGE")
+  res.redirect('/robots')
+});
 
+module.exports = router;
+````
 
+```` js
+// app/controllers/robots_controller.js
 
+var express = require('express');
+var router = express.Router();
 
+var robots = [
+  {id: 1, name:"c3po", description:"specializes in language translation", created_at: new Date("1976-06-06 13:23:23"), updated_at: new Date("1976-06-06 13:23:23") },
+  {id: 2, name:"r2d2", description:"holds a secret message",              created_at: new Date("1977-07-07 23:10:10"), updated_at: new Date("1977-07-07 23:10:10") },
+  {id: 3, name:"bb8",  description:"rolls around",                        created_at: new Date("2016-01-01 07:59:59"), updated_at: new Date("2016-01-01 07:59:59") },
+]; // temporary placeholder for future database connection
 
+router.route('/robots')
 
+    /* INDEX */
 
+    .get(function(req, res, next) {
+      console.log("FOUND", robots.length, "ROBOTS")
+      res.render('robots/index', {
+        page_title: 'Robots',
+        robots: robots
+      });
+    })
 
+    /* CREATE */
 
+    .post(function(req, res, next) {
+        console.log("CAPTURING FORM DATA:", req.body);
+        console.log("CREATED A NEW ROBOT");
+        res.redirect('/robots');
+    });
 
+/* NEW (this must come above the SHOW action or else express will think 'new' is the robot :id). */
 
+router.get('/robots/new', function(req, res, next) {
+  res.render('robots/new', {
+    page_title: 'Add a new Robot'
+  });
+});
 
+/* EDIT */
 
+router.get('/robots/:id/edit', function(req, res, next) {
+    var robot_id = req.params.id;
+    var robot = robots.find(function(r){ return r.id == robot_id; });
 
+    if ( typeof(robot) == "undefined" ) {
+        console.log("ERROR - COULDN'T FIND ROBOT #"+robot_id)
+        res.redirect('/robots')
+    } else {
+        console.log("EDITING A ROBOT", robot)
+        res.render('robots/edit', {
+          page_title: 'Edit Robot #'+robot.id,
+          robot: robot
+        });
+    };
+});
 
+router.route('/robots/:id')
 
+    /* SHOW */
 
+    .get(function(req, res, next) {
+        var robot_id = req.params.id;
+        var robot = robots.find(function(r){ return r.id == robot_id; });
+        if ( typeof(robot) == "undefined" ) {
+            console.log("ERROR - COULDN'T FIND ROBOT #"+robot_id)
+            res.redirect('/robots')
+        } else {
+            res.render('robots/show', {
+              page_title: 'Robot #'+robot.id,
+              robot: robot
+            });
+        };
+    })
 
+    /* UPDATE */
 
+    .put(function(req, res, next) {
+        console.log("CATURED FORM DATA", req.body)
+        var robot_id = req.params.id
+        console.log("UPDATED ROBOT #"+robot_id)
+        res.redirect('/robots')
+    })
 
+    /* DESTROY */
 
+    .delete(function(req, res, next) {
+        var robot_id = req.params.id
+        console.log("DELETING ROBOT #"+robot_id)
+        res.redirect('/robots')
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = router;
+````
 
 ### Create View Partials
 
-Let's add view partials using the templates provided below:
-
-> NOTE: the underscored names are a personal preference for view partials. Feel free to use non-underscorized names.
+Let's add view partials using the templates provided below.
 
 ```` sh
 mv views/error.ejs app/views/_error.ejs
@@ -284,6 +423,7 @@ touch app/views/_header.ejs
 
 ```` html
 <!-- app/views/_head.ejs -->
+
 <head>
   <title><%= title %></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -293,6 +433,7 @@ touch app/views/_header.ejs
 
 ```` html
 <!-- app/views/_header.ejs -->
+
 <header>
   <!-- FYI: this is where flash messages will go -->
   <h1><a href="/"><%= title %></a></h1>
@@ -306,6 +447,7 @@ touch app/views/_header.ejs
 
 ```` html
 <!-- app/views/_footer.ejs -->
+
 <hr style="margin-top:2em;">
 <footer>
   <p>
@@ -314,9 +456,11 @@ touch app/views/_header.ejs
 </footer>
 ````
 
-### Create CRUD Views
+> NOTE: if you don't like underscored file names, feel free to use non-underscorized file names instead.
 
-Now let's add more views to handle basic CRUD functionality for our robots app, including robot-specific view partials:
+### Create Robot Views
+
+Now let's add more views to handle basic CRUD functionality for our robots app, including robot-specific views and view partials.
 
 ```` sh
 mkdir -p app/views/robots/
@@ -334,6 +478,7 @@ In this example, the index page and the show page share a table partial.
 
 ```` html
 <!-- app/views/robots/index.ejs -->
+
 <!DOCTYPE html>
 <html>
   <% include ../_head %>
@@ -354,6 +499,7 @@ In this example, the index page and the show page share a table partial.
 
 ```` html
 <!-- app/views/robots/show.ejs -->
+
 <!DOCTYPE html>
 <html>
   <% include ../_head %>
@@ -373,9 +519,10 @@ In this example, the index page and the show page share a table partial.
 
 ```` html
 <!-- app/views/robots/table/_header_row.ejs -->
+
 <tr>
   <th>Id</th>
-  <th>Title</th>
+  <th>Name</th>
   <th>Description</th>
   <th>Created At</th>
   <th>Updated At</th>
@@ -386,16 +533,16 @@ In this example, the index page and the show page share a table partial.
 
 ```` html
 <!-- app/views/robots/table/_row.ejs -->
+
 <% robot_path = '/robots/'+robot.id %>
 <% edit_robot_path = '/robots/'+robot.id+'/edit' %>
-<% destroy_robot_path = '/robots/'+robot.id+'/destroy' %>
 
 <tr>
   <td><%= robot.id %></td>
   <td><a href="<%= robot_path %>"><%= robot.name %></a></td>
   <td><%= robot.description %></td>
-  <td><%= moment(robot.created_at).tz(moment.tz.guess(robot.created_at)).format('YYYY-MM-DD @ HH:mm:ss zz') %></td>
-  <td><%= moment(robot.updated_at).tz(moment.tz.guess(robot.updated_at)).format('YYYY-MM-DD @ HH:mm:ss zz') %></td>
+  <td><%= moment(robot.created_at).tz(moment.tz.guess(robot.created_at)).format('YYYY-MM-DD [at] HH:mm:ss zz') %></td>
+  <td><%= moment(robot.updated_at).tz(moment.tz.guess(robot.updated_at)).format('YYYY-MM-DD [at] HH:mm:ss zz') %></td>
   <td>
     <form action=<%= edit_robot_path %> method='GET'>
       <button class='btn btn-warning' type='submit'>
@@ -404,7 +551,7 @@ In this example, the index page and the show page share a table partial.
     </form>
   </td>
   <td>
-    <form action=<%= destroy_robot_path %> method='POST'>
+    <form action=<%= robot_path %> method='DELETE'>
       <button class='btn btn-danger' type='submit'>
         <span class="glyphicon glyphicon-trash"></span> delete
       </button>
@@ -417,6 +564,7 @@ The new page and edit page share a form partial.
 
 ```` html
 <!-- app/views/robots/new.ejs -->
+
 <!DOCTYPE html>
 <html>
   <% include ../_head %>
@@ -432,6 +580,7 @@ The new page and edit page share a form partial.
 
 ```` html
 <!-- app/views/robots/edit.ejs -->
+
 <!DOCTYPE html>
 <html>
   <% include ../_head %>
@@ -443,20 +592,22 @@ The new page and edit page share a form partial.
     <% include ../_footer %>
   </body>
 </html>
-
 ````
 
 ```` html
 <!-- app/views/robots/_form.ejs -->
+
 <% if(locals.robot){ %>
-  <% var action = '/robot/' + robot.id + '/update' %>
+  <% var action = '/robots/' %>
+  <% var method = 'PUT' %>
   <% var robot_name = robot.name %>
   <% var robot_description = robot.description %>
 <% } else { %>
   <% var action = '/robots/new' %>
+  <% var method = 'POST' %>
 <% }; %>
 
-<form class="form-horizontal" method="POST" action=<%= action %>>
+<form class="form-horizontal" method="<%= method %>" action="<%= action %>">
   <div class="form-group">
     <label for="robotName" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
@@ -479,64 +630,13 @@ The new page and edit page share a form partial.
 </form>
 ````
 
-### Configure Routing
+At this point, you should be able to click around the application without breaking anything, but some of the functionality is still missing.
 
-Finally, we will configure the application to recognize the location of files according to our revised directory structure.
+![robots app index page screenshot](/img/posts/express-robots-index.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Congratulations. Now let's make this application more dynamic by connecting to a datastore and implementing flash messages.
+OK, it's time to enhance this application's functionality by connecting to a datastore and implementing flash messages.
 
 Choose your own adventure, depending on the desired datastore:
 
- + [Continue to Part 2 (*PostgreSQL* and the *PEEN Stack*) -->](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
- + OR [Skip to Part 3 (*MongoDB* and the *MEEN Stack*) -->](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)
+ + [Continue to Part 2 (*PostgreSQL* and the *PEEN Stack*)](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
+ + OR [Skip to Part 3 (*MongoDB* and the *MEEN Stack*)](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)

@@ -37,5 +37,3 @@ In Part 2, we configured *PostgreSQL* as a datastore. In this post, we will igno
 **E** | *Express.js* | web server
 **E** | *EJS* | plain familiar view templates
 **N** | *Node.js*  | uses *JavaScript* as a server-side programming language
-
-![sticky notes app screenshot](/img/posts/express-sticky-notes.png)
