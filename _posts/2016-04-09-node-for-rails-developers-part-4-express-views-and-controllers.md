@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 2 (Express Routing)"
+title:  "Node.js for Rails developers, Part 3 (Express Views and Controllers)"
 author: MJ Rossetti
-published: true
+published: false
 img: nodejs-logo-green.png
 repo_url: ______________
 project_url: https://express-robots.herokuapp.com/
@@ -14,72 +14,11 @@ technologies:
  - npm
  - express.js
  - twitter-bootstrap
+credits:
+ - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 ---
 
-## Recap
-
-This post is the second in a five-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
-
-  + [Part 1 (An Introduction to *Node* and *Express*)](_________)
-  + [Part 2 (Express Routing)](___________)
-  + [Part 3 (Express Views and Controllers)](___________)
-  + Part 4 - Datastore
-    + [Part 4a (*PostgreSQL* Datastore)](____________)
-    + [Part 4b (*MongoDB* Datastore)](____________)
-  + [Part 5 (Deploying to Heroku)](___________)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Modify Directory Structure
-
-It's time to revise the application's directory structure to confirm more closely with *Rails* conventions.
-
-```` sh
-mv public/ assets
-mkdir -p app/controllers
-mkdir -p app/views
-````
-
-### Configure Routing
-
-Let's configure the application to recognize our desired directory structure.
- Revise `app.js`, to resemble the template below. Observe additions to the original file denoted by `ADDITION!` and changes denoted by `EDIT!`
-
-```` js
-// app.js
-````
-
-
-
-
+> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
 ### Create Controllers
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Node.js for Rails developers, Part 4a (PostgreSQL Datastore)"
 author: MJ Rossetti
-published: true
+published: false
 img: nodejs-logo-green.png
 repo_url: ______________
 project_url: https://express-robots.herokuapp.com/
@@ -17,28 +17,9 @@ technologies:
  - postgresql
 ---
 
-## Recap
+> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
-This post is the fourth in a five-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
-
-  + [Part 1 (An Introduction to *Node* and *Express*)](_________)
-  + [Part 2 (Express Routing)](___________)
-  + [Part 3 (Express Views and Controllers)](___________)
-  + Part 4 - Datastore
-    + [Part 4a (*PostgreSQL* Datastore)](____________)
-    + [Part 4b (*MongoDB* Datastore)](____________)
-  + [Part 5 (Deploying to Heroku)](___________)
-
-In this post, we will connect the application to a *PostgreSQL* datastore. Let's call this a *PEEN Stack*.
-
-&nbsp; | Technology | Description
---- | --- | ---
-**P** | *PostgreSQL* | reliable open source relational database
-**E** | *Express.js* | web server
-**E** | *EJS* | plain familiar view templates
-**N** | *Node.js*  | uses *JavaScript* as a server-side programming language
-
-
+In this post, we will connect the application to a *PostgreSQL* datastore. 
 
 
 

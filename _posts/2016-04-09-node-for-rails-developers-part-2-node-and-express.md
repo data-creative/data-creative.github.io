@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 1 (An Introduction to Node and Express)"
+title:  "Node.js for Rails developers, Part 2 (An Introduction to Node and Express)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
@@ -18,44 +18,7 @@ credits:
  - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 ---
 
-## Introduction
-
-This post is the first in a five-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
-
-  + [Part 1 (An Introduction to *Node* and *Express*)](_________)
-  + [Part 2 (Express Routing)](___________)
-  + [Part 3 (Express Views and Controllers)](___________)
-  + Part 4 - Datastore
-    + [Part 4a (*PostgreSQL* Datastore)](____________)
-    + [Part 4b (*MongoDB* Datastore)](____________)
-  + [Part 5 (Deploying to Heroku)](___________)
-
-## Choose a Friendly Stack
-
-The *MEAN Stack* is one of today's [popular technology stacks](http://techstacks.io/) for web development.
-
-&nbsp; | Technology | Description
---- | --- | ---
-**M** | *MongoDB* | key-value (noSQL) data store
-**E** | *Express.js* | web server
-**A** | *Angular.js* | client-side MVC framework
-**N** | *Node.js*  | uses *JavaScript* as a server-side programming language
-
-If you're a *Rails* developer, you might not have used any of these technologies before. In this case, you should endeavor to start small. Which are the minimum technologies you can use to get started? And which can you skip for now with the intention of exploring later as you build upon your foundation of understanding?
-
-Well, since your main objective is to gain familiarity with *Node*, you can't skip that. *Node* lets you write in *JavaScript* on the server-side. For *Rails* developers, this takes the place of the *Ruby* language.
-
-And you should know *Express* is an indispensable part of the stack, as it handles at minimum the web server and request-routing logic. *Rails* developers should think of *Express* as an application framework akin to *Rails*.
-
-Many *Rails* developers have a strong preference for relational databases. In this case, you can stick to *PostgreSQL* as a datastore, bypassing the immediate need to learn *MongoDB*.
-
-> This series addresses both datastore options.
-
-Unless you are already familiar with the *Angular* client-side MVC framework, you can skip that for now as well. Stick to basic views using the *EJS* template engine, which is similar to *ERB*.
-
-> This series does not address Angular (MEAN Stack).
-
-Let's get started.
+> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
 ## Install Node
 
