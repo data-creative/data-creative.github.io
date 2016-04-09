@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 1 (An Introduction to Node and Express)"
+title:  "Node.js for Rails developers, Part 2 (Express Routing)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-repo_url: https://github.com/data-creative/express-robots
+repo_url: ______________
 project_url: https://express-robots.herokuapp.com/
 categories:
  - process-documentation
@@ -13,279 +13,73 @@ technologies:
  - node.js
  - npm
  - express.js
-credits:
- - https://github.com/data-creative/express-robots/blob/master/CREDITS.md
- - https://github.com/data-creative/express-robots/blob/master/LEARNING.md
- - https://github.com/data-creative/express-robots/blob/master/README.md
- - http://data-creative.info/process-documentation/2015/07/18/how-to-set-up-a-mac-development-environment/
- - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+ - twitter-bootstrap
 ---
 
-This post is the first in a three-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
+## Recap
 
-  + [Part 1 (An Introduction to *Node* and *Express*)](/process-documentation/2016/04/06/node-for-rails-developers-part-1-node-and-express/)
-  + [Part 2 (*PostgreSQL* and the *PEEN Stack*)](/process-documentation/2016/04/07/node-for-rails-developers-part-2-postgresql-peen-stack/)
-  + [Part 3 (*MongoDB* and the *MEEN Stack*)](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)
+This post is the second in a five-part series for *Rails* developers who want to get started with [Node.js](https://nodejs.org/en/).
 
-## Choose a Friendly Stack
+  + [Part 1 (An Introduction to *Node* and *Express*)](_________)
+  + [Part 2 (Express Routing)](___________)
+  + [Part 3 (Express Views and Controllers)](___________)
+  + Part 4 - Datastore
+    + [Part 4a (*PostgreSQL* Datastore)](____________)
+    + [Part 4b (*MongoDB* Datastore)](____________)
+  + [Part 5 (Deploying to Heroku)](___________)
 
-The *MEAN Stack* is one of today's [popular technology stacks](http://techstacks.io/) for web development.
 
-&nbsp; | Technology | Description
---- | --- | ---
-**M** | *MongoDB* | key-value (noSQL) data store
-**E** | *Express.js* | web server
-**A** | *Angular.js* | client-side MVC framework
-**N** | *Node.js*  | uses *JavaScript* as a server-side programming language
 
-If you're a *Rails* developer, you might not have used any of these technologies before. In this case, you should endeavor to start small. Which are the minimum technologies you can use to get started? And which can you skip for now with the intention of exploring later as you build upon your foundation of understanding?
 
-Well, since your main objective is to gain familiarity with *Node*, you can't skip that. *Node* lets you write in *JavaScript* on the server-side. For *Rails* developers, this takes the place of the *Ruby* language.
 
-And you should know *Express* is an indispensable part of the stack, as it handles at minimum the web server and request-routing logic. *Rails* developers should think of *Express* as an application framework akin to *Rails*.
 
-> This post focuses on setting up the basics for Express and Node.
 
-Many *Rails* developers have a strong preference for relational databases. In this case, you can stick to *PostgreSQL* as a datastore, bypassing the immediate need to learn *MongoDB*.
 
-> The second post focuses on connecting an Express app to a PostgreSQL datastore (PEEN Stack), while the third post focuses alternatively on connecting to a MongoDB datastore (MEEN Stack).
 
-Unless you are already familiar with the *Angular* client-side MVC framework, you can skip that for now as well. Stick to basic views using the *EJS* template engine, which is similar to *ERB*.
 
-> This series does not address Angular (MEAN Stack).
 
-## Prerequisites
 
-Let's get started.
 
-### Install Node
 
-Use *Homebrew* to install *Node*.
 
-```` sh
-brew install node
-````
 
-This will also install the primary *Node* package manager called *npm*. *Rails* developers should think of *npm* as being similar to *bundler*.
 
-Use *npm* to install global modules. The difference between installing an *npm* module locally and installing it globally is that local installations are project-specific, whereas global installations allow the module to be invoked from the command line. Pass the `-g` flag when installing to denote a global installation.
 
-```` sh
-npm install express-generator -g
-npm install nodemon -g
-````
 
-*Rails* developers should think of the *Express Generator* as serving many of the same functions as *Rails*' built-in generator methods.
 
-When running a development web server, *Nodemon* obviates the need to restart the server each time a file is changed.
 
-## Generate a New Express Application
 
-You don't need to create from scratch all the files needed to make a new *Express* application. Instead, make use of the [Express Generator](http://expressjs.com/en/starter/generator.html) to create the initial directory skeleton for you. Think of this as the equivalent to running `rails g my_app`.
 
-This will create a skeleton directory according to predefined *Express* conventions.
 
-```` sh
---->> express robots_app --ejs
 
-   create : robots_app
-   create : robots_app/package.json
-   create : robots_app/app.js
-   create : robots_app/public/images
-   create : robots_app/public
-   create : robots_app/routes
-   create : robots_app/routes/index.js
-   create : robots_app/routes/users.js
-   create : robots_app/public/stylesheets
-   create : robots_app/public/stylesheets/style.css
-   create : robots_app/views
-   create : robots_app/views/index.ejs
-   create : robots_app/views/error.ejs
-   create : robots_app/bin
-   create : robots_app/bin/www
 
-   create : robots_app/public/javascripts
---->>
-````
 
-Later, we will modify our application's directory structure and configuration to more closely resemble *Rails* conventions.
 
-## Install Package Dependencies
 
-Next, install package dependences.
- The installation command's `--save` flag registers the module as a dependency in the `package.json` file. For *Rails* developers, just as *npm* is like *bundler*, `package.json` is like the `Gemfile`.
 
-```` sh
-cd robots_app
-npm install
-````
 
-You should now be able to run the web server and view the result in your browser at `localhost:3000`.
-
-```` sh
-DEBUG=robots_app:* npm start
-````
-
-Commit your project to git. Ignore all files in the `node_modules/` directory.
-
-```` sh
-touch .gitignore
-atom .gitignore
-````
-
-```` sh
-# .gitignore
-node_modules/
-````
-
-```` sh
-git init .
-git commit -am "generating new express app"
-````
-
-## Upgrade Local Web Server
-
-After demonstrating the ability to view the application locally in a browser, stop the web server by typing `ctrl-c`.
-
-Revise `package.json`, specifically the section which specifies scripts. Modify the web server start script to use *nodemon* instead of *node*.
-
-````
-// package.json
-...
-"scripts": {
-    "start": "nodemon ./bin/www",
-},
-...
-````
-
-Restart the web server.
-
-```` sh
-DEBUG=robots_app:* npm start
-````
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Create Controllers and Views
+### Modify Directory Structure
 
 It's time to revise the application's directory structure to confirm more closely with *Rails* conventions.
 
 ```` sh
+mv public/ assets
 mkdir -p app/controllers
 mkdir -p app/views
 ````
 
-Let's also install the `moment-timezone` module, which we will use in our views to format date strings.
-
-```` sh
-npm install moment-timezone --save
-````
-
 ### Configure Routing
 
-Let's configure the application to recognize the location of files according to our desired directory structure. Revise `app.js`, to resemble the template below. Observe additions denoted by `ADDITION!` and changes denoted by `EDIT!`
+Let's configure the application to recognize our desired directory structure.
+ Revise `app.js`, to resemble the template below. Observe additions to the original file denoted by `ADDITION!` and changes denoted by `EDIT!`
 
 ```` js
 // app.js
-
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var moment = require('moment-timezone'); // ADDITION!
-
-var home_routes = require('./app/controllers/home_controller'); // EDIT! was: var routes = require('./routes/index');
-var robot_routes = require('./app/controllers/robots_controller'); // EDIT! was: var users = require('./routes/users');
-
-var app = express();
-
-app.locals.moment = moment;  // ADDITION! this makes moment available as a variable in every EJS page
-app.locals.title = "Robots App!" // ADDITION! set a common title for all EJS views
-
-// view engine setup
-app.set('views', path.join(__dirname, 'app/views')); // EDIT! was: app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', home_routes); // EDIT! was: app.use('/', routes);
-app.use('/', robot_routes); // EDIT! was: app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('_error', { // EDIT! was: res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('_error', { // EDIT! was: res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
-
-module.exports = app;
 ````
+
+
+
+
 
 ### Create Controllers
 
@@ -630,13 +424,41 @@ The new page and edit page share a form partial.
 </form>
 ````
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Restart the server
+
+
+```` sh
+npm install moment-timezone --save
+npm install connect-flash --save
+npm install express-messages --save
+npm install express-session --save
+````
+
 At this point, you should be able to click around the application without breaking anything, but some of the functionality is still missing.
 
 ![robots app index page screenshot](/img/posts/express-robots-index.png)
 
-OK, it's time to enhance this application's functionality by connecting to a datastore and implementing flash messages.
+OK, it's time to enhance this application's functionality by connecting to a datastore.
 
-Choose your own adventure, depending on the desired datastore:
+Choose your own adventure, (2a or 2b) depending on the desired datastore:
 
- + [Continue to Part 2 (*PostgreSQL* and the *PEEN Stack*)](/process-documentation/2016/04/07/node-for-rails-developers-part-2-peen-stack/)
- + OR [Skip to Part 3 (*MongoDB* and the *MEEN Stack*)](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)
+ + [Part 2a (*PostgreSQL* Datastore)](/process-documentation/2016/04/07/node-for-rails-developers-part-2-postgresql-peen-stack/)
+ + [Part 2b (*MongoDB* Datastore)](/process-documentation/2016/04/08/node-for-rails-developers-part-3-mongodb-meen-stack/)
