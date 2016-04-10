@@ -9,13 +9,10 @@ project_url: https://express-robots.herokuapp.com/
 categories:
  - process-documentation
 technologies:
- - git
  - node.js
- - npm
  - express.js
- - twitter-bootstrap
-credits:
- - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+ - postgresql
+ - mongodb
 ---
 
 > This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
@@ -41,11 +38,12 @@ Well, since your main objective is to gain familiarity with *Node*, you can't sk
  This leaves us with flexibility in the areas of the datastore and the front-end framework.
 
 For the front-end framework, unless you're already familiar with the *Angular*, let's forget about it for now.
- We can start with basic views using the *EJS* template engine, which is similar to *ERB*. Most *Rails* developers should be familiar with *ERB* and will be happy to learn the syntax for *EJS* is almost nearly identical to *ERB*.
+ We can start by using the *EJS* template engine to create basic views.
+  Most *Rails* developers should be familiar with *ERB* and will be happy to learn the syntax for *EJS* is almost nearly identical to *ERB*.
 
 For the datastore, we have two basic options: *MongoDB* or a relational database. Most *Rails* developers should be familiar with open source relational databases like *MySQL* and *PostgreSQL*.
 
-If you'd like to stick with a familiar *PostgreSQL* database, try the *PEEN Stack*:
+If you'd like to stick with a familiar relational database, try a *PEEN Stack*:
 
   + **P** stands for *PostgreSQL*, a relational database.
   + **E** stands for *Express.js*, a *Node.js* web server and application framework.
@@ -53,7 +51,7 @@ If you'd like to stick with a familiar *PostgreSQL* database, try the *PEEN Stac
   + **N** stands for *Node.js*, which runs *JavaScript* as a server-side programming language.
 
 
-Else if you're feeling adventurous, try the *MEEN Stack*:
+Else if you're feeling adventurous, try a *MEEN Stack*:
 
   + **M** stands for *MongoDB*, which is a key-value (noSQL) data store.
   + **E** stands for *Express.js*, a *Node.js* web server and application framework.

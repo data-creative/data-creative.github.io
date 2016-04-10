@@ -13,9 +13,6 @@ technologies:
   - node.js
   - npm
   - express.js
-  - twitter-bootstrap
-  - mongodb
-  - postgresql
   - heroku
 ---
 

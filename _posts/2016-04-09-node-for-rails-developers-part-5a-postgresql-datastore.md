@@ -13,13 +13,12 @@ technologies:
  - node.js
  - npm
  - express.js
- - twitter-bootstrap
  - postgresql
 ---
 
 > This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
-In this post, we will connect the application to a *PostgreSQL* datastore. 
+In this post, we will connect the application to a *PostgreSQL* datastore.
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 2 (An Introduction to Node and Express)"
+title:  "Node.js for Rails developers, Part 2 (Node and Express)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
@@ -13,83 +13,116 @@ technologies:
  - node.js
  - npm
  - express.js
- - twitter-bootstrap
-credits:
- - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 ---
 
 > This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
 ## Install Node
 
-Use *Homebrew* to install *Node*.
+We're ready to get started with *Node* and *Express*. Unless you've already installed *Node* on your computer, use *Homebrew* to install it now.
 
 ```` sh
+which node # to detect installation
 brew install node
 ````
 
-This will also install the primary *Node* package manager called *npm*. *Rails* developers should think of *npm* as being similar to *bundler*.
+The *Homebrew* installation command will also install *NPM*, the primary package manager for *Node*. *Rails* developers can think of *NPM* as playing a similar role as *Bundler*.
 
-Use *npm* to install global modules. The difference between installing an *npm* module locally and installing it globally is that local installations are project-specific, whereas global installations allow the module to be invoked from the command line. Pass the `-g` flag when installing to denote a global installation.
+
+## Install Express
+
+We're going to use *NPM* to install the [*Express Generator*](http://expressjs.com/en/starter/generator.html) module, which includes *Express* and provides a helpful application-generation command.
+
+Install *Express Generator* globally.
 
 ```` sh
 npm install express-generator -g
-npm install nodemon -g
 ````
 
-*Rails* developers should think of the *Express Generator* as serving many of the same functions as *Rails*' built-in generator methods.
-
-When running a development web server, *Nodemon* obviates the need to restart the server each time a file is changed.
+> Note: You'll notice throughout this series sometimes we'll use *NPM* to install modules locally while other times we will install them globally. The difference between installing an *NPM* module locally and installing it globally is that local installations are project-specific, whereas global installations allow the module to be invoked from the command line. Passing the `-g` flag denotes a global installation. Passing the `--save` option automatically registers the module as a dependency in the application's `package.json` file.
 
 ## Generate a New Express Application
 
-You don't need to create from scratch all the files needed to make a new *Express* application. Instead, make use of the [Express Generator](http://expressjs.com/en/starter/generator.html) to create the initial directory skeleton for you. Think of this as the equivalent to running `rails g my_app`.
-
-This will create a skeleton directory according to predefined *Express* conventions.
+Use the *Express Generator* to generate a skeleton directory structure for a new *Express* app.
 
 ```` sh
---->> express robots_app --ejs
-
-   create : robots_app
-   create : robots_app/package.json
-   create : robots_app/app.js
-   create : robots_app/public/images
-   create : robots_app/public
-   create : robots_app/routes
-   create : robots_app/routes/index.js
-   create : robots_app/routes/users.js
-   create : robots_app/public/stylesheets
-   create : robots_app/public/stylesheets/style.css
-   create : robots_app/views
-   create : robots_app/views/index.ejs
-   create : robots_app/views/error.ejs
-   create : robots_app/bin
-   create : robots_app/bin/www
-
-   create : robots_app/public/javascripts
---->>
+express robots_app --ejs
 ````
 
-Throughout this series, we will modify our application's directory structure and configuration to more closely resemble *Rails* conventions.
+This command should create the following files:
 
-## Install Default Package Dependencies
+  + `robots_app`
+  + `robots_app/package.json`
+  + `robots_app/app.js`
+  + `robots_app/public/images`
+  + `robots_app/public`
+  + `robots_app/routes`
+  + `robots_app/routes/index.js`
+  + `robots_app/routes/users.js`
+  + `robots_app/public/stylesheets`
+  + `robots_app/public/stylesheets/style.css`
+  + `robots_app/views`
+  + `robots_app/views/index.ejs`
+  + `robots_app/views/error.ejs`
+  + `robots_app/bin`
+  + `robots_app/bin/www`
+  + `robots_app/public/javascripts`
 
-Next, install package dependences.
+Don't worry if you're unfamiliar with the location and purpose of each of these files. Throughout this series, we will modify our application's directory structure to more closely resemble *Rails* conventions, and things will become more clear.
+
+## Install Dependencies
+
+Before we can visit our new app in a browser, we need to install package dependences. The `npm install` command installs all package dependencies stated in the `package.json` file. *Rails* developers can think of `package.json` as playing a similar role as the `Gemfile`.
 
 ```` sh
 cd robots_app
 npm install
 ````
 
-The `npm install` command installs all package dependencies stated in the `package.json` file. *Rails* developers can think of `package.json` as playing the same role as the `Gemfile`.
+After running this command, you should see a new directory called `node_modules/` which contains source code for all local package dependencies.
 
-Notes on running `npm install`:
- + use the `--save` flag automatically registers the module as a dependency in the `package.json` file.
- + use the `-g` flag if you need to access a module's command line utility
+## Run Local Web Server
 
-## Ignore Node Modules in Source Control
+Run the development web server.
 
-Commit your project to git. Ignore all files in the `node_modules/` directory.
+```` sh
+DEBUG=robots_app:* npm start
+````
+
+You should now be able to visit the application's home page in your browser at `localhost:3000`.
+
+After demonstrating the ability to view the application locally in a browser, stop the web server by typing `ctrl-c`.
+
+## Upgrade Local Web Server
+
+One shortcoming of the default web server is that it requires us to restart the server each time we make a change to one of our application's files. During development, this happens a lot, so we'll want to upgrade our development web server. We can use a module called *Nodemon*, which will automatically detect file changes and obviate our need to take manual action.
+
+Let's install *Nodemon* globally.
+
+```` sh
+npm install nodemon -g
+````
+
+Modify the web server start script in `package.json` to invoke `nodemon` instead of `node`.
+
+````
+// package.json
+...
+  "scripts": {
+    "start": "nodemon ./bin/www", // was: "start": "node ./bin/www",
+  },
+...
+````
+
+Restart the web server.
+
+```` sh
+DEBUG=robots_app:* npm start
+````
+
+## Commit
+
+Before committing our project to version control, we want to ignore all files in the `node_modules/` directory.
 
 ```` sh
 touch .gitignore
@@ -100,35 +133,14 @@ Update `.gitignore` according to the following template:
 
 ```` sh
 # .gitignore
+node_modules/
 ````
 
-Commit your changes.
+Finally, commit your changes.
 
 ```` sh
 git init .
-git commit -am "generating new express app"
+git commit -am "generating a new express app"
 ````
 
-## Run Local Web Server
-
-You should now be able to run the web server and view the result in your browser at `localhost:3000`.
-
-```` sh
-DEBUG=robots_app:* npm start
-````
-
-## Upgrade Local Web Server
-
-After demonstrating the ability to view the application locally in a browser, stop the web server by typing `ctrl-c`.
-
-Revise `package.json`, specifically the section which specifies scripts. Modify the web server start script to use *nodemon* instead of *node*.
-
-````
-// package.json
-````
-
-Restart the web server.
-
-```` sh
-DEBUG=robots_app:* npm start
-````
+Congratulations, now you're ready to [configure your application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-configuration/) to more closely resemble *Rails* conventions.
