@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 4b (MongoDB Datastore)"
+title:  "Node.js for Rails developers, Part 6b (MongoDB Datastore)"
 author: MJ Rossetti
 published: false
 img: nodejs-logo-green.png

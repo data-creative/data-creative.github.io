@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 5 (Deploying to Heroku)"
+title:  "Node.js for Rails developers, Part 7 (Deploying to Heroku)"
 author: MJ Rossetti
 published: false
 img: nodejs-logo-green.png

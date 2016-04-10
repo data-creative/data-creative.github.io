@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Node.js for Rails developers, Part 4a (PostgreSQL Datastore)"
+title:  "Node.js for Rails developers, Part 6a (PostgreSQL Datastore)"
 author: MJ Rossetti
 published: false
 img: nodejs-logo-green.png
