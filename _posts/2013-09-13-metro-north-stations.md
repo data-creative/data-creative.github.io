@@ -15,7 +15,7 @@ technologies:
  - javascript
  - json
  - d3.js
- - mapbox.js
+ - leaflet.js
  - git
  - csv
  - gtfs
@@ -27,4 +27,4 @@ technologies:
 
 A static map of all [Metro North Railroad](http://www.mta.info/mnr) station stops, based on open transit data from the [GTFS Data Exchange](http://www.gtfs-data-exchange.com/agency/metro-north-railroad/).
 
-The source code has not been retained.
+The source code is lost.
