@@ -2,10 +2,10 @@
 layout: post
 title:  "Node.js for Rails developers, Part 6b (MongoDB Datastore)"
 author: MJ Rossetti
-published: true
+published: false
 img: nodejs-logo-green.png
-repo_url: ______________
-project_url: https://express-sticky-notes.herokuapp.com/
+#repo_url: ______________
+#project_url: https://express-sticky-notes.herokuapp.com/
 categories:
  - process-documentation
 technologies:

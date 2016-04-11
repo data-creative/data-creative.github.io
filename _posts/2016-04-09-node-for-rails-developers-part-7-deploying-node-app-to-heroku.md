@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 7 (Deploying to Heroku)"
 author: MJ Rossetti
 published: false
 img: nodejs-logo-green.png
-repo_url: ______________
-project_url: https://express-sticky-notes.herokuapp.com/
+#repo_url: ______________
+#project_url: https://express-sticky-notes.herokuapp.com/
 categories:
  - process-documentation
 technologies:

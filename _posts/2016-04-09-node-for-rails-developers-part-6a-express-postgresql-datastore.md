@@ -2,10 +2,10 @@
 layout: post
 title:  "Node.js for Rails developers, Part 6a (PostgreSQL Datastore)"
 author: MJ Rossetti
-published: true
+published: false
 img: nodejs-logo-green.png
-repo_url: ______________
-project_url: https://express-robots.herokuapp.com/
+#repo_url: ______________
+#project_url: https://express-robots.herokuapp.com/
 categories:
  - process-documentation
 technologies:

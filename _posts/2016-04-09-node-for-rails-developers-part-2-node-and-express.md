@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 2 (Node and Express)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-repo_url: ______________
-project_url: https://express-robots.herokuapp.com/
+#repo_url: ______________
+#project_url: https://express-robots.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -48,7 +48,7 @@ Use the *Express Generator* to generate a skeleton directory structure for a new
 express robots_app --ejs
 ````
 
-> NOTE: The `--ejs` flag specifies our choice to use *EJS* as a view template engine.
+> NOTE: The `--ejs` flag specifies our choice to use *EJS* as a view template engine instead of the default template engine, *Jade*.
 
 This command should create the following files:
 
@@ -93,7 +93,7 @@ Update `.gitignore` according to the following template:
 node_modules/
 ````
 
-## Running Local Web Server
+## Running a Local Web Server
 
 Run the development web server.
 
@@ -132,4 +132,4 @@ Restart the web server.
 DEBUG=robots_app:* npm start
 ````
 
-Congratulations, now you're ready to [configure your application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/).
+Congratulations, now we're ready to [configure the application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/).

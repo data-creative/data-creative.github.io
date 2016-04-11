@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 1 (Choosing a Stack)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-repo_url: ______________
-project_url: https://express-robots.herokuapp.com/
+#repo_url: ______________
+#project_url: https://express-robots.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -38,7 +38,7 @@ Let's assume your main objective is to gain familiarity with *Node*, so you woul
 
 *Express* is an indispensable part of the stack, as it handles the web server and application logic. *Rails* developers can think of *Express* as an application framework like *Rails*.
 
-We have more flexibility in the areas of the datastore and the front-end framework.
+So far we're committed to learning *Node* and *Express*. But we have more flexibility in the areas of the datastore and the front-end framework.
 
 For the datastore, there are two basic options: *MongoDB* or a relational database. Most *Rails* developers should be familiar with open source relational databases like *MySQL* and *PostgreSQL*. Because its easy enough to learn *MongoDB*, this series will cover both *MongoDB* and *PostgreSQL*.
 
