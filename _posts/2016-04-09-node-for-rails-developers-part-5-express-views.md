@@ -18,13 +18,13 @@ technologies:
 
 > This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
-## Create View Partials
+## Creating Views
 
-Let's add view partials. These will represent re-usable parts of the page.
+### Shared Views
+
+Let's add view partials, which represent re-usable parts of the page.
 
 ```` sh
-mv views/error.ejs app/views/_error.ejs
-rm -rf views/
 touch app/views/_footer.ejs
 touch app/views/_head.ejs
 touch app/views/_header.ejs
@@ -48,7 +48,7 @@ touch app/views/_header.ejs
 
 > NOTE: if you don't like underscored file names, feel free to use non-underscorized file names instead.
 
-### Create Robot Views
+### Robot Views
 
 Now let's add more views to handle basic CRUD functionality for our robots app, including robot-specific views and view partials.
 

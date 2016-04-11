@@ -19,14 +19,12 @@ credits:
 
 > This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
 
-## Create Controllers
+## Creating Controllers
 
 Let's add the application's controllers.
 
 ```` sh
-mv routes/index.js app/controllers/home_controller.js
 touch app/controllers/robots_controller.js
-rm -rf routes/
 ````
 
 Edit the controllers using the below file templates:
