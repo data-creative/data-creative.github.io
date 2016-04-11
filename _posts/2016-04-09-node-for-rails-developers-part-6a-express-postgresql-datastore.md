@@ -2,7 +2,7 @@
 layout: post
 title:  "Node.js for Rails developers, Part 6a (PostgreSQL Datastore)"
 author: MJ Rossetti
-published: false
+published: true
 img: nodejs-logo-green.png
 repo_url: ______________
 project_url: https://express-robots.herokuapp.com/
@@ -16,19 +16,15 @@ technologies:
  - postgresql
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
+This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After enabling basic navigation, it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
 
-In this post, we will connect the application to a *PostgreSQL* datastore.
+## *PostgreSQL* Prerequisites
 
-
-
-
-
-## Install PostgreSQL
+### Installing *PostgreSQL*
 
 Follow [these instructions](http://data-creative.info/process-documentation/2015/07/18/how-to-set-up-a-mac-development-environment/#postgresql) to install *PostgreSQL* on your local machine, if necessary. Many *Rails* developers should already have *PostgreSQL* installed.
 
-## Create Database User
+### Creating a New Database User
 
 Create a new database user called `robot` and grant superuser privileges.
 
@@ -40,7 +36,7 @@ ALTER USER robot WITH SUPERUSER;
 \q
 ````
 
-## Create Database
+## Database Directory
 
 *Rails* developers should be familiar with a `db/` directory which contains database-related scripts. We'll adopt these conventions for our *Node* app as well.
 
@@ -54,6 +50,10 @@ Edit `db/create.sql` according to the following template:
 ```` sql
 -- db/create.sql
 ````
+
+## Creating a New Database
+
+
 
 Finally, run the database creation script. *Rails* developers should find this familiar to running `rake db:create`.
 
@@ -69,7 +69,7 @@ psql -U robot --password -d postgres -f $(pwd)/db/create.sql
 
 
 
-## Install Package Dependencies
+## Installing Package Dependencies
 
 To interface with *PostgreSQL*, we'll use the *pg* module.
 
@@ -86,7 +86,7 @@ npm install knex -g
 
 > We need to install *Knex* globally to invoke its command line utility.
 
-## Configure Database Connection
+## Configuring Database Connection
 
 Initialize a new database configuration file.
 
@@ -109,7 +109,7 @@ Use the file templates below to configure the database connection and schema.
 
 
 
-## Migrate the Database
+## Migrating the Database
 
 Migrating the database creates all the tables we need. For this application, we only need one table, called `robots`.
 
@@ -134,7 +134,7 @@ Run migrations.
 knex migrate:latest --knexfile db/config.js
 ````
 
-## Seed the Database
+## Seeding the Database
 
 Seeding the database will populate it with example records.
 
@@ -159,4 +159,4 @@ knex seed:run --knexfile db/config.js
 
 
 
-## Modify Controller Actions
+## Modifying Controller Actions

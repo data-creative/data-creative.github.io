@@ -15,7 +15,7 @@ technologies:
  - express.js
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After discussing technology options in the [first post](/process-documentation/2016/04/09/node-for-rails-developers-part-1-choose-stack/), we're ready to get started with the essential technologies - *Node* and *Express*. The goal of this post is to generate a new application and view it in a local web browser.
+This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [discussing technology options](/process-documentation/2016/04/09/node-for-rails-developers-part-1-choose-stack/), we're ready to get started with the essential technologies - *Node* and *Express*. The goal of this post is to generate a new application and view it in a local web browser.
 
 ## Installing Node
 
@@ -71,7 +71,7 @@ This command should create the following files:
 
 Don't worry if you're unfamiliar with the location and purpose of each of these files. Throughout this series, we will modify our application's directory structure and file names to resemble *Rails* conventions, and the similarities between *Express* and *Rails* will be become more clear.
 
-## Installing Dependencies
+### Installing Dependencies
 
 The role of the `package.json` file is to declare package dependencies. *Rubyists* can think of it like a `Gemfile`.
 

@@ -15,7 +15,7 @@ technologies:
  - express.js
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After generating a new application in the [second post](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
+This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
 
 ## Directory Structure
 

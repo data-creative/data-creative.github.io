@@ -17,7 +17,7 @@ credits:
  - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
+This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
 
 ## Creating Controllers
 
@@ -160,4 +160,6 @@ router.post('/robots/:id/destroy', function(req, res, next) {
 module.exports = router;
 ````
 
-With each `res.redirect() and res.render()`, we are referencing *EJS* views. Let's [create them now](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/).
+This controller logic should enable basic application navigation and flash messaging. Database functionality will be added in a database-specific post later in the series.
+
+Each call to `res.redirect()` or `res.render()`references the name of an *EJS* view file. Let's [create these views](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/) now.
