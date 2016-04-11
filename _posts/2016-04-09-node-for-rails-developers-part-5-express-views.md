@@ -31,6 +31,8 @@ touch app/views/_bootstrap_flash_messages.ejs
 touch app/views/_footer.ejs
 ````
 
+Edit the files according to the following templates:
+
 ```` html
 <!-- app/views/_head.ejs -->
 
@@ -106,12 +108,13 @@ touch app/views/robots/show.ejs
 touch app/views/robots/new.ejs
 touch app/views/robots/edit.ejs
 touch app/views/robots/_form.ejs
+
 mkdir -p app/views/robots/table
 touch app/views/robots/table/_row.ejs
 touch app/views/robots/table/_header_row.ejs
 ````
 
-In this example, the index page and the show page share a table partial.
+Edit the files according to the following templates:
 
 ```` html
 <!-- app/views/robots/index.ejs -->
@@ -265,7 +268,7 @@ In this example, the index page and the show page share a table partial.
 </tr>
 ````
 
-You'll notice repetition of the same page components across multiple views (see `new`, `____.ejs`, `_____.ejs`). Unfortunately *Express* and *EJS* does not have a similar concept as *Rails*' `yield` method.
+> NOTE: You'll notice undesired repetition of code across `index.ejs`, `show.ejs`, `new.ejs`, and `edit.ejs`. The `express-ejs-layouts` module enables us to use a common application layout, but it conflicts with our custom bootstrap-styled flash messages, so in preference for app functionality over code DRY-ness, we will stick with these views for now.
 
 
 
@@ -285,7 +288,7 @@ You'll notice repetition of the same page components across multiple views (see 
 
 At this point, you should be able to click around the application without breaking anything, even though database functionality is still missing.
 
-![robots app index page screenshot](/img/posts/express-robots-index.png)
+![robots app index page screenshot](/img/posts/express-robots-index-bootstrap-flash.png)
 
 It's time to enhance this application's functionality by connecting a datastore. Choose your own adventure (6a or 6b):
 
