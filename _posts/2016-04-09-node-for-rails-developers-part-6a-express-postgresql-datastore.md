@@ -290,7 +290,7 @@ router.post('/robots', function(req, res, next) {
                 if (bots.length > 0) {
                     var bot = bots[0];
                     console.log(bot)
-                    req.flash('error', 'Found an Existing Robot named '+robot_name );
+                    req.flash('danger', 'Found an Existing Robot named '+robot_name );
                     //res.redirect('/robots')
                     res.render('robots/new', {
                         page_title: 'Add a new Robot',
