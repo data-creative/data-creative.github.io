@@ -452,4 +452,4 @@ At this point you should be able to use the front-end interface to create, read,
 ![robots app index page screenshot with new robot](/img/posts/express-robots-index-with-created-robot.png)
 
 
-We're almost ready to [push this application to production](process-documentation/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).
+We're almost ready to [push this application to production](/process-documentation/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).
