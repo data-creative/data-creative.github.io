@@ -117,7 +117,7 @@ npm install nodemon -g
 
 Modify the web server start script in `package.json` to invoke `nodemon` instead of `node`.
 
-````
+```` js
 // package.json
 ...
   "scripts": {

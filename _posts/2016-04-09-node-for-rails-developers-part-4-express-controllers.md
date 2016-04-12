@@ -127,34 +127,34 @@ router.get('/robots/:id', function(req, res, next) {
 /* EDIT */
 
 router.get('/robots/:id/edit', function(req, res, next) {
-  var robot_id = req.params.id
-  var robot = robots.find(function(r){ return r.id == robot_id; });
-  console.log("EDIT ROBOT:", robot)
-  res.render('robots/edit', {
-    page_title: 'Edit Robot #'+robot.id,
-    robot: robot
-  });
+    var robot_id = req.params.id
+    var robot = robots.find(function(r){ return r.id == robot_id; });
+    console.log("EDIT ROBOT:", robot)
+    res.render('robots/edit', {
+        page_title: 'Edit Robot #'+robot.id,
+        robot: robot
+    });
 });
 
 /* UPDATE */
 
 router.post('/robots/:id/update', function(req, res, next) {
-  console.log("CATURED FORM DATA", req.body)
-  var robot_id = req.params.id
-  var robot = robots.find(function(r){ return r.id == robot_id; });
-  console.log("UPDATE ROBOT:", robot)
-  req.flash('success', 'Updated Robot #'+robot_id );
-  res.redirect('/robots')
+    console.log("CATURED FORM DATA", req.body)
+    var robot_id = req.params.id
+    var robot = robots.find(function(r){ return r.id == robot_id; });
+    console.log("UPDATE ROBOT:", robot)
+    req.flash('success', 'Updated Robot #'+robot_id );
+    res.redirect('/robots')
 });
 
 /* DESTROY */
 
 router.post('/robots/:id/destroy', function(req, res, next) {
-  var robot_id = req.params.id
-  var robot = robots.find(function(r){ return r.id == robot_id; });
-  console.log("DELETED ROBOT:", robot)
-  req.flash('success', 'Deleted Robot #'+robot_id );
-  res.redirect('/robots')
+    var robot_id = req.params.id
+    var robot = robots.find(function(r){ return r.id == robot_id; });
+    console.log("DELETED ROBOT:", robot)
+    req.flash('success', 'Deleted Robot #'+robot_id );
+    res.redirect('/robots')
 });
 
 module.exports = router;

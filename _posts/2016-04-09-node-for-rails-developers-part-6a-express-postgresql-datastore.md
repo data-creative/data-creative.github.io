@@ -241,7 +241,7 @@ We want the application to display robots from the database, not from a hard-cod
 
 Modify `app/controllers/robots_controller.js` according to the following template:
 
-```` html
+```` js
 var express = require('express');
 var router = express.Router();
 var knex = require("../../db");
