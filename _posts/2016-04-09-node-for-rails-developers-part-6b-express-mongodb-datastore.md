@@ -16,4 +16,4 @@ technologies:
  - mongodb
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
+This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *MongoDB* datastore.

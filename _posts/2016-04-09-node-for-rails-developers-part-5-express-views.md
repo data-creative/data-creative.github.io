@@ -284,7 +284,7 @@ Edit the files according to the following templates:
 
 
 
-## Restarting Local Server
+## Checkpoint
 
 At this point, you should be able to click around the application without breaking anything, even though database functionality is still missing.
 
@@ -292,5 +292,5 @@ At this point, you should be able to click around the application without breaki
 
 It's time to enhance this application's functionality by connecting a datastore. Choose your own adventure (6a or 6b):
 
- + [Part 6a (*PostgreSQL* Datastore)](/process-documentation/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/) -- COMING SOON
+ + [Part 6a (*PostgreSQL* Datastore)](/process-documentation/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/)
  + [Part 6b (*MongoDB* Datastore)](/process-documentation/2016/04/09/node-for-rails-developers-part-6b-express-mongodb-datastore/) -- COMING SOON
