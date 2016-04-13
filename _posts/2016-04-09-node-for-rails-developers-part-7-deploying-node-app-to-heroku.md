@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 7 (Deploying to Heroku)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-sticky-notes.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -13,12 +13,16 @@ technologies:
   - node.js
   - npm
   - express.js
+  - twitter-bootstrap
   - postgresql
   - mongodb
   - heroku
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). In one of the two alternative previous posts, we connected our application to a datastore ([*PostgreSQL*](/process-documentation/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/) or [*MongoDB*](/process-documentation/2016/04/09/node-for-rails-developers-part-6b-express-mongodb-datastore/)). In this post we will deploy our *Node* app to a production *Heroku* server. There are some minor differences in the process depending on your choice of datastore.
+> This post is part of a series for *Rails* developers who want to get started with *Node.js*.
+  In one of the two alternative previous posts, we connected our application to a datastore ([*PostgreSQL*](/process-documentation/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/) or [*MongoDB*](/process-documentation/2016/04/09/node-for-rails-developers-part-6b-express-mongodb-datastore/)).
+  In this post we will deploy our *Node* app to a production *Heroku* server.
+  There are some minor differences in the process depending on your choice of datastore.
 
 <hr>
 
@@ -268,4 +272,4 @@ heroku open
 
 <hr>
 
-That concludes this series of posts to help *Rails* developers learn *Node*. Thanks for following along. Leave a comment if you found the series helpful.
+> That concludes this series of posts to help *Rails* developers learn *Node*. Thanks for following along. Leave a comment if you found the series helpful or if you have questions.

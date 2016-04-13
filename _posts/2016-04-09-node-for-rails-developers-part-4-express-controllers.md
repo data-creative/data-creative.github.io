@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 4 (Express Controllers)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-robots.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -15,9 +15,10 @@ technologies:
  - express.js
 credits:
  - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+
 ---
 
-This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
+> This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
 
 <hr>
 

@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 2 (Node and Express)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-robots.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -15,7 +15,9 @@ technologies:
  - express.js
 ---
 
-This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [discussing technology options](/process-documentation/2016/04/09/node-for-rails-developers-part-1-choose-stack/), we're ready to get started with the essential technologies - *Node* and *Express*. The goal of this post is to generate a new application and view it in a local web browser.
+> This post is part of a series for *Rails* developers who want to get started with *Node.js*.
+  After [discussing technology options](/process-documentation/2016/04/09/node-for-rails-developers-part-1-choose-stack/), we're ready to get started with the essential technologies - *Node* and *Express*.
+  The goal of this post is to generate a new application and view it in a local web browser.
 
 <hr>
 

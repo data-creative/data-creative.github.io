@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 1 (Choosing a Stack)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-robots.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -15,7 +15,7 @@ technologies:
  - mongodb
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
+> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
  The goal of this post is to introduce popular *Node* technologies and provide *Rails*-friendly recommendations.
 
 <hr>

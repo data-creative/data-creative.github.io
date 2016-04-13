@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 3 (Express Configuration)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-robots.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -15,7 +15,7 @@ technologies:
  - express.js
 ---
 
-This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
+> This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
 
 <hr>
 

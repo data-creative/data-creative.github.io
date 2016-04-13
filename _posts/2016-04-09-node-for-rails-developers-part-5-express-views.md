@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 5 (Express Views)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-robots.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -16,7 +16,7 @@ technologies:
  - twitter-bootstrap
 ---
 
-This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
+> This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
 
 <hr>
 

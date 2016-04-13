@@ -4,8 +4,8 @@ title:  "Node.js for Rails developers, Part 6a (PostgreSQL Datastore)"
 author: MJ Rossetti
 published: true
 img: nodejs-logo-green.png
-#repo_url: ______________
-#project_url: https://express-robots.herokuapp.com/
+repo_url: https://github.com/data-creative/express-on-rails-starter-app/
+project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
  - process-documentation
 technologies:
@@ -13,10 +13,12 @@ technologies:
  - node.js
  - npm
  - express.js
+ - twitter-bootstrap
  - postgresql
 ---
 
-This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
+> This post is part of a series for *Rails* developers who want to get started with *Node.js*.
+  After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
 
 <hr>
 
