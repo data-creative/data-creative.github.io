@@ -15,7 +15,9 @@ technologies:
  - express.js
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
+This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
+
+<hr>
 
 ## Directory Structure
 
@@ -111,19 +113,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'app/assets'))); // EDIT! recognizes static files stored in the app/assets directory. was: app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
-   cookie: { maxAge: 60000 },
-   store: sessionStore,
-   secret: process.env.SESSION_SECRET || 'robots-session-secret',
-   name: 'robots-session-name',
-   resave: true,
-   saveUninitialized: true
+    cookie: { maxAge: 60000 },
+    store: sessionStore,
+    secret: process.env.SESSION_SECRET || 'robots-session-secret',
+    name: 'robots-session-name',
+    resave: true,
+    saveUninitialized: true
  })); // ADDITION! configures session storage; required for flash messages
 
 app.use(flash()); // ADDITION! enables the application to use the flash module
 
 app.use(function (req, res, next) {
- res.locals.messages = require('express-messages')(req, res);
- next();
+    res.locals.messages = require('express-messages')(req, res);
+    next();
 }); // ADDITION! enables storage of flash messages and makes them accessable to views. must be placed below app.use(cookieParser()) section, and above app.use('/', routes) section
 
 app.use('/', home_routes); // EDIT! orients the location of home paths relative to the root url, "/". was: app.use('/', routes);
@@ -131,9 +133,9 @@ app.use('/', robot_routes); // EDIT! orients the location of robot paths relativ
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
 // error handlers
@@ -141,23 +143,23 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('_error', { // EDIT! recognizes a renamed view template for errors. file name was: res.render('error', {
-      message: err.message,
-      error: err
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('_error', { // EDIT! recognizes a renamed view template for errors. file name was: res.render('error', {
+            message: err.message,
+            error: err
+        });
     });
-  });
 }
 
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('_error', { // EDIT! recognizes a renamed view template for errors. file name was: res.render('error', {
-    message: err.message,
-    error: {}
-  });
+    res.status(err.status || 500);
+    res.render('_error', { // EDIT! recognizes a renamed view template for errors. file name was: res.render('error', {
+        message: err.message,
+        error: {}
+    });
 });
 
 module.exports = app;
@@ -176,4 +178,4 @@ npm install moment-timezone --save
 
 > NOTE: Passing the `--save` option automatically registers the module as a dependency in the application's `package.json` file.
 
-OK, now we're ready to use these libraries in our [controllers and views](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/).
+OK, now we're ready to use these modules in our [controllers and views](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/).

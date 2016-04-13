@@ -16,7 +16,9 @@ technologies:
  - twitter-bootstrap
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views.
+This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
+
+<hr>
 
 ## Creating Views
 
@@ -31,9 +33,11 @@ touch app/views/_bootstrap_flash_messages.ejs
 touch app/views/_footer.ejs
 ````
 
+> NOTE: Underscored file names denote view partials (incomplete pages).
+
 Edit the files according to the following templates:
 
-```` html
+```` erb
 <!-- app/views/_head.ejs -->
 
 <head>
@@ -43,7 +47,7 @@ Edit the files according to the following templates:
 </head>
 ````
 
-```` html
+```` erb
 <!-- app/views/_header.ejs -->
 
 <header>
@@ -60,7 +64,7 @@ Edit the files according to the following templates:
 <h2><%= page_title %></h2>
 ````
 
-```` html
+```` erb
 <!-- app/views/_bootstrap_flash_messages.ejs -->
 
 <% if(messages){ %>
@@ -75,7 +79,7 @@ Edit the files according to the following templates:
 <% } %>
 ````
 
-```` html
+```` erb
 <!-- app/views/_footer.ejs -->
 
 <hr style="margin-top:2em;">
@@ -95,7 +99,7 @@ Edit the files according to the following templates:
 </script>
 ````
 
-> NOTE: Underscored file names denote view partials (incomplete pages).
+In these view partials, we're installing *Twitter Bootstrap* and designing our site's navigation and flash messages.
 
 ### Robot Views
 
@@ -116,7 +120,7 @@ touch app/views/robots/table/_header_row.ejs
 
 Edit the files according to the following templates:
 
-```` html
+```` erb
 <!-- app/views/robots/index.ejs -->
 
 <!DOCTYPE html>
@@ -137,7 +141,7 @@ Edit the files according to the following templates:
 </html>
 ````
 
-```` html
+```` erb
 <!-- app/views/robots/show.ejs -->
 
 <!DOCTYPE html>
@@ -156,7 +160,7 @@ Edit the files according to the following templates:
 </html>
 ````
 
-```` html
+```` erb
 <!-- app/views/robots/new.ejs -->
 
 <!DOCTYPE html>
@@ -172,7 +176,7 @@ Edit the files according to the following templates:
 </html>
 ````
 
-```` html
+```` erb
 <!-- app/views/robots/edit.ejs -->
 
 <!DOCTYPE html>
@@ -188,20 +192,15 @@ Edit the files according to the following templates:
 </html>
 ````
 
-```` html
+```` erb
 <!-- app/views/robots/_form.ejs -->
 
 <% if(locals.robot){ %>
-  <% var action = '/robots/'+robot.id+'/update' %>
-  <% var method = 'POST' %>
   <% var robot_name = robot.name %>
   <% var robot_description = robot.description %>
-<% } else { %>
-  <% var action = '/robots/' %>
-  <% var method = 'POST' %>
 <% }; %>
 
-<form class="form-horizontal" method="<%= method %>" action="<%= action %>">
+<form class="form-horizontal" method="POST" action="<%= locals.form_action %>">
   <div class="form-group">
     <label for="robotName" class="col-sm-2 control-label">Name</label>
     <div class="col-sm-10">
@@ -224,7 +223,7 @@ Edit the files according to the following templates:
 </form>
 ````
 
-```` html
+```` erb
 <!-- app/views/robots/table/_header_row.ejs -->
 
 <tr>
@@ -238,7 +237,7 @@ Edit the files according to the following templates:
 </tr>
 ````
 
-```` html
+```` erb
 <!-- app/views/robots/table/_row.ejs -->
 
 <% robot_path = '/robots/'+robot.id %>
@@ -282,7 +281,7 @@ Edit the files according to the following templates:
 
 
 
-
+<hr>
 
 ## Checkpoint
 

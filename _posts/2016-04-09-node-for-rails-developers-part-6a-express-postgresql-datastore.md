@@ -16,7 +16,9 @@ technologies:
  - postgresql
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
+This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
+
+<hr>
 
 ## *PostgreSQL* Prerequisites
 
@@ -95,7 +97,7 @@ mv knexfile.js db/config.js
 touch db.js
 ````
 
-Use the file templates below to configure the database connection and schema.
+Use the file templates below to configure the database connection.
 
 ```` js
 // db.js
@@ -144,13 +146,13 @@ module.exports = {
 
 ## Migrating the Database
 
-For this application, we only need one table, called `robots`. Generate a new table migration called `create_robots`.
+It's time to specify the database schema. For this application, we only need one table, called `robots`. Use *Knex* to generate a new table migration called `create_robots`.
 
 ```` sh
 knex migrate:make create_robots --knexfile db/config.js
 ````
 
-This command will create a file named something like `db/migrations/20160410205446_create_robots.js`.
+This command creates a file named something like `db/migrations/20160410205446_create_robots.js`.
 Edit this migration file according to the following template:
 
 ```` js
@@ -247,6 +249,9 @@ var router = express.Router();
 var knex = require("../../db");
 
 var create_robot_path = '/robots/';
+function updateRobotPath(robot_id){
+    return '/robots/'+robot_id+'/update';
+};
 
 /* INDEX */
 
@@ -291,7 +296,6 @@ router.post('/robots', function(req, res, next) {
                     var bot = bots[0];
                     console.log(bot)
                     req.flash('danger', 'Found an Existing Robot named '+robot_name );
-                    //res.redirect('/robots')
                     res.render('robots/new', {
                         page_title: 'Add a new Robot',
                         form_action: create_robot_path,
@@ -311,7 +315,6 @@ router.post('/robots', function(req, res, next) {
 });
 
 /* NEW */
-
 // this must come above the SHOW action else express will think the word 'new' is the :id
 
 router.get('/robots/new', function(req, res, next) {
@@ -348,7 +351,6 @@ router.get('/robots/:id', function(req, res, next) {
 
 router.get('/robots/:id/edit', function(req, res, next) {
     var robot_id = req.params.id;
-    var update_robot_path = '/robots/'+robot_id+'/update';
     knex("robots")
         .where({id: robot_id})
         .then(function(bots){
@@ -358,7 +360,7 @@ router.get('/robots/:id/edit', function(req, res, next) {
                 res.render('robots/edit', {
                     page_title: 'Edit Robot #'+bot.id,
                     robot: bot,
-                    form_action: update_robot_path
+                    form_action: updateRobotPath(bot.id)
                 });
             } else {
                 console.log("COULDN'T FIND ROBOT #"+robot_id);
@@ -375,7 +377,6 @@ router.post('/robots/:id/update', function(req, res, next) {
     var robot_id = req.params.id;
     var robot_name = req.body.robotName;
     var robot_description = req.body.robotDescription;
-    var update_robot_path = '/robots/'+robot_id+'/update';
 
     if (!robot_name || !robot_description) {
         console.log("DETECTED BLANK (BUT NOT NULL) ATTRIBUTE VALUES")
@@ -389,7 +390,7 @@ router.post('/robots/:id/update', function(req, res, next) {
 
         res.render('robots/edit', {
             page_title: 'Edit Robot #'+robot_id,
-            form_action: update_robot_path,
+            form_action: updateRobotPath(robot_id),
             robot: {name: robot_name, description: robot_description} // pass-back attempted values to the form in case one was not blank
         });
     } else {
@@ -422,7 +423,7 @@ router.post('/robots/:id/destroy', function(req, res, next) {
 module.exports = router;
 ````
 
-In *Knex*, the [`.then()` method](http://knexjs.org/#Promises-then) specifies a block of code to be executed after the query has been executed asynchronously.
+> NOTE: In *Knex* and other promise-based modules, the [`.then()` method](http://knexjs.org/#Promises-then) specifies a block of code to be executed after the query has been executed asynchronously.
 
 
 
@@ -443,6 +444,7 @@ In *Knex*, the [`.then()` method](http://knexjs.org/#Promises-then) specifies a 
 
 
 
+<hr>
 
 ## Checkpoint
 
@@ -452,4 +454,4 @@ At this point you should be able to use the front-end interface to create, read,
 ![robots app index page screenshot with new robot](/img/posts/express-robots-index-with-created-robot.png)
 
 
-We're almost ready to [push this application to production](/process-documentation/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).
+Nice job. After a few more steps, we'll be ready to [push this application to production](/process-documentation/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).

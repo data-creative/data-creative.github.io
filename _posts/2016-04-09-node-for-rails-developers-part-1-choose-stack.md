@@ -18,6 +18,8 @@ technologies:
 This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
  The goal of this post is to introduce popular *Node* technologies and provide *Rails*-friendly recommendations.
 
+<hr>
+
 ## The *MEAN Stack*
 
 The *MEAN Stack* is one of today's [popular technology stacks](http://techstacks.io/) for web development.

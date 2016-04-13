@@ -20,6 +20,7 @@ technologies:
 
 This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). In one of the two alternative previous posts, we connected our application to a datastore ([*PostgreSQL*](/process-documentation/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/) or [*MongoDB*](/process-documentation/2016/04/09/node-for-rails-developers-part-6b-express-mongodb-datastore/)). In this post we will deploy our *Node* app to a production *Heroku* server. There are some minor differences in the process depending on your choice of datastore.
 
+<hr>
 
 ## *Heroku* Prerequisites
 
@@ -90,6 +91,8 @@ Edit `Procfile` according to the following template:
 web: node ./bin/www
 ````
 
+> NOTE: We're not using *Nodemon* in production.
+
 ### Engines and Deploy Scripts
 
 Modify `package.json` to include engines and deploy scripts, as necessary. Find your own engine versions with `node -v` and `npm -v`, respectively. Specify database preparation commands and other start-up scrips using the `scripts["heroku-prebuild"]` and `scripts["heroku-postbuild"]` configuration variables. These commands will be run during each deployment. Edit `package.json` according to the following template:
@@ -105,8 +108,8 @@ Modify `package.json` to include engines and deploy scripts, as necessary. Find 
   },
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "echo This is for running tests like mocha.",
-    "postinstall": "echo This is when you would run bower install && grunt build.",
+    "test": "echo This is for running tests like ... mocha.",
+    "postinstall": "echo This is when you would run ... bower install && grunt build.",
     "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
     "heroku-postbuild": "echo This runs afterwards."
   },
@@ -207,7 +210,6 @@ heroku open
 
 
 
+<hr>
 
-
-
-Thanks for following this series. Leave a comment if you found it helpful.
+That concludes this series of posts to help *Rails* developers learn *Node*. Thanks for following along. Leave a comment if you found the series helpful.
