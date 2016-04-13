@@ -39,15 +39,18 @@ heroku create
 heroku apps:rename new-app-name
 ````
 
-## Configuring Production Environment Variables
+## Heroku Application Configuration
 
-Set environment variable(s), including a `SESSION_SECRET`.
+Generate a secure random string. Then set it as an environment variable called `SESSION_SECRET`.
 
 ```` sh
 heroku config:set SESSION_SECRET=s0m3l0ngstr1ng123456
 ````
 
+> To generate a secure random string, try running `rake secret` in the root directory of one of your rails projects.
+
 > *Heroku* sets other environment variables, including `NODE_ENV=production` during deploy.
+
 
 ## Installing Addons
 
@@ -97,7 +100,7 @@ web: node ./bin/www
 
 Modify `package.json` to include engines and deploy scripts, as necessary. Find your own engine versions with `node -v` and `npm -v`, respectively. Specify database preparation commands and other start-up scrips using the `scripts["heroku-prebuild"]` and `scripts["heroku-postbuild"]` configuration variables. These commands will be run during each deployment. Edit `package.json` according to the following template:
 
-```` js
+```` json
 // package.json
 
 {
@@ -108,23 +111,28 @@ Modify `package.json` to include engines and deploy scripts, as necessary. Find 
   },
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "echo This is for running tests like ... mocha.",
-    "postinstall": "echo This is when you would run ... bower install && grunt build.",
-    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
-    "heroku-postbuild": "echo This runs afterwards."
+    "test": "echo 'This is for running tests like ... mocha.')",
+    "postinstall": "echo 'This is when you would run a bower installation or grunt build.')",
+    "heroku-prebuild": "echo 'This runs before Heroku installs your dependencies.'",
+    "heroku-postbuild": "echo 'This runs afterwards.'"
   },
-  "dependencies": {
-    // ...
-  }
+  // ...
 }
 ````
 
-If you chose the *PostgreSQL* datastore, specify the following commands to migrate and seed the production database upon each deployment:
+Specify command(s) to migrate and seed the production database upon each deployment.
+
+*PostgreSQL*:
 
 ```` sh
 "heroku-postbuild": "knex migrate:latest --knexfile db/config.js && knex seed:run --knexfile db/config.js"
 ````
 
+*MongoDB*:
+
+```` sh
+"heroku-postbuild": "node db/seed.js"
+````
 
 ### Production Session Storage
 
@@ -161,7 +169,56 @@ As soon as the web server restarts, you should notice a new database table calle
 
 #### Option B - *MongoDB* Session Store
 
-*COMING SOON*
+If you chose a *MongoDB* datastore, let's use the `connect-mongo` module to handle session storage.
+
+```` sh
+npm install connect-mongo --save
+````
+
+Configure the application to use this module by editing the contents of `app.js` according to the following template:
+
+```` js
+// ...
+
+var MongoStore = require('connect-mongo')(session); // MONGO PRODUCTION ADDITION! uses pg database for session storage
+
+// ...
+
+var sessionStore = new MongoStore({ mongooseConnection: db.connection }); // MONGO PRODUCTION EDIT! uses mongo for session storage. was: var sessionStore = new session.MemoryStore;
+
+// ...
+````
+
+As soon as the web server restarts, you should notice a new database collection called `sessions`. Click around the application to see the collection populate with new session information.
+
+```` sh
+mongo
+> show dbs
+> use robots_dev
+> show collections
+> db.sessions.find()
+````
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,7 +250,6 @@ From another branch:
 ```` sh
 git push heroku mybranch:master
 ````
-
 
 Congratulations. You should now be able to view your application on the web.
 
