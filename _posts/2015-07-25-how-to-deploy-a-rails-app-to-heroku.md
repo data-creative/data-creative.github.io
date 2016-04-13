@@ -70,11 +70,16 @@ Specify buildpacks in a **.buildpacks** file:
 
 ## Deployment
 
-Deploy:
+From master branch:
 
 ````sh
 git push heroku master
-heroku open
+````
+
+From another branch:
+
+```` sh
+git push heroku mybranch:master
 ````
 
 ## Suppress Warnings

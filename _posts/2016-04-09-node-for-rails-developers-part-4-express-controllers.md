@@ -17,7 +17,9 @@ credits:
  - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
 ---
 
-This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/). After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
+This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
+
+<hr>
 
 ## Creating Controllers
 
@@ -37,8 +39,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("VISITED THE HOME PAGE")
-  res.redirect('/robots')
+    console.log("VISITED THE HOME PAGE")
+    res.redirect('/robots')
 });
 
 module.exports = router;
@@ -99,7 +101,8 @@ router.post('/robots', function(req, res, next) {
 router.get('/robots/new', function(req, res, next) {
     console.log("NEW ROBOT")
     res.render('robots/new', {
-        page_title: 'Add a new Robot'
+        page_title: 'Add a new Robot',
+        form_action: '/robots/'
     });
 });
 
@@ -111,9 +114,6 @@ router.get('/robots/:id', function(req, res, next) {
     if (typeof(robot) != "object") {
         console.log("COULDN'T SHOW ROBOT #"+robot_id)
         req.flash('danger', "DANGER - Couldn't find Robot #"+robot_id);
-        req.flash('warning', "WARNING!");
-        req.flash('info', "INFO!");
-        req.flash('success', "SUCCESS!");
         res.redirect('/robots')
     } else {
       console.log("SHOW ROBOT:", robot)
@@ -127,39 +127,38 @@ router.get('/robots/:id', function(req, res, next) {
 /* EDIT */
 
 router.get('/robots/:id/edit', function(req, res, next) {
-  var robot_id = req.params.id
-  var robot = robots.find(function(r){ return r.id == robot_id; });
-  console.log("EDIT ROBOT:", robot)
-  res.render('robots/edit', {
-    page_title: 'Edit Robot #'+robot.id,
-    robot: robot
-  });
+    var robot_id = req.params.id
+    var robot = robots.find(function(r){ return r.id == robot_id; });
+    console.log("EDIT ROBOT:", robot)
+    res.render('robots/edit', {
+        page_title: 'Edit Robot #'+robot_id,
+        form_action: '/robots/'+robot_id+'/update',
+        robot: robot
+    });
 });
 
 /* UPDATE */
 
 router.post('/robots/:id/update', function(req, res, next) {
-  console.log("CATURED FORM DATA", req.body)
-  var robot_id = req.params.id
-  var robot = robots.find(function(r){ return r.id == robot_id; });
-  console.log("UPDATE ROBOT:", robot)
-  req.flash('success', 'Updated Robot #'+robot_id );
-  res.redirect('/robots')
+    console.log("CATURED FORM DATA", req.body)
+    var robot_id = req.params.id
+    var robot = robots.find(function(r){ return r.id == robot_id; });
+    console.log("UPDATE ROBOT:", robot)
+    req.flash('success', 'Updated Robot #'+robot_id );
+    res.redirect('/robots')
 });
 
 /* DESTROY */
 
 router.post('/robots/:id/destroy', function(req, res, next) {
-  var robot_id = req.params.id
-  var robot = robots.find(function(r){ return r.id == robot_id; });
-  console.log("DELETED ROBOT:", robot)
-  req.flash('success', 'Deleted Robot #'+robot_id );
-  res.redirect('/robots')
+    var robot_id = req.params.id
+    var robot = robots.find(function(r){ return r.id == robot_id; });
+    console.log("DELETED ROBOT:", robot)
+    req.flash('success', 'Deleted Robot #'+robot_id );
+    res.redirect('/robots')
 });
 
 module.exports = router;
 ````
 
-This controller logic should enable basic application navigation and flash messaging. Database functionality will be added in a database-specific post later in the series.
-
-Each call to `res.redirect()` or `res.render()`references the name of an *EJS* view file. Let's [create these views](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/) now.
+This controller logic enables basic application navigation and flash messaging, even though database connectivity has not yet been established. Each call to `res.redirect()` or `res.render()`references the name of an *EJS* view file. Let's [create these views](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/) now.

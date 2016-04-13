@@ -19,6 +19,7 @@ technologies:
  - python
  - pip
  - node.js
+ - npm
  - lunchy
  - postgresql
  - mysql
@@ -26,6 +27,7 @@ technologies:
  - git
  - javascript
  - sql
+ - heroku
 credits:
   - http://octopress.org/docs/setup/rbenv/
   - https://help.github.com/articles/associating-text-editors-with-git/#using-atom-as-your-editor
@@ -479,4 +481,15 @@ If using the [`rails-erd`](https://github.com/voormedia/rails-erd) gem, satisfy 
 
 ```` sh
 brew install graphviz
+````
+
+## Server Management
+
+### Heroku
+
+Download [heroku toolbelt](https://toolbelt.heroku.com/) to enable `heroku` command line tools.
+
+```` sh
+brew cask install heroku-toolbelt
+heroku login
 ````
