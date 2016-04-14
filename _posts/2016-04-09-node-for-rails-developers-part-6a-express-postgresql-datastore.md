@@ -144,9 +144,7 @@ module.exports = {
 ````
 
 
-
-
-## Migrating the Database
+## Generating Migrations
 
 It's time to specify the database schema. For this application, we only need one table, called `robots`. Use *Knex* to generate a new table migration called `create_robots`.
 
@@ -180,6 +178,8 @@ exports.down = function(knex, Promise) {
     ]);
 };
 ````
+
+## Migrating the Database
 
 Run migrations. *Rails* developers can think of this as replacing the `rake db:migrate` command.
 
