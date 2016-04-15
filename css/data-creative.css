@@ -22,3 +22,11 @@ div.page-heading {
     text-align: left;
   }
 }
+
+
+
+/* CODE HIGHLIGHTING */
+
+pre code {
+    white-space: pre;
+}

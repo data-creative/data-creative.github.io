@@ -67,3 +67,7 @@
 ## Other
 
  + http://www.lipsum.com/feed/html
+
+## CSS
+
+ + http://stackoverflow.com/questions/36612856/prevent-line-wraps-of-code-blocks-using-jekyll-kramdown-and-rouge
