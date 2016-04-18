@@ -287,7 +287,7 @@ Edit the files according to the following templates:
 
 At this point, you should be able to click around the application without breaking anything, even though database functionality is still missing.
 
-![robots app index page screenshot](/img/posts/express-robots-index-bootstrap-flash.png)
+![robots app index page screenshot](/assets/img/posts/express-robots-index-bootstrap-flash.png)
 
 It's time to enhance this application's functionality by connecting a datastore. Choose your own adventure (6a or 6b):
 

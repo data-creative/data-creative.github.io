@@ -453,7 +453,7 @@ module.exports = router;
 At this point you should be able to use the front-end interface to create, read, update, and display robots.
 
 
-![robots app index page screenshot with new robot](/img/posts/express-robots-index-with-created-robot.png)
+![robots app index page screenshot with new robot](/assets/img/posts/express-robots-index-with-created-robot.png)
 
 
 Nice job. After a few more steps, we'll be ready to [push this application to production](/process-documentation/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).
