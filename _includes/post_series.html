@@ -1,0 +1,18 @@
+<!-- A Series of Related Posts -->
+<section id="post-list" class="container text-center" style="margin-bottom:1.5em;">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <ul class="list-unstyled">
+      {% for post in site.posts reversed %}
+        {% if post.layout == "post" and post.series == page.series %}
+          <li style="margin-bottom:1em;">
+            <a href="{{ post.url | prepend: site.baseurl }}">{{ post.subtitle }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+
+    </div>
+  </div>
+</section>

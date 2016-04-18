@@ -14,9 +14,12 @@ technologies:
  - npm
  - express.js
  - twitter-bootstrap
+series: node-js-for-rails-developers
+subtitle: "Part 5: Express Views"
+
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
 
 <hr>
 

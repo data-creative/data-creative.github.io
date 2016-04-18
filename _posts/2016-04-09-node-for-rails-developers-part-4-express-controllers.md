@@ -15,10 +15,12 @@ technologies:
  - express.js
 credits:
  - https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+series: node-js-for-rails-developers
+subtitle: "Part 4: Express Controllers"
 
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
 
 <hr>
 

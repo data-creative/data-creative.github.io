@@ -13,9 +13,11 @@ technologies:
  - express.js
  - postgresql
  - mongodb
+series: node-js-for-rails-developers
+subtitle: "Part 1: Choosing a Stack"
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with [*Node.js*](https://nodejs.org/en/).
  The goal of this post is to introduce popular *Node* technologies and provide *Rails*-friendly recommendations.
 
 <hr>

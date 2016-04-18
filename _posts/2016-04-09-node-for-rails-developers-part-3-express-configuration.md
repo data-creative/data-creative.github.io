@@ -13,9 +13,11 @@ technologies:
  - node.js
  - npm
  - express.js
+series: node-js-for-rails-developers
+subtitle: "Part 3: Configuring Express"
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
 
 <hr>
 

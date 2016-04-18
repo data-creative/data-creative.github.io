@@ -13,9 +13,11 @@ technologies:
  - node.js
  - npm
  - express.js
+series: node-js-for-rails-developers
+subtitle: "Part 2: Node and Express"
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with *Node.js*.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*.
   After [discussing technology options](/process-documentation/2016/04/09/node-for-rails-developers-part-1-choose-stack/), we're ready to get started with the essential technologies - *Node* and *Express*.
   The goal of this post is to generate a new application and view it in a local web browser.
 

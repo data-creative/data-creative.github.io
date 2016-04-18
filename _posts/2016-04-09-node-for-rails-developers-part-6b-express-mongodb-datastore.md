@@ -15,9 +15,11 @@ technologies:
  - express.js
  - twitter-bootstrap
  - mongodb
+series: node-js-for-rails-developers
+subtitle: "Part 6b: MongoDB Datastore"
 ---
 
-> This post is part of a series for *Rails* developers who want to get started with *Node.js*.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*.
   After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality.
   This post describes the process of connecting the application to a *MongoDB* datastore.
 
