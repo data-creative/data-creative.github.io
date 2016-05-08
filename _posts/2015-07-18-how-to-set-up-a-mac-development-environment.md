@@ -28,6 +28,8 @@ technologies:
  - javascript
  - sql
  - heroku
+ - redis
+ - elasticsearch
 credits:
   - http://octopress.org/docs/setup/rbenv/
   - https://help.github.com/articles/associating-text-editors-with-git/#using-atom-as-your-editor
@@ -52,6 +54,7 @@ credits:
   - http://postgresapp.com/documentation/gui-tools.html
   - https://docs.mongodb.org/v2.4/tutorial/install-mongodb-on-os-x/
   - https://docs.mongodb.org/manual/mongo/
+  - https://github.com/caskroom/homebrew-cask/issues/9447
 ---
 
 This document describes the process of configuring a new Mac OS-X development environment from scratch.
@@ -472,7 +475,39 @@ db.myCollection.find({x:1}).pretty() # find a record matching given query condit
 ````
 
 
+### Redis
 
+Install redis.
+
+```` sh
+brew install redis -H
+brew info redis
+# brew services start redis
+````
+
+Run redis.
+
+```` sh
+redis-server
+````
+
+### Elasticsearch
+
+Install elasticsearch.
+
+```` sh
+brew install elasticsearch
+````
+
+> NOTE: If you get the error *Java 1.7+ is required to install this formula.*, run:
+  `brew tap caskroom/versions` and
+  `brew cask install java7` and optionally manage java versions with [jenv](http://www.jenv.be/).
+
+Run elasticsearch.
+
+```` sh
+elasticsearch
+````
 
 
 ## Graphing Library
