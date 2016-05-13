@@ -1,31 +1,43 @@
 <section id="contact">
 	<div class="banner">
 		<div class="container">
-
 			<div class="row">
-
         <div class="col-xs-12">
 					<h2 style="margin-bottom:12px;">Contact</h2>
 
           <form class="form-horizontal" action="https://formspree.io/{{ site.email }}" method="POST">
-            <div class="form-group">
-              <label for="inputEmail3" class="col-sm-2 control-label">Your Email Address</label>
+						<div class="form-group">
+              <label for="inputName" class="col-sm-2 control-label">Hi, my name is</label>
               <div class="col-sm-10">
-                <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="email@example.com">
+								<input type="text" name="name" class="form-control" id="inputName" placeholder="your name">
               </div>
             </div>
 
-            <!--div class="form-group">
-              <label for="inputSubject3" class="col-sm-2 control-label">Subject</label>
+						<div class="form-group">
+              <label for="inputEmail" class="col-sm-2 control-label">My email address is</label>
               <div class="col-sm-10">
-                <input type="text" name="_subject" class="form-control" id="inputSubject3" placeholder="Let's Work Together">
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="your.email@example.com">
               </div>
-            </div-->
+            </div>
+
+						<div class="form-group">
+							<label for="selectServices" class="col-sm-2 control-label">I'm contacting about</label>
+							<div class="col-sm-10">
+								<select id="selectServices" class="form-control" name="services">
+									<option disabled selected value="choose">choose a service ...</option>
+									<option value="strategy">Data Strategy</option>
+									<option value="architecture">Data Architecture</option>
+									<option value="engineering">Data Engineering</option>
+									<option value="multiple">Multiple services</option>
+									<option value="not-sure">Not sure</option>
+								</select>
+							</div>
+						</div>
 
             <div class="form-group">
-              <label for="inputContent3" class="col-sm-2 control-label">Your Message</label>
+              <label for="inputProjectDetails" class="col-sm-2 control-label">My project</label>
               <div class="col-sm-10">
-                <textarea type="text" name="content" rows="5" class="form-control" id="inputContent3" placeholder="hello!"></textarea>
+                <textarea type="text" name="content" rows="5" class="form-control" id="inputProjectDetails" placeholder="tell us about your project, timeline, and budget"></textarea>
               </div>
             </div>
 
@@ -36,16 +48,8 @@
             </div>
           </form>
 
-        </div>
-
-
-			</div>
-			<!-- /.row -->
-
-
-		</div>
-		<!-- /.container -->
-
-	</div>
+        </div><!-- /.col-xs-etc -->
+			</div><!-- /.row -->
+		</div><!-- /.container -->
+	</div><!-- /.banner -->
 </section>
-<!-- /.banner -->
