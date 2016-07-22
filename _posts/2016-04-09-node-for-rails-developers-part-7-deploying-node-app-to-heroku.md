@@ -41,8 +41,7 @@ heroku login
 Create and name a new *Heroku* application.
 
 ```` sh
-heroku create
-heroku apps:rename new-app-name
+heroku create new-app-name
 ````
 
 ## Heroku Application Configuration
