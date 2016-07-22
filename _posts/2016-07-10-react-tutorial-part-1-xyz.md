@@ -4,6 +4,8 @@ title:  "Learning React.js, Part 1 (XYZ)"
 author: MJ Rossetti
 published: false
 img: nodejs-logo-green.png
+categories:
+ - process-documentation
 repo_url: "________________"
 project_url: "________________"
 technologies:

@@ -36,6 +36,7 @@
  + http://www.newcreationschapel.org/new/wp-content/uploads/2012/10/flipping-through-bible-pages.jpg
  + https://developer.ibm.com/bluemix/wp-content/uploads/sites/20/2015/03/nodejs.png
  + http://codingxperience.com/system/topics/images/000/000/011/original/nodejs-green.png?1440502191
+ + https://cdn1.icicletech.com/media/l_react-native-logo.png
 
 ## Icons
 
