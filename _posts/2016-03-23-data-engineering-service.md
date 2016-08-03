@@ -2,13 +2,18 @@
 layout: default
 img: api-controller.png
 category: services
-title: Data Engineering
+title: Information Engineering
 identifier: engineering
 description: |
 ---
 
-Do you need to build a new information system or upgrade an existing app?
- Are you overwhelmed by technical complexity and data integrations?
+Do you need to improve an existing system or build a new one?
 
-With experience implementing cutting-edge software,
- our engineers will build and maintain sophisticated technology products and services for you.
+We will help you develop and maintain sophisticated application software.
+
+### Service Areas:
+
+  + Web Application Development
+  + Mobile Application Development (Android & iOS)
+  + API Development
+  + Data Visualization

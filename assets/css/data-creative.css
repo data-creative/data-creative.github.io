@@ -11,7 +11,9 @@ div.page-heading {
 }
 
 
-
+.intro-header {
+  background: url(../img/5x5-concentration.jpg) no-repeat center center;
+} /* overwrite landing-page.css */
 
 .footer-right {
   text-align: right;
@@ -22,6 +24,7 @@ div.page-heading {
     text-align: left;
   }
 }
+
 
 
 

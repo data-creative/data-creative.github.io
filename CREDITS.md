@@ -37,6 +37,8 @@
  + https://developer.ibm.com/bluemix/wp-content/uploads/sites/20/2015/03/nodejs.png
  + http://codingxperience.com/system/topics/images/000/000/011/original/nodejs-green.png?1440502191
  + https://cdn1.icicletech.com/media/l_react-native-logo.png
+ + https://www.instagram.com/p/BIUYKGTAUQS/
+ + https://www.flickr.com/photos/145159535@N04/albums/72157671907361195/page1
 
 ## Icons
 
