@@ -62,17 +62,19 @@ This document describes the process of configuring a new Mac OS-X development en
 
 Last updated: August 2016.
 
-## System Users
+## System Set-up
+
+### System Users
 
 In `System Preferences > Users and Groups`, create a new admin user. Restart your computer and login as the new user. Delete the old user and any corresponding home folders.
 
-## System Preferences
+### System Preferences
 
-### Encryption
+#### Encryption
 
 In `System Preferences > Security and Privacy > FileVault`, turn FileVault ON. Take a screenshot of the recovery code. Restart the computer when prompted. Monitor progress for the next 20 minutes.
 
-### Keyboard Settings
+#### Keyboard Settings
 
 In `System Preferences > Keyboard`:
 
@@ -82,7 +84,7 @@ In `System Preferences > Keyboard`:
     * Move left a space: option + left arrow
     * Move right a space: option + right arrow
 
-### Spaces and Hot Corners
+#### Spaces and Hot Corners
 
 In `System Preferences > Mission Control`:
 
@@ -95,11 +97,15 @@ In `System Preferences > Mission Control`:
 
 Open the Mission Control application and create four new linear horizontal Spaces.
 
-### Dock
+#### Dock
 
 Turn Dock hiding on, maximize the size of the Dock, and remove all unnecessary programs from the Dock.
 
-## Terminal
+## Developer Tools
+
+### Terminal Customization
+
+> The terminal application is a developer's main tool.
 
 [Download](http://ethanschoonover.com/solarized/files/solarized.zip) the [Solarized](http://ethanschoonover.com/solarized) color themes, and unzip.
 
@@ -112,28 +118,31 @@ Increase font size to 18.
 Restore *~/.bash_profile*:
 
 ```` sh
-# TERMINAL SHORTCUTS AND SETTINGS
+# ~/.bash_profile
+
+#
+# CONFIGURATION
+#
+
+export PS1=" --->> "
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+#
+# SHORTCUTS
+#
+
 alias ll="ls -lahG"
 alias gs="git status"
 alias gd="git diff"
 alias gl="git log"
 alias glt="git log --graph --decorate --oneline --full-history --all --simplify-by-decoration"
 alias glsd="git ls-files --deleted"
-
-export PS1=" --->> "
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
 ````
 
-## XCode
+### SSH Keys
 
-> Xcode is a dependency for homebrew.
-
-Create a new [Apple ID](https://appleid.apple.com), and verify your email.
-
-Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
-
-## SSH Keys
+> SSH keys establish your identity, and are a prerequisite for using git and connecting via ssh to known servers.
 
 Generate [new ssh keys](https://help.github.com/articles/generating-ssh-keys/#step-2-generate-a-new-ssh-key).
 
@@ -149,7 +158,17 @@ Copy the public key and [add to GitHub](https://github.com/settings/ssh) and oth
 pbcopy < ~/.ssh/id_rsa.pub # copy to clipboard
 ````
 
-## Homebrew Package Manager
+### XCode
+
+> Xcode is a prerequisite for the homebrew package manager.
+
+Create a new [Apple ID](https://appleid.apple.com), and verify your email.
+
+Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
+
+### Homebrew Package Manager
+
+> Homebrew is a package manager for mac os which is used to install applications, programming languages, command-line tools, etc.. It's trusted and maintained by a large community of developers.
 
 Install the [Homebrew](http://brew.sh/) package manager:
 
@@ -169,7 +188,7 @@ Install [Homebrew Cask](http://caskroom.io/) for downloading native applications
 brew tap caskroom/cask
 ````
 
-## Browser
+### Browser
 
 Install and/or open [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html), and set it as the default browser.
 
@@ -177,11 +196,11 @@ Install and/or open [Google Chrome](https://www.google.com/chrome/browser/deskto
 brew cask install google-chrome
 ````
 
-Sign-in as an existing chrome user via chrome://settings/.
+Open chrome and [sign-in](chrome://settings/) as an existing chrome user.
 
-Re-configure Ghostery, or any other plugins as necessary.
+Install or re-configure [Ghostery](https://www.ghostery.com/our-solutions/ghostery-browser-extension/) to block browser activity trackers.
 
-## Atom Text Editor
+### Atom Text Editor
 
 Install the [Atom](https://atom.io/) text editor.
 
@@ -189,7 +208,7 @@ Install the [Atom](https://atom.io/) text editor.
 brew cask install atom
 ````
 
-### Restoring Atom Preferences and Settings (optional)
+#### Restoring Atom Preferences and Settings (optional)
 
 Install [sync-settings](https://github.com/Hackafe/atom-sync-settings).
 
@@ -208,13 +227,15 @@ package settings, try opening a new atom window to reveal a warning message and 
 Finally, click "restore" to restore text editor settings. The next time you open a new atom window, you should see a sync success message.
 
 
-## Git
+### Git
 
 Install Git.
 
 ```` sh
 brew install git
 ````
+
+#### Git Credentials
 
 Configure [Git credentials](https://help.github.com/categories/setup/):
 
@@ -226,7 +247,7 @@ git config --global core.editor atom
 
 Use an email address which has been [linked to your GitHub profile](https://github.com/settings/emails) and verified.
 
-## Rubygems Credentials
+### Rubygems Credentials (optional)
 
 Configure [rubygems.org credentials](https://rubygems.org/profile/edit):
 
@@ -260,14 +281,17 @@ Type your rubygems.org password when prompted.
 
 
 
+## Development Environment Setup
 
+Many of the following sections are optional, depending on what type of development environment you need.
 
+### Languages and Frameworks
 
-## Languages and Frameworks
+#### Ruby
 
-### Ruby
+##### Rbenv
 
-As a developer working on more than one ruby project, it sometimes becomes necessary to specify different ruby versions for each project. Rbenv makes switching ruby versions easy. Ruby-build facilitates the installation of ruby versions.
+> As a developer working on more than one ruby project, it sometimes becomes necessary to specify different ruby versions for each project. Rbenv makes switching ruby versions easy. Ruby-build, a component of rbenv, facilitates installation of ruby versions.
 
 ```` sh
 brew install rbenv
@@ -280,23 +304,49 @@ Follow any post-installation instructions:
 
 Restart your terminal for the profile changes to take place.
 
+Install a ruby version and set your computer to use it:
+
 ```` sh
-rbenv install 2.2.0 # to install a specific ruby version from the internet
-rbenv rehash # run this after installing a new ruby version
-rbenv global 2.2.0 # to set a specific ruby version for use
-gem install bundler
-gem install rake --version='10.4.2'
-gem install rdoc -v '4.2.0'
+rbenv install 2.2.3 # to install a specific ruby version from the internet
+rbenv global 2.2.3 # to set a specific ruby version for use
 ````
 
-### Python
+Install global gems, including the [bundler](http://bundler.io/) package manager:
+
+```` sh
+gem install bundler
+````
+
+##### Ruby on Rails
+
+Install [ruby on rails](http://rubyonrails.org/):
+
+```` sh
+gem install rails
+````
+
+#### Python
+
+Install python (includes the [pip](https://github.com/pypa/pip) package manager):
 
 ```` sh
 brew install python
 brew linkapps python
 ````
 
-### Node
+##### Django
+
+```` sh
+pip install django
+````
+
+##### Flask
+
+```` sh
+pip install flask
+````
+
+#### Node
 
 Install [node.js](https://nodejs.org/en/).
   This also installs the [node package manager (npm)](https://www.npmjs.com/).
@@ -314,7 +364,7 @@ npm install -g node-inspector # allows you to insert debugging breakpoints
 npm install -g knex # enables a database migration CLI
 ````
 
-### Bower
+#### Bower
 
 ```` sh
 cd my_app/
@@ -333,7 +383,7 @@ npm install -g bower
 
 
 
-## Databases
+### Databases
 
 Use [`lunchy`](https://github.com/eddiezane/lunchy) gem to manage services/daemons, including database servers.
 
@@ -343,7 +393,7 @@ gem install lunchy
 
 Restart your terminal.
 
-### PostgreSQL
+#### PostgreSQL
 
 Install.
 
@@ -410,7 +460,7 @@ Finally, install [pgAdmin](http://www.pgadmin.org/download/macosx.php) or [pSequ
 brew cask install psequel
 ````
 
-### MySQL
+#### MySQL
 
 Install.
 
@@ -445,7 +495,7 @@ brew cask install sequel-pro
 
 
 
-### MongoDB
+#### MongoDB
 
 Install [mongoDB](https://www.mongodb.org/).
 
@@ -487,7 +537,7 @@ db.myCollection.find({x:1}).pretty() # find a record matching given query condit
 ````
 
 
-### Redis
+#### Redis
 
 Install redis.
 
@@ -503,7 +553,7 @@ Run redis.
 redis-server
 ````
 
-### Elasticsearch
+#### Elasticsearch
 
 Install elasticsearch.
 
@@ -522,7 +572,7 @@ elasticsearch
 ````
 
 
-## Graphing Library
+### Graphing Library
 
 If using the [`rails-erd`](https://github.com/voormedia/rails-erd) gem, satisfy [`ruby-graphviz`](https://github.com/glejeune/Ruby-Graphviz) dependency by installing the [`graphviz`](http://graphviz.org/) library.
 
@@ -530,13 +580,13 @@ If using the [`rails-erd`](https://github.com/voormedia/rails-erd) gem, satisfy 
 brew install graphviz
 ````
 
-## Server Management
+### Server Management
 
-### Heroku
+#### Heroku Credentials
 
 Download [heroku toolbelt](https://toolbelt.heroku.com/) to enable `heroku` command line tools.
 
 ```` sh
-brew cask install heroku-toolbelt
+brew install heroku-toolbelt
 heroku login
 ````
