@@ -55,9 +55,12 @@ credits:
   - https://docs.mongodb.org/v2.4/tutorial/install-mongodb-on-os-x/
   - https://docs.mongodb.org/manual/mongo/
   - https://github.com/caskroom/homebrew-cask/issues/9447
+  - http://blog.grayghostvisuals.com/git/how-to-keep-git-updated/
 ---
 
 This document describes the process of configuring a new Mac OS-X development environment from scratch.
+
+Last updated: August 2016.
 
 ## System Users
 
@@ -106,7 +109,7 @@ Set the Solarized Dark profile theme as default.
 
 Increase font size to 18.
 
-Restore ~/.bash_profile:
+Restore *~/.bash_profile*:
 
 ```` sh
 # TERMINAL SHORTCUTS AND SETTINGS
@@ -120,38 +123,44 @@ alias glsd="git ls-files --deleted"
 export PS1=" --->> "
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
-export PATH=/usr/local/bin:$PATH # ADDED BY HOMEBREW
-export RBENV_ROOT=/usr/local/var/rbenv # ADDED BY HOMEBREW FOR RBENV
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi # ADDED FOR RBENV
-
 ````
 
-## Browser
-
-Install and/or open [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html), and set it as the default browser.
-
-Sign-in as an existing chrome user via chrome://settings/.
-
-Re-configure Ghostery, or any other plugins as necessary.
-
 ## XCode
+
+> Xcode is a dependency for homebrew.
 
 Create a new [Apple ID](https://appleid.apple.com), and verify your email.
 
 Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
 
-## Homebrew Package Manager
+## SSH Keys
 
-Install the [Homebrew](http://brew.sh/) package manager.
+Generate [new ssh keys](https://help.github.com/articles/generating-ssh-keys/#step-2-generate-a-new-ssh-key).
 
 ```` sh
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ssh-keygen -t rsa -b 4096 -C johndoe@example.com # generate new key pair
+eval "$(ssh-agent -s)" # start the ssh-agent in the background
+ssh-add ~/.ssh/id_rsa # add to keychain
 ````
 
-Revise your path to include Homebrew directories.
+Copy the public key and [add to GitHub](https://github.com/settings/ssh) and other hosts, as necessary.
 
 ```` sh
-export PATH=/usr/local/bin:$PATH
+pbcopy < ~/.ssh/id_rsa.pub # copy to clipboard
+````
+
+## Homebrew Package Manager
+
+Install the [Homebrew](http://brew.sh/) package manager:
+
+```` sh
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+````
+
+Turn off [brew analytics](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md#opting-out):
+
+```` sh
+brew analytics off
 ````
 
 Install [Homebrew Cask](http://caskroom.io/) for downloading native applications.
@@ -159,6 +168,18 @@ Install [Homebrew Cask](http://caskroom.io/) for downloading native applications
 ```` sh
 brew tap caskroom/cask
 ````
+
+## Browser
+
+Install and/or open [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html), and set it as the default browser.
+
+```` sh
+brew cask install google-chrome
+````
+
+Sign-in as an existing chrome user via chrome://settings/.
+
+Re-configure Ghostery, or any other plugins as necessary.
 
 ## Atom Text Editor
 
@@ -168,13 +189,24 @@ Install the [Atom](https://atom.io/) text editor.
 brew cask install atom
 ````
 
+### Restoring Atom Preferences and Settings (optional)
+
 Install [sync-settings](https://github.com/Hackafe/atom-sync-settings).
 
 ```` sh
 apm install sync-settings
 ````
 
-In the package settings, specify your github access token and gist id. You can generate a new github access token if you've lost access to the old one. Click "restore" to restore text editor settings.
+Find an existing github personal access token, or [generate a new token](https://github.com/settings/tokens).
+ It should have permission to create gists.
+
+Find the id of an existing github gist which contains previous atom sync settings, or create a new gist.
+
+In atom's package settings, input your github access token and gist id. If you have trouble finding the
+package settings, try opening a new atom window to reveal a warning message and link to the package settings.
+
+Finally, click "restore" to restore text editor settings. The next time you open a new atom window, you should see a sync success message.
+
 
 ## Git
 
@@ -192,60 +224,40 @@ git config --global user.email johndoe@example.com
 git config --global core.editor atom
 ````
 
-Ensure this email has been added to your GitHub profile and has been verified.
-
-
-## SSH Keys
-
-Generate [new ssh keys](https://help.github.com/articles/generating-ssh-keys/#step-2-generate-a-new-ssh-key).
-
-```` sh
-ssh-keygen -t rsa -b 4096 -C johndoe@example.com # generate new key pair
-eval "$(ssh-agent -s)" # start the ssh-agent in the background
-ssh-add ~/.ssh/id_rsa # add to keychain
-````
-
-Copy the public key to GitHub and other hosts.
-
-```` sh
-pbcopy < ~/.ssh/id_rsa.pub # copy to clipboard
-````
-
-## Dotfiles
-
-Use the [`s3_sync`](https://github.com/s2t2/s3-sync-ruby) ruby gem to recover files from s3. This requires you to obtain the configuration variables used during previous syncs.
-
-```` sh
-gem install "s3_sync"
-````
-
-```` rb
-require "s3_sync"
-
-S3Sync.configure do |config|
-  config.key_id = ENV["AWS_S3_KEY_ID"]
-  config.key_secret = ENV["AWS_S3_KEY_SECRET"]
-  config.region = ENV["AWS_S3_REGION"]
-  config.bucket = ENV["AWS_S3_BUCKET"]
-  config.secret_phrase = ENV["AWS_S3_ENCRYPTION_PHRASE"]
-  config.files = [
-    File.join(Dir.home,".bash_profile"),
-    File.join(Dir.home,".ssh","config")
-  ]
-end
-
-S3Sync.download.new
-````
+Use an email address which has been [linked to your GitHub profile](https://github.com/settings/emails) and verified.
 
 ## Rubygems Credentials
 
-Configure [Rubygems credentials](https://rubygems.org/profile/edit), typing your password when prompted:
+Configure [rubygems.org credentials](https://rubygems.org/profile/edit):
 
 ```` sh
-# replace my_rubygems_username with your own username:
 mkdir ~/.gem
-curl -u my_rubygems_username https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials
+curl -u MY_RUBYGEMS_USERNAME https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials
 ````
+
+Type your rubygems.org password when prompted.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
