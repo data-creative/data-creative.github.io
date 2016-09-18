@@ -52,11 +52,15 @@ The front-end interface is a [React](https://github.com/facebook/react) applicat
 
 #### Build Process
 
-React components are written in [JSX](https://jsx.github.io/), which in order to be interpreted by browsers requires conversion into normal JavaScript. This build process is run by [webpack](https://github.com/webpack/webpack), which relies on [babel.js](https://babeljs.io/) to translate various flavors of JSX. The build process created a file called `dist/bundle.js`.
+React components are written in [JSX](https://jsx.github.io/), which in order to be interpreted by browsers requires conversion into normal *JavaScript*.
+
+This build process is performed by [webpack](https://github.com/webpack/webpack), which relies on [babel.js](https://babeljs.io/) to translate various flavors of JSX.
 
 > reference: `.babelrc`, `webpack.config.js`, `webpack.dev.config.js`
 
-The express server needs to be edited to serve static files (namely the bundle.js) from the `dist/` directory, and to use webpack-related middleware. This includes middleware for the exciting [hot-reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) feature which updates react components without need to refresh the page. In development mode, the hot-reload middleware short-cuts the process of creating a build file, instead managing the build in-memory.
+In production, the build process creates a file called `dist/bundle.js`, which the server is configured to recognize. In development mode, the bundle is managed in-memory by [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware).
+
+In development, [webpack-hot-middleware](https://github.com/glenjamin/webpack-hot-middleware) enables react's [hot-reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) feature, which updates components without need to refresh the page.
 
 #### Routing
 
