@@ -56,6 +56,7 @@ credits:
   - https://docs.mongodb.org/manual/mongo/
   - https://github.com/caskroom/homebrew-cask/issues/9447
   - http://blog.grayghostvisuals.com/git/how-to-keep-git-updated/
+  - https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 ---
 
 This document describes the process of configuring a new Mac OS-X development environment from scratch.
@@ -166,6 +167,12 @@ Create a new [Apple ID](https://appleid.apple.com), and verify your email.
 
 Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
 
+Some homebrew formulae like `ruby-build` might need xcode command line tools, so install those now:
+
+```
+xcode-select --install
+```
+
 ### Homebrew Package Manager
 
 > Homebrew is a package manager for mac os which is used to install applications, programming languages, command-line tools, etc.. It's trusted and maintained by a large community of developers.
@@ -219,7 +226,7 @@ apm install sync-settings
 Find an existing github personal access token, or [generate a new token](https://github.com/settings/tokens).
  It should have permission to create gists.
 
-Find the id of an existing github gist which contains previous atom sync settings, or create a new gist.
+Find the id of [an existing github gist](https://gist.github.com/s2t2/b801e3493c1798bc9d8c8fc507237386) which contains previous atom sync settings, or create a new gist.
 
 In atom's package settings, input your github access token and gist id. If you have trouble finding the
 package settings, try opening a new atom window to reveal a warning message and link to the package settings.
@@ -311,6 +318,8 @@ rbenv install 2.2.3 # to install a specific ruby version from the internet
 rbenv global 2.2.3 # to set a specific ruby version for use
 ````
 
+If you run into trouble, make sure you have installed xcode command line tools and these core libraries: `brew install openssl libyaml libffi`.
+
 Install global gems, including the [bundler](http://bundler.io/) package manager:
 
 ```` sh
@@ -348,20 +357,22 @@ pip install flask
 
 #### Node
 
-Install [node.js](https://nodejs.org/en/).
-  This also installs the [node package manager (npm)](https://www.npmjs.com/).
+> As a developer working on more than one node.js project, it sometimes becomes necessary to specify different node versions for each project. NVM makes switching node versions easy.
+
+[Install](https://github.com/creationix/nvm#install-script) NVM:
 
 ```` sh
-brew install node
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
 ````
 
-Install global npm modules.
+This also installs the [node package manager (npm)](https://www.npmjs.com/).
+
+##### Express
+
+Install the express application generator:
 
 ```` sh
-npm install express-generator -g # enables app-generation CLI
-npm install nodemon -g # obviates need to restart dev server every time a file is changed
-npm install -g node-inspector # allows you to insert debugging breakpoints
-npm install -g knex # enables a database migration CLI
+npm install express-generator -g
 ````
 
 #### Bower
@@ -506,8 +517,7 @@ brew install mongodb
 Follow post-installation instructions.
 
 ```` sh
-ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
-lunchy start mongodb
+brew services start mongodb
 ````
 
 Run mongo.
