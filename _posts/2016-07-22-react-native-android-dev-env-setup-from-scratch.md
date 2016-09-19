@@ -118,3 +118,29 @@ react-native run-android
 SUCCESS!
 
 ![](/assets/img/posts/welcome-to-react-native.png)
+
+<hr>
+
+Edits:
+
+To use these tools from the command line, amend your PATH to reference their directories:
+
+````
+# ~/.bash_profile
+
+#
+# Android Studio
+#
+
+export ANDROID_HOME="/Users/YOUR_USERNAME/Library/Android/sdk"
+export PATH=~/Library/Android/sdk/tools:$PATH # enable use of the `android` cli
+export PATH=~/Library/Android/sdk/platform-tools:$PATH # enable use of the `adb` cli
+````
+
+> replace YOUR_USERNAME with your own username
+
+Check for connected emulators or devices:
+
+```` sh
+adb devices
+````

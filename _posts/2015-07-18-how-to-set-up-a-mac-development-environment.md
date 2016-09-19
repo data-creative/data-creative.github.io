@@ -296,8 +296,6 @@ Many of the following sections are optional, depending on what type of developme
 
 #### Ruby
 
-##### Rbenv
-
 > As a developer working on more than one ruby project, it sometimes becomes necessary to specify different ruby versions for each project. Rbenv makes switching ruby versions easy. Ruby-build, a component of rbenv, facilitates installation of ruby versions.
 
 ```` sh
@@ -320,13 +318,15 @@ rbenv global 2.2.3 # to set a specific ruby version for use
 
 If you run into trouble, make sure you have installed xcode command line tools and these core libraries: `brew install openssl libyaml libffi`.
 
+##### Ruby Gems
+
 Install global gems, including the [bundler](http://bundler.io/) package manager:
 
 ```` sh
 gem install bundler
 ````
 
-##### Ruby on Rails
+###### Ruby on Rails
 
 Install [ruby on rails](http://rubyonrails.org/):
 
@@ -343,13 +343,15 @@ brew install python
 brew linkapps python
 ````
 
-##### Django
+##### Python Packages
+
+###### Django
 
 ```` sh
 pip install django
 ````
 
-##### Flask
+###### Flask
 
 ```` sh
 pip install flask
@@ -367,13 +369,23 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | b
 
 This also installs the [node package manager (npm)](https://www.npmjs.com/).
 
-##### Express
+##### Node Packages
+
+###### Express
 
 Install the express application generator:
 
 ```` sh
 npm install express-generator -g
 ````
+
+###### React Native
+
+```` sh
+npm install react-native-cli -g
+````
+
+> see also: [react-native android development environment setup guide ](http://data-creative.info/process-documentation/2016/07/22/react-native-android-dev-env-setup-from-scratch/)
 
 #### Bower
 
