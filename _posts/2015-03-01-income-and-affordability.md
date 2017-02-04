@@ -5,8 +5,8 @@ author: MJ Rossetti
 categories:
  - data-visualization
 img: income-and-affordability-map.png
-repo_url: https://gist.github.com/s2t2/cd45dfd8007fcf83fef7
-project_url: http://bl.ocks.org/s2t2/raw/cd45dfd8007fcf83fef7/
+repo_url: https://github.com/data-creative/us-income-and-affordability
+project_url: http://data-creative.info/us-income-and-affordability/
 use_img_as_post_header: true
 tags: us-census housing income affordability map data-visualization
 published: true
@@ -25,8 +25,7 @@ technologies:
 ![A choropleth map of the United States.](/assets/images/income-and-affordability-map.png "Income and Affordability Map")
 -->
 
-Income and [affordability](http://en.wiktionary.org/wiki/affordability)
- [data](https://gist.github.com/s2t2/cd45dfd8007fcf83fef7#affordability-data)
+Income and affordability [data](https://github.com/data-creative/us-income-and-affordability/blob/master/DICTIONARY.md)
  from the US Department of Transportation
  plotted on a map using [shapes](https://www.census.gov/geo/maps-data/data/cbf/cbf_msa.html)
  from the US Census Bureau.
