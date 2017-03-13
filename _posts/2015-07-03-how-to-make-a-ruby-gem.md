@@ -78,7 +78,7 @@ Create one or more rspec tests (*spec/myclass_spec.rb*) using the following temp
 
     require 'spec_helper'
 
-    Mygem
+    Module Mygem
       RSpec.describe Myclass do
         describe '#all' do
           it "does some stuff" do
