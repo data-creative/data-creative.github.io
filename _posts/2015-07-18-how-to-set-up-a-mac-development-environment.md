@@ -532,16 +532,23 @@ Follow post-installation instructions.
 brew services start mongodb
 ````
 
-Run mongo.
-
-```` sh
-mongo
-````
-
 FYI - the mongo config file specifies the expected paths to the mongo data directory and logfile.
 
 ```` sh
 cat /usr/local/etc/mongod.conf
+````
+
+Check your version.
+
+```` sh
+mongo --version
+MongoDB shell version: 3.2.9
+`````
+
+Run mongo.
+
+```` sh
+mongo
 ````
 
 Helpful mongo shell commands:
