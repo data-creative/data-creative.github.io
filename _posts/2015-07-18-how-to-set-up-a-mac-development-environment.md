@@ -574,12 +574,11 @@ db.myCollection.find({x:1}).pretty() # find a record matching given query condit
 Install redis.
 
 ```` sh
-brew install redis -H
-brew info redis
+brew install redis
 brew services start redis
 ````
 
-Run redis.
+Login to redis:
 
 ```` sh
 redis-server
