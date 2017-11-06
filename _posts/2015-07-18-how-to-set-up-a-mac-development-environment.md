@@ -153,7 +153,7 @@ eval "$(ssh-agent -s)" # start the ssh-agent in the background
 ssh-add ~/.ssh/id_rsa # add to keychain
 ````
 
-If running OS Sierra 10.12.2 or later, you modify `~/.ssh/config` to automatically load keys into the ssh-agent and store passphrases in your keychain:
+If running OS Sierra 10.12.2 or later, create/update `~/.ssh/config` to automatically load keys into the ssh-agent and store passphrases in your keychain:
 
 ```shell
 Host *
