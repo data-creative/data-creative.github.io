@@ -153,7 +153,16 @@ eval "$(ssh-agent -s)" # start the ssh-agent in the background
 ssh-add ~/.ssh/id_rsa # add to keychain
 ````
 
-Copy the public key and [add to GitHub](https://github.com/settings/ssh) and other hosts, as necessary.
+If running OS Sierra 10.12.2 or later, you modify `~/.ssh/config` to automatically load keys into the ssh-agent and store passphrases in your keychain:
+
+```shell
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+```
+
+Finally, copy the public key and [add to GitHub](https://github.com/settings/ssh) and other hosts, as necessary.
 
 ```` sh
 pbcopy < ~/.ssh/id_rsa.pub # copy to clipboard
@@ -167,7 +176,7 @@ Create a new [Apple ID](https://appleid.apple.com), and verify your email.
 
 Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
 
-Some homebrew formulae like `ruby-build` might need xcode command line tools, so install those now:
+Some homebrew formulae like `git` and `ruby-build` might need xcode command line tools, so install those now:
 
 ```
 xcode-select --install
@@ -189,7 +198,7 @@ Turn off [brew analytics](https://github.com/Homebrew/brew/blob/master/share/doc
 brew analytics off
 ````
 
-Install [Homebrew Cask](http://caskroom.io/) for downloading native applications.
+Install [Homebrew Cask](https://caskroom.github.io/) for downloading native applications.
 
 ```` sh
 brew tap caskroom/cask
