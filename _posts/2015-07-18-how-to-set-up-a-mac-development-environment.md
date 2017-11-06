@@ -310,7 +310,10 @@ Many of the following sections are optional, depending on what type of developme
 
 ```` sh
 brew install rbenv
+rbenv init # and follow the instructions to add to ~/.bash_profile: eval "$(rbenv init -)"
 ````
+
+Restart your terminal for the profile changes to take place.
 
 Use rbenv to install a ruby version and set your computer to use it:
 
@@ -322,7 +325,7 @@ rbenv global 2.3.5 # to set a specific ruby version for use
 If you run into trouble, make sure you have installed xcode command line tools and these core libraries: `brew install openssl libyaml libffi`.
 
 ##### Ruby Gems
-
+ 
 Install global gems, including the [bundler](http://bundler.io/) package manager:
 
 ```` sh
