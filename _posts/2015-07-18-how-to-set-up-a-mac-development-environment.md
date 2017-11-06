@@ -139,6 +139,7 @@ alias gd="git diff"
 alias gl="git log"
 alias glt="git log --graph --decorate --oneline --full-history --all --simplify-by-decoration"
 alias glsd="git ls-files --deleted"
+alias gpom="git pull origin master"
 ````
 
 ### SSH Keys
