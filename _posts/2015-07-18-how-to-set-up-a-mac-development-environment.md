@@ -312,18 +312,11 @@ Many of the following sections are optional, depending on what type of developme
 brew install rbenv
 ````
 
-Follow any post-installation instructions:
-
- + To use Homebrew's directories rather than ~/.rbenv add to your profile: `export RBENV_ROOT=/usr/local/var/rbenv`
- + To enable shims and autocompletion, run `rbenv init` and follow the instructions to add to your profile: `eval "$(rbenv init -)"`
-
-Restart your terminal for the profile changes to take place.
-
-Install a ruby version and set your computer to use it:
+Use rbenv to install a ruby version and set your computer to use it:
 
 ```` sh
-rbenv install 2.2.3 # to install a specific ruby version from the internet
-rbenv global 2.2.3 # to set a specific ruby version for use
+rbenv install 2.3.5 # to install a specific ruby version from the internet
+rbenv global 2.3.5 # to set a specific ruby version for use
 ````
 
 If you run into trouble, make sure you have installed xcode command line tools and these core libraries: `brew install openssl libyaml libffi`.
