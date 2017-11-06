@@ -481,24 +481,23 @@ CREATE DATABASE app_db;
 GRANT ALL PRIVILEGES ON DATABASE app_db to app_user;
 ````
 
-Finally, install [pgAdmin](http://www.pgadmin.org/download/macosx.php) or [pSequel](http://www.psequel.com/) database management software. Specify your root database user credentials when connecting to the local database server.
+Finally, install [pgAdmin](http://www.pgadmin.org/download/macosx.php) or [pSequel](http://www.psequel.com/) or [Postico](https://eggerapps.at/postico/) database management software. Specify your root database user credentials when connecting to the local database server.
 
 ```` sh
-brew cask install psequel
+brew cask install postico # or... brew cask install psequel
 ````
 
 #### MySQL
 
-Install.
+Install MySQL:
 
 ```` sh
 brew install mysql
-ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 brew services start mysql
-mysql -uroot
+mysql -uroot # log-in as the root user
 ````
 
-Secure the connection.
+If desired and necessary, secure the connection:
 
 ```` sql
 DELETE FROM mysql.user WHERE host <> 'localhost' OR USER = "";
