@@ -61,7 +61,7 @@ credits:
 
 This document describes the process of configuring a new Mac OS-X development environment from scratch.
 
-Last updated: August 2016.
+Last updated: November 2017.
 
 ## System Set-up
 
