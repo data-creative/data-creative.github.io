@@ -139,6 +139,7 @@ alias gd="git diff"
 alias gl="git log"
 alias glt="git log --graph --decorate --oneline --full-history --all --simplify-by-decoration"
 alias glsd="git ls-files --deleted"
+alias gpom="git pull origin master"
 ````
 
 ### SSH Keys
@@ -153,7 +154,16 @@ eval "$(ssh-agent -s)" # start the ssh-agent in the background
 ssh-add ~/.ssh/id_rsa # add to keychain
 ````
 
-Copy the public key and [add to GitHub](https://github.com/settings/ssh) and other hosts, as necessary.
+If running OS Sierra 10.12.2 or later, create/update `~/.ssh/config` to automatically load keys into the ssh-agent and store passphrases in your keychain:
+
+```shell
+Host *
+ AddKeysToAgent yes
+ UseKeychain yes
+ IdentityFile ~/.ssh/id_rsa
+```
+
+Finally, copy the public key and [add to GitHub](https://github.com/settings/ssh) and other hosts, as necessary.
 
 ```` sh
 pbcopy < ~/.ssh/id_rsa.pub # copy to clipboard
@@ -167,7 +177,7 @@ Create a new [Apple ID](https://appleid.apple.com), and verify your email.
 
 Download [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12). It might take 30 minutes. View progress from the Launchpad app.
 
-Some homebrew formulae like `ruby-build` might need xcode command line tools, so install those now:
+Some homebrew formulae like `git` and `ruby-build` might need xcode command line tools, so install those now:
 
 ```
 xcode-select --install
@@ -189,7 +199,7 @@ Turn off [brew analytics](https://github.com/Homebrew/brew/blob/master/share/doc
 brew analytics off
 ````
 
-Install [Homebrew Cask](http://caskroom.io/) for downloading native applications.
+Install [Homebrew Cask](https://caskroom.github.io/) for downloading native applications.
 
 ```` sh
 brew tap caskroom/cask
@@ -300,26 +310,22 @@ Many of the following sections are optional, depending on what type of developme
 
 ```` sh
 brew install rbenv
+rbenv init # and follow the instructions to add to ~/.bash_profile: eval "$(rbenv init -)"
 ````
-
-Follow any post-installation instructions:
-
- + To use Homebrew's directories rather than ~/.rbenv add to your profile: `export RBENV_ROOT=/usr/local/var/rbenv`
- + To enable shims and autocompletion, run `rbenv init` and follow the instructions to add to your profile: `eval "$(rbenv init -)"`
 
 Restart your terminal for the profile changes to take place.
 
-Install a ruby version and set your computer to use it:
+Use rbenv to install a ruby version and set your computer to use it:
 
 ```` sh
-rbenv install 2.2.3 # to install a specific ruby version from the internet
-rbenv global 2.2.3 # to set a specific ruby version for use
+rbenv install 2.3.5 # to install a specific ruby version from the internet
+rbenv global 2.3.5 # to set a specific ruby version for use
 ````
 
 If you run into trouble, make sure you have installed xcode command line tools and these core libraries: `brew install openssl libyaml libffi`.
 
 ##### Ruby Gems
-
+ 
 Install global gems, including the [bundler](http://bundler.io/) package manager:
 
 ```` sh
@@ -369,6 +375,13 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | b
 
 This also installs the [node package manager (npm)](https://www.npmjs.com/).
 
+Use NVM to check for available Node.js versions, install a specific version:
+
+```shell
+nvm ls-remote  # checks for available versions
+nvm install 4.4.7 # installs a specific version, and automatically starts using it
+```
+
 ##### Node Packages
 
 ###### Express
@@ -408,32 +421,23 @@ npm install -g bower
 
 ### Databases
 
-Use [`lunchy`](https://github.com/eddiezane/lunchy) gem to manage services/daemons, including database servers.
-
-```` sh
-gem install lunchy
-````
-
-Restart your terminal.
-
 #### PostgreSQL
 
 Install.
 
 ```` sh
 brew install postgresql
-ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents # to have launchd start postgresql at login
-lunchy start postgresql
+brew services start postgresql
 createdb # to create a database named after your root database user, which is named after your mac username; avoids `psql: FATAL:  database my_db_user does not exist`
 ````
 
-Set a password for the database root user.
+If desired, set a password for the database root user.
 
 ````
 psql -U my_db_user -c "ALTER USER my_db_user WITH PASSWORD 'CHANGE_ME';"
 ````
 
-To require password authentication, find the location of the *pg_hba.conf* file using `psql -U my_db_user -c "SHOW hba_file;"`, and edit it to resemble to the following template:
+If you want to require password authentication, find the location of the *pg_hba.conf* file using `psql -U my_db_user -c "SHOW hba_file;"`, and edit it to resemble to the following template:
 
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
     local   all             all                                     md5
@@ -443,7 +447,7 @@ To require password authentication, find the location of the *pg_hba.conf* file 
 Basically you are just changing the *methods* from `trust` to `md5`. Restart the server to apply the authentication changes.
 
 ```` sh
-lunchy restart postgresql
+brew services restart postgresql
 psql -U my_db_user # you should now be prompted for a password
 ````
 
@@ -477,24 +481,23 @@ CREATE DATABASE app_db;
 GRANT ALL PRIVILEGES ON DATABASE app_db to app_user;
 ````
 
-Finally, install [pgAdmin](http://www.pgadmin.org/download/macosx.php) or [pSequel](http://www.psequel.com/) database management software. Specify your root database user credentials when connecting to the local database server.
+Finally, install [pgAdmin](http://www.pgadmin.org/download/macosx.php) or [pSequel](http://www.psequel.com/) or [Postico](https://eggerapps.at/postico/) database management software. Specify your root database user credentials when connecting to the local database server.
 
 ```` sh
-brew cask install psequel
+brew cask install postico # or... brew cask install psequel
 ````
 
 #### MySQL
 
-Install.
+Install MySQL:
 
 ```` sh
 brew install mysql
-ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
-lunchy start mysql
-mysql -uroot
+brew services start mysql
+mysql -uroot # log-in as the root user
 ````
 
-Secure the connection.
+If desired and necessary, secure the connection:
 
 ```` sql
 DELETE FROM mysql.user WHERE host <> 'localhost' OR USER = "";
@@ -571,12 +574,11 @@ db.myCollection.find({x:1}).pretty() # find a record matching given query condit
 Install redis.
 
 ```` sh
-brew install redis -H
-brew info redis
-# brew services start redis
+brew install redis
+brew services start redis
 ````
 
-Run redis.
+Login to redis:
 
 ```` sh
 redis-server
