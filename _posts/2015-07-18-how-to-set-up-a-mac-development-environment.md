@@ -414,14 +414,6 @@ npm install -g bower
 
 ### Databases
 
-Use [`lunchy`](https://github.com/eddiezane/lunchy) gem to manage services/daemons, including database servers.
-
-```` sh
-gem install lunchy
-````
-
-Restart your terminal.
-
 #### PostgreSQL
 
 Install.
@@ -429,7 +421,7 @@ Install.
 ```` sh
 brew install postgresql
 ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents # to have launchd start postgresql at login
-lunchy start postgresql
+brew services start postgresql
 createdb # to create a database named after your root database user, which is named after your mac username; avoids `psql: FATAL:  database my_db_user does not exist`
 ````
 
@@ -439,7 +431,7 @@ Set a password for the database root user.
 psql -U my_db_user -c "ALTER USER my_db_user WITH PASSWORD 'CHANGE_ME';"
 ````
 
-To require password authentication, find the location of the *pg_hba.conf* file using `psql -U my_db_user -c "SHOW hba_file;"`, and edit it to resemble to the following template:
+If you want to require password authentication, find the location of the *pg_hba.conf* file using `psql -U my_db_user -c "SHOW hba_file;"`, and edit it to resemble to the following template:
 
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
     local   all             all                                     md5
@@ -449,7 +441,7 @@ To require password authentication, find the location of the *pg_hba.conf* file 
 Basically you are just changing the *methods* from `trust` to `md5`. Restart the server to apply the authentication changes.
 
 ```` sh
-lunchy restart postgresql
+brew services restart postgresql
 psql -U my_db_user # you should now be prompted for a password
 ````
 
@@ -496,7 +488,7 @@ Install.
 ```` sh
 brew install mysql
 ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
-lunchy start mysql
+brew services start mysql
 mysql -uroot
 ````
 
@@ -579,7 +571,7 @@ Install redis.
 ```` sh
 brew install redis -H
 brew info redis
-# brew services start redis
+brew services start redis
 ````
 
 Run redis.
