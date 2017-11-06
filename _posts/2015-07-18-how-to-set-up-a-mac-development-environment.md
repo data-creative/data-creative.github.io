@@ -427,12 +427,11 @@ Install.
 
 ```` sh
 brew install postgresql
-ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents # to have launchd start postgresql at login
 brew services start postgresql
 createdb # to create a database named after your root database user, which is named after your mac username; avoids `psql: FATAL:  database my_db_user does not exist`
 ````
 
-Set a password for the database root user.
+If desired, set a password for the database root user.
 
 ````
 psql -U my_db_user -c "ALTER USER my_db_user WITH PASSWORD 'CHANGE_ME';"
