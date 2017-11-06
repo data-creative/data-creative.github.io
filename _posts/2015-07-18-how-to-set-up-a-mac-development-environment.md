@@ -375,6 +375,13 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | b
 
 This also installs the [node package manager (npm)](https://www.npmjs.com/).
 
+Use NVM to check for available Node.js versions, install a specific version:
+
+```shell
+nvm ls-remote  # checks for available versions
+nvm install 4.4.7 # installs a specific version, and automatically starts using it
+```
+
 ##### Node Packages
 
 ###### Express
