@@ -345,8 +345,7 @@ gem install rails
 Install python (includes the [pip](https://github.com/pypa/pip) package manager):
 
 ```` sh
-brew install python
-brew linkapps python
+brew install python3
 ````
 
 ##### Python Packages
@@ -354,13 +353,13 @@ brew linkapps python
 ###### Django
 
 ```` sh
-pip install django
+pip3 install django
 ````
 
 ###### Flask
 
 ```` sh
-pip install flask
+pip3 install flask
 ````
 
 #### Node
