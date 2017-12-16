@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to create a Ruby on Rails application"
+title:  "How to create a Ruby on Rails application (Rails 4.2.0)"
 author: MJ Rossetti
 categories:
  - process-documentation
