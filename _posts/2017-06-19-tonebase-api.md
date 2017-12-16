@@ -19,13 +19,15 @@ technologies:
 
 ToneBase is a web-based information system designed to facilitate online music instruction through the posting, curation, and viewing of online videos.
 
-The [ToneBase Team](https://twitter.com/tonebaseteam) comprised of student fellows from the [Yale Entrepreneurial Institute](https://www.city.yale.edu/) (YEI) commissioned Data Creative to build the [ToneBase API 1.0](https://tonebase-api.herokuapp.com/), a RESTful back-end web service to power the [front-end client application](https://tonebase.co/) they built themselves.
+The [ToneBase Team](https://twitter.com/tonebaseteam) comprised student fellows from the [Yale Entrepreneurial Institute](https://www.city.yale.edu/) (YEI). They commissioned Data Creative to build the [ToneBase API 1.0](https://tonebase-api.herokuapp.com/), a RESTful back-end web service to power the [front-end client application](https://tonebase.co/) they built themselves.
 
-During the project engagement, I was inspired by the vision and development capabilities of the ToneBase team. Their collaboration led to a successful project which met requirements and was delivered on-time.
+I was thankful the terms of the engagement allowed me to develop the API using open source technologies like PostgreSQL and Ruby on Rails, and release the software according to an [open source license](https://github.com/data-creative/tonebase-api/blob/master/LICENSE.md). Throughout the entirety of the project engagement, I was inspired by the passion, vision, and development capabilities of the ToneBase team. Their collaboration led to a successful project which met requirements and was delivered on-time.
 
 ## Project Management
 
 This project was planned, designed, and developed from conception to final delivery in less than 45 days using a traditional ("waterfall") systems development methodology, infused with some "agile" system development techniques.
+
+> There's a lot of waterfall-bashing going around these days, but I find its the most efficient methodology, especially for client engagements, and especially if you are experienced and capable, and have developed similar systems in the past. Waterfall forces you to have a plan, and allows you to push back effectively against scope creep. For a straightforward Rails API based on clear requirements, I stand by the waterfall method. It doesn't mean you have to abandon agile practices like version control, collaborative issue-tracking, and iterative releases.
 
 Project efforts consisted of an initial "Discovery Phase" followed eventually by a ten day "Planning Phase", three week-long "Development Sprints", and a final week-long "Maintenance Phase".
 
