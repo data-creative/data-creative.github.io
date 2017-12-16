@@ -3,7 +3,7 @@ layout: post
 title:  "Creating a CRUD Application with React.js"
 author: MJ Rossetti
 published: true
-img: react-logo.png
+img: react-robots-homepage.png # react-logo.png
 categories:
  - open-source-application
 repo_url: https://github.com/s2t2/react-robots
@@ -22,7 +22,11 @@ technologies:
   - heroku
 ---
 
-[This node.js application](https://react-robots.herokuapp.com/) includes a back-end API and a front-end interface.
+[React Robots](https://react-robots.herokuapp.com/) is a node.js CRUD application, including a back-end API and a front-end interface.
+
+<!--
+![a screenshot of a web app depicting a table consisting of three "robot" records. it has buttons for editing and deleting records, as well as for creating new records and "recycling" the database state](/assets/img/posts/react-robots-homepage.png)
+-->
 
 ### API
 
