@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ToneBase API 1.0"
+title:  "ToneBase API 1.0 - a triumph in project planning"
 author: MJ Rossetti
 published: true
 repo_url: https://github.com/data-creative/tonebase-api
@@ -25,15 +25,15 @@ I was thankful the terms of the engagement allowed me to develop the API using o
 
 ## Project Management
 
-This project was planned, designed, and developed from conception to final delivery in less than 45 days using a traditional ("waterfall") systems development methodology, infused with some "agile" system development techniques.
+I planned, designed, and developed this project from conception to final delivery in less than 45 days using a traditional ("waterfall") systems development methodology, infused with some "agile" techniques.
 
-> There's a lot of waterfall-bashing going around these days, but I find its the most efficient methodology, especially for client engagements, and especially if you are experienced and capable, and have developed similar systems in the past. Waterfall forces you to have a plan, and allows you to push back effectively against scope creep. For a straightforward Rails API based on clear requirements, I stand by the waterfall method. It doesn't mean you have to abandon agile practices like version control, collaborative issue-tracking, and iterative releases.
+> There's a lot of waterfall-bashing going around these days, but I find its the most efficient methodology, especially for client engagements, and especially if you are experienced and capable, and have developed similar systems in the past. Waterfall forces you to have a plan, and a good plan allows you to push back effectively against scope creep. For a straightforward REST API based on clear requirements, I stand by the waterfall method. It doesn't mean you have to abandon agile practices like version control, collaborative issue-tracking, and iterative releases.
 
-Project efforts consisted of an initial "Discovery Phase" followed eventually by a ten day "Planning Phase", three week-long "Development Sprints", and a final week-long "Maintenance Phase".
+The project consisted of an initial "Discovery Phase", followed by a ten day "Planning Phase", followed by three week-long "Development Sprints", followed by a final week-long "Maintenance and Integration Phase".
 
 ### Discovery Phase
 
-The client posted the job over email to a local technology group. I responded to the request and met with clients twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
+The client posted the job to a local New Haven technology meetup group email list. I responded to the request by email and met with clients in-person twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
 
 #### Scope of Services Document
 
@@ -53,13 +53,17 @@ The document included the following sections:
 
 ### Planning Phase
 
-It took around ten days of intermittent client meetings to translate conceptual ideas and user stories into a tangible system design.
+It took around ten days of intermittent client meetings and whiteboard sessions to translate conceptual ideas and user stories into a tangible system design.
 
-As a result of this planning effort, I produced a "Technical Requirements" document, which narrowly defined system scope and requirements, and formed a basis for shared expectations between developer and clients.
+> It can be tempting to leave some planning efforts for future determination, but I advise you invest time up-front to establish a solid plan. It makes the development process so much easier. Even if the planning phase takes a few more days, this will likely lead to development phase efficiencies which by far outweigh the initial time investment. Comprehensive planning efforts also preserve the relationship between client and developer by preventing conflicts over differences of expectations caused by plan ambiguity. I advise you don't move into the development phase without first establishing and agreeing upon a solid, comprehensive plan.
+
+As a result of this planning effort, I produced a "Technical Requirements" document, which narrowly and specifically defined system scope and requirements.
 
 #### Technical Requirements Document
 
-The Scope of Services document was an essential part of the success of this project. It established mutual expectations and a shared understanding between developers and clients.
+Like the Scope of Services document, the Technical Requirements document was also an essential part of the success of this project. And it also served to establish mutual expectations and a shared understanding between developers and clients.
+
+> Crafting a quality requirements document is essential to minimizing ambiguity and maximizing productivity during the development phase. Especially because thoughtful technical requirements lend themselves to be directly translated into subcomponent developer tasks, and allow the developer to focus on implementing instead of asking questions and waiting for further refinement of requirements. Even if you are using an agile approach, I would recommend you define requirements up-front in as comprehensive a manner as possible.
 
 The Technical Requirements document included the following sections:
 
@@ -69,7 +73,7 @@ The Technical Requirements document included the following sections:
   4. User Roles and Permissions
   5. System Functionality
 
-The Information Requirements section included a Data Flow Diagram, accompanied by a written explanations.
+The Information Requirements section included a Data Flow Diagram, accompanied by a written explanation.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-data-flow-diagram.png" alt="">
 
@@ -77,16 +81,20 @@ The System Architecture section included a Database Architecture Diagram and a S
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-database-architecture-diagram.png" alt="">
 
+> The final database architecture would end up slightly differing from the draft design, but the draft was instrumental in its ability to guide development efforts. When planning a system design, don't be afraid to give it your best attempt and leave room for future changes, as long as they are principled and justified.
+
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-server-architecture-diagram.png" alt="">
 
-The User Roles and Permissions section defined the following in-scope roles:
+> Not all parts of the system architecture were deemed in-scope for this project's development efforts, but it was still good to outline the entire system this way. Diagrams like this help clients understand how the system will work, and the relationship between various system components.
+
+The User Roles and Permissions section defined the following roles:
 
   + **Visitor**: Non-users, and any users who are not logged-in.
   + **User**: Music students who consume system content.
   + **Artist**: Professional musicians and music instructors who contribute videos and other content to the system.
   + **Admin**: ToneBase team members, and any other individual responsible for maintaining and monitoring the system.
 
-It also defined a set of permissions for each user role, including a direct mapping to development prioritization and specific database resources and controller actions.
+It also defined a set of permissions for each user role. These permissions specified which actions could be performed by each role, and directly mapped user capabilities with specific database resources and CRUD operations (e.g. "List", "Show", "Create", "Update", and "Destroy").
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-visitor.png" alt="">
 
@@ -96,13 +104,13 @@ It also defined a set of permissions for each user role, including a direct mapp
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-admin.png" alt="">
 
+> These CRUD operation mappings provided clear requirements which would directly translate into developer efforts and aid development efficiency. Also, the "Notes" column formed the basis of scenarios and use cases to facilitate and enable a successful test-driven development approach.
+
 The System Functionality section further defined desired features for each role. For each feature, it described the desired user experience, client application responsibilities (including example requests), and API server responsibilities (including example responses).
 
 ### Development Phase
 
-Crafting a quality requirements document is essential to minimizing ambiguity and maximizing productivity and efficiency during the development phase. A good technical requirements document lends itself to be directly translated into subcomponent developer tasks.
-
-I used a simple spreadsheet to track development priorities and share progress with clients.
+After compiling an inventory of system requirements, I used a simple spreadsheet to track development priorities and share progress with clients.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-dev-priorities.png" alt="">
 
