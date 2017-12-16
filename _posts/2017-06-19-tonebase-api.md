@@ -17,21 +17,23 @@ technologies:
   - jbuilder
 ---
 
-ToneBase is a web-based information system designed to facilitate online music instruction through the posting, curation, and viewing of online videos. The [ToneBase API 1.0](https://tonebase-api.herokuapp.com/) provides a RESTful back-end web service to power the [front-end client application](https://tonebase.co/).
+ToneBase is a web-based information system designed to facilitate online music instruction through the posting, curation, and viewing of online videos.
 
-The API was commissioned by the [ToneBase Team](https://twitter.com/tonebaseteam) comprised of student fellows from the [Yale Entrepreneurial Institute](https://www.city.yale.edu/) (YEI), who built the front-end interface themselves.
+The [ToneBase Team](https://twitter.com/tonebaseteam) comprised of student fellows from the [Yale Entrepreneurial Institute](https://www.city.yale.edu/) (YEI) commissioned Data Creative to build the [ToneBase API 1.0](https://tonebase-api.herokuapp.com/), a RESTful back-end web service to power the [front-end client application](https://tonebase.co/) they built themselves.
+
+During the project engagement, I was inspired by the vision and development capabilities of the ToneBase team. Their collaboration led to a successful project which met requirements and was delivered on-time.
 
 ## Project Management
 
-This project was planned, designed, and developed in less than 45 days using a traditional ("waterfall") systems development methodology.
+This project was planned, designed, and developed from conception to final delivery in less than 45 days using a traditional ("waterfall") systems development methodology, infused with some "agile" system development techniques.
 
-The project consisted of a "Discovery Phase" followed by a ten day "Planning Phase", followed by three week-long "Development Sprints", followed by a week-long "Maintenance Phase".
+Project efforts consisted of an initial "Discovery Phase" followed eventually by a ten day "Planning Phase", three week-long "Development Sprints", and a final week-long "Maintenance Phase".
 
 ### Discovery Phase
 
 The client posted the job over email to a local technology group. I responded to the request and met with clients twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
 
-### Deliverable: Scope of Services Document
+#### Scope of Services Document
 
 The Scope of Services document was an essential part of the success of this project. It established mutual expectations and a shared understanding between developers and clients. It specifically defined the system scope and goals, but did not assume to predefine any specific technical requirements.
 
@@ -51,43 +53,71 @@ The document included the following sections:
 
 It took around ten days of intermittent client meetings to translate conceptual ideas and user stories into a tangible system design.
 
-As a result of this phase, I produced a Technical Requirements Document, including a Data Flow Diagram, a Database Architecture Diagram, and a Server Architecture Diagram.
+As a result of this planning effort, I produced a "Technical Requirements" document, which narrowly defined system scope and requirements, and formed a basis for shared expectations between developer and clients.
 
-#### Deliverable: Requirements Document
+#### Technical Requirements Document
 
-The Technical Requirements Document specified the specific system scope and requirements. It said what the system should do.
+The Scope of Services document was an essential part of the success of this project. It established mutual expectations and a shared understanding between developers and clients.
 
-It included the following sections:
+The Technical Requirements document included the following sections:
 
   1. System Description
   2. Information Requirements
   3. System Architecture
   4. User Roles and Permissions
-  5. System Functionality (desired features for each user role)
+  5. System Functionality
 
-Crafting a quality requirements document is essential to minimizing ambiguity and maximizing productivity and efficiency during the development phase. A good technical requirements document lends itself to be directly translated into subcomponent developer tasks.
-
-#### Deliverable: Data Flow Diagram
+The Information Requirements section included a Data Flow Diagram, accompanied by a written explanations.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-data-flow-diagram.png" alt="">
 
-#### Deliverable: Database Architecture Diagram
+The System Architecture section included a Database Architecture Diagram and a Server Architecture Diagram, accompanied by written explanations of each.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-database-architecture-diagram.png" alt="">
 
-#### Deliverable: Server Architecture Diagram
-
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-server-architecture-diagram.png" alt="">
+
+The User Roles and Permissions section defined the following in-scope roles:
+
+  + **Visitor**: Non-users, and any users who are not logged-in.
+  + **User**: Music students who consume system content.
+  + **Artist**: Professional musicians and music instructors who contribute videos and other content to the system.
+  + **Admin**: ToneBase team members, and any other individual responsible for maintaining and monitoring the system.
+
+It also defined a set of permissions for each user role, including a direct mapping to development prioritization and specific database resources and controller actions.
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-visitor.png" alt="">
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-user.png" alt="">
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-artist.png" alt="">
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-admin.png" alt="">
+
+The System Functionality section further defined desired features for each role. For each feature, it described the desired user experience, client application responsibilities (including example requests), and API server responsibilities (including example responses).
 
 ### Development Phase
 
+Crafting a quality requirements document is essential to minimizing ambiguity and maximizing productivity and efficiency during the development phase. A good technical requirements document lends itself to be directly translated into subcomponent developer tasks.
+
+I used a simple spreadsheet to track development priorities and share progress with clients.
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-dev-priorities.png" alt="">
+
+The purple highlighted items were not originally included in project planning, but arose out of necessity during the development process. In any project, its important to leave a buffer for unplanned efforts.
+
+
+
+
+
+
+Based on ongoing collaborative feature prioritization efforts, some of the planned functionality was deemed out of scope of the agreed-upon development terms of this project.
+
+#### Source Code
+
 ...
 
-#### Deliverable: Source Code
-
-...
-
-#### Deliverable: Documentation
+#### API Documentation
 
 
 Included example requests and responses
