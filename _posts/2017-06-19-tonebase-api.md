@@ -85,14 +85,14 @@ The System Architecture section included a Database Architecture Diagram and a S
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-server-architecture-diagram.png" alt="">
 
-> Not all parts of the system architecture were deemed in-scope for this project's development efforts, but it was still good to outline the entire system this way. Diagrams like this help clients understand how the system will work, and the relationship between various system components.
+> Not all parts of the system architecture were deemed in-scope for this project's development efforts, but it was still good to outline the entire system this way. Diagrams like this help clients understand how the system will work, and what the relationship is between various system components.
 
 The User Roles and Permissions section defined the following roles:
 
   + **Visitor**: Non-users, and any users who are not logged-in.
   + **User**: Music students who consume system content.
   + **Artist**: Professional musicians and music instructors who contribute videos and other content to the system.
-  + **Admin**: ToneBase team members, and any other individual responsible for maintaining and monitoring the system.
+  + **Admin**: ToneBase team members, and anyone else responsible for maintaining and monitoring the system.
 
 It also defined a set of permissions for each user role. These permissions specified which actions could be performed by each role, and directly mapped user capabilities with specific database resources and CRUD operations (e.g. "List", "Show", "Create", "Update", and "Destroy").
 
@@ -106,32 +106,24 @@ It also defined a set of permissions for each user role. These permissions speci
 
 > These CRUD operation mappings provided clear requirements which would directly translate into developer efforts and aid development efficiency. Also, the "Notes" column formed the basis of scenarios and use cases to facilitate and enable a successful test-driven development approach.
 
-The System Functionality section further defined desired features for each role. For each feature, it described the desired user experience, client application responsibilities (including example requests), and API server responsibilities (including example responses).
+The System Functionality section further elaborated on the set of in-scope features for each role. The description of each feature included a user experience narrative, client application responsibilities (including example requests), and API server responsibilities (including example responses).
 
 ### Development Phase
 
-After compiling an inventory of system requirements, I used a simple spreadsheet to track development priorities and share progress with clients.
+After compiling an inventory of feature requirements, I used a simple spreadsheet to track development priorities and share progress with clients.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-dev-priorities.png" alt="">
 
-The purple highlighted items were not originally included in project planning, but arose out of necessity during the development process. In any project, its important to leave a buffer for unplanned efforts.
-
-
-
-
-
-
-Based on ongoing collaborative feature prioritization efforts, some of the planned functionality was deemed out of scope of the agreed-upon development terms of this project.
+> The purple highlighted items were not originally included in project planning, but arose out of necessity during the development process. In any project, its important to leave a buffer for unplanned efforts.
 
 #### Source Code
 
-...
+Delivering the system's [final source code](https://github.com/data-creative/tonebase-api/) was easy because I used version control from the beginning. Pushing commits to a remote GitHub repository provided clients with flexibility in their ability to copy, download, investigate, and deploy the application's source code. Version control also served to facilitate a transparent development process, as it enabled clients to see development process in real-time.
 
 #### API Documentation
 
-
-Included example requests and responses
-
-Final system domain model:
+The [final documentation deliverable](https://github.com/data-creative/tonebase-api/blob/master/DOCS.md) included instructions on how to authenticate and issue requests to the API. It listed all database resources and corresponding API endpoints. It also included a final depiction of the API's domain model (below), and an [example client application](https://github.com/s2t2/tonebase-api-client-example) to show the client how to integrate with the API using their desired technologies (in this case, a Node.js application using the Express framework).
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-final-erd.png" alt="">
+
+> The "Rails ERD" gem generated this diagram based on actual properties and architecture of the final database.
