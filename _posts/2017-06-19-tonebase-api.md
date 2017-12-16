@@ -5,7 +5,7 @@ author: MJ Rossetti
 published: true
 repo_url: https://github.com/data-creative/tonebase-api
 project_url: https://tonebase-api.herokuapp.com/
-img: tonebase-logo.jpg # rails-logo.png
+img: rails-logo.svg # tonebase-client-app-homepage.png # tonebase-logo.jpg
 use_img_as_post_header: true
 categories:
  - open-source-application
@@ -20,6 +20,8 @@ technologies:
 ToneBase is a web-based information system designed to facilitate online music instruction through the posting, curation, and viewing of online videos.
 
 The [ToneBase Team](https://twitter.com/tonebaseteam) comprised student fellows from the [Yale Entrepreneurial Institute](https://www.city.yale.edu/) (YEI). They commissioned Data Creative to build the [ToneBase API 1.0](https://tonebase-api.herokuapp.com/), a RESTful back-end web service to power the [front-end client application](https://tonebase.co/) they built themselves.
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-client-app-homepage.png" alt="">
 
 I was thankful the terms of the engagement allowed me to develop the API using open source technologies like PostgreSQL and Ruby on Rails, and release the software according to an [open source license](https://github.com/data-creative/tonebase-api/blob/master/LICENSE.md). Throughout the entirety of the project engagement, I was inspired by the passion, vision, and development capabilities of the ToneBase team. Their collaboration led to a successful project which met requirements and was delivered on-time.
 
@@ -126,4 +128,4 @@ The [final documentation deliverable](https://github.com/data-creative/tonebase-
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-final-erd.png" alt="">
 
-> The "Rails ERD" gem generated this diagram based on actual properties and architecture of the final database.
+> The "Rails ERD" gem auto-generated this diagram based on actual properties and architecture of the final database. So easy!
