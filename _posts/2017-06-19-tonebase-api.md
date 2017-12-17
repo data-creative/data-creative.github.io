@@ -37,7 +37,7 @@ The project consisted of an initial "Discovery Phase", followed by a ten day "Pl
 
 ### Discovery Phase
 
-The clients posted the job to a local New Haven technology meetup group email list. I responded to the request via email and met with clients in-person twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
+The clients posted the job to a local New Haven technology meetup group email list. I responded to the request via email and met with the clients in-person twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
 
 #### Scope of Services Document
 
@@ -61,7 +61,7 @@ I was thankful the Terms of Participation allowed me to develop the API using op
 
 It took around ten days of intermittent client meetings and whiteboard sessions to translate conceptual ideas and user stories into a tangible system design.
 
-> It can be tempting to leave some planning efforts for future determination, but I advise you invest time up-front to establish a solid plan. It makes the development process so much easier. Even if the planning phase takes a few more days, this will likely lead to development phase efficiencies which by far outweigh the initial time investment. Comprehensive planning efforts also preserve the relationship between client and developer by preventing conflicts over differences of expectations caused by plan ambiguity. I advise you don't move into the development phase without first establishing and agreeing upon a solid, comprehensive plan.
+> It can be tempting to leave some planning efforts for future determination, but I advise you invest time up-front to establish a solid plan. It makes the development process so much easier. Even if the planning phase takes a few more days, this will likely lead to development phase efficiencies which by far outweigh the initial time investment. Comprehensive planning efforts also preserve the relationship between clients and developers by preventing conflicts over differences of expectations caused by plan ambiguity. I advise you don't move into the development phase without first establishing and agreeing upon a solid, comprehensive plan.
 
 As a result of this planning effort, I produced a "Technical Requirements" document, which narrowly and specifically defined system scope and requirements.
 
@@ -116,7 +116,7 @@ The System Functionality section further elaborated on the set of in-scope featu
 
 ### Development Phase
 
-After compiling an inventory of feature requirements, I used a simple spreadsheet to track development priorities and share progress with clients.
+After compiling an inventory of feature requirements, I used a simple spreadsheet to track development priorities and share progress with my clients.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-dev-priorities.png" alt="">
 
@@ -156,7 +156,7 @@ Delivering the system's [final source code](https://github.com/data-creative/ton
 
 #### API Documentation
 
-The [final documentation deliverable](https://github.com/data-creative/tonebase-api/blob/master/DOCS.md) included instructions on how to authenticate to the API, listed all database resources and corresponding API endpoints, and provided example requests and responses for each endpoint. It also included a final depiction of the API's domain model (below), and the aforementioned [example client application](https://github.com/s2t2/tonebase-api-client-example) to show the client how to integrate with the API using their desired technologies (in this case, a Node.js application using the Express framework).
+The [final documentation deliverable](https://github.com/data-creative/tonebase-api/blob/master/DOCS.md) included instructions on how to authenticate to the API, listed all database resources and corresponding API endpoints, and provided example requests and responses for each endpoint. It also included a final depiction of the API's domain model (below), and the aforementioned [example client application](https://github.com/s2t2/tonebase-api-client-example) to show my clients how to integrate with the API using their desired technologies (in this case, a Node.js application using the Express framework).
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-final-erd.png" alt="">
 
