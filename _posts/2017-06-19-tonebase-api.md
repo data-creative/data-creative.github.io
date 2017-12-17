@@ -112,7 +112,7 @@ It also defined a set of permissions for each user role. These permissions speci
 
 > These CRUD operation mappings provided clear requirements which would directly translate into developer efforts and aid development efficiency. Also, the "Notes" column formed the basis of test scenarios and use cases which enabled a test-driven development approach.
 
-The System Functionality section further elaborated on the set of in-scope features for each role. The description of each feature included a user experience narrative, client application responsibilities (including example requests), and API server responsibilities (including example responses).
+The System Functionality section further elaborated on the set of in-scope features for each role. These feature descriptions included user experience narratives, client application responsibilities (including example requests), and API server responsibilities (including example responses).
 
 ### Development Phase
 
