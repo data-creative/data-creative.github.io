@@ -83,7 +83,7 @@ The Information Requirements section included a Data Flow Diagram, accompanied b
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-data-flow-diagram.png" alt="">
 
-The System Architecture section included a Database Architecture Diagram and a Server Architecture Diagram, accompanied by written explanations of each.
+The System Architecture section included a Database Architecture Diagram and a Network Architecture Diagram, accompanied by written explanations of each.
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-database-architecture-diagram.png" alt="">
 
