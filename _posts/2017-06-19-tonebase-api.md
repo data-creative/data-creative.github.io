@@ -120,7 +120,7 @@ After compiling an inventory of feature requirements, I used a simple spreadshee
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-dev-priorities.png" alt="">
 
-> The purple highlighted items were not originally included in project planning, but arose out of necessity during the development process. In any project, its important to leave a buffer for unplanned efforts, especially things you "know you don't know".
+> The purple highlighted items were not originally included in project planning, but arose out of necessity during the development process. In any project, its important to leave a buffer for unplanned efforts, especially things you "know you don't know". Also, you'll notice the features did not always get implemented in their planned priority order. As a  developer in-tune with your own creative instincts, its important to be somewhat flexible and follow your gut feeling about when the time is right to develop any given feature.
 
 I started with a document-driven development approach whereby I [populated a list of API endpoints](https://github.com/data-creative/tonebase-api/commit/f199b9929aede8ac427106e55bc809d08b276df3) which had been defined as part of the technical requirements document. Over time, I would iteratively update the API documentation as I implemented each one.
 
