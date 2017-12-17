@@ -19,9 +19,13 @@ technologies:
   - native-base
   - node.js
   - npm
+  - moment.js
+  - d3.js
 ---
 
 **NextTrain - Connecticut** is a mobile app for searching train schedules published by the [Shore Line East](http://www.shorelineeast.com/) transit agency in Connecticut.
+
+Demo:
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/next-train-ct-android-demo.gif" alt="">
 
@@ -41,8 +45,12 @@ There has to be a simpler, easier way!
 
 ## Design Principles
 
-When designing the app, I prioritized simplicity. I noticed from my own user behavior that there was a single trip I took all the time, with the same origin and destination station. I assumed commuters would have the same user experience. So I allowed the user to specify a favorite route to minimize future clicking.
+When designing the app, I prioritized simplicity of user experience. Specifically, my goal was to minimize the number of clicks required to perform a schedule search.
 
-Once a user has specified a favorite route, this route shows up automatically when they open the app, and subsequent schedule searches only involve one click!
+I noticed from my own user behavior that I was taking the same one or two trips over and over. I assumed commuters would have the same user experience. So I allowed the user to specify favorite routes to minimize future clicking. Once a user has specified a favorite route, the route shows up automatically when they open the app, and subsequent schedule searches only involve one click!
 
-The best user feedback I have received about this app is that "It looks like it was built by Google". So kudos to [Native Base](https://nativebase.io/) for providing the slick UI components. I would consider using NativeBase in the future, but I also have my eye on [Twitter Bootstrap components](https://react-bootstrap.github.io/introduction.html) making their way into the React Native ecosystem.
+I also noticed I usually searched for today's schedule or tomorrow's schedule, so I hard-coded these favorite searches into the user interface, while at the same time allowing the user to optionally search a custom date.
+
+The best user feedback I have received about this app is that "It looks like it was built by Google". So kudos to [Native Base](https://nativebase.io/) and [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) for providing the slick UI components and icons, respectively. Also thanks to the [React Native Date-picker](https://github.com/xgfe/react-native-datepicker) and [React Native Swipe List](https://github.com/jemise111/react-native-swipe-list-view) libraries for providing intuitive ways to pick dates and delete list items, respectively.
+
+> Note: I would consider using NativeBase components in the future, but I also have my eye on [Twitter Bootstrap components](https://react-bootstrap.github.io/introduction.html) making their way into the React Native ecosystem. Let's see how the competition unfolds.
