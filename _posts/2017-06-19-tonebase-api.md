@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ToneBase API 1.0 - a triumph in project planning"
+title:  "ToneBase API 1.0, a Triumph of Project Planning"
 author: MJ Rossetti
 published: true
 repo_url: https://github.com/data-creative/tonebase-api
@@ -23,7 +23,7 @@ The [ToneBase Team](https://twitter.com/tonebaseteam) comprised student fellows 
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-client-app-homepage.png" alt="">
 
-I was thankful the terms of the engagement allowed me to develop the API using open source technologies like PostgreSQL and Ruby on Rails, and release the software according to an [open source license](https://github.com/data-creative/tonebase-api/blob/master/LICENSE.md). Throughout the entirety of the project engagement, I was inspired by the passion, vision, and development capabilities of the ToneBase team. Their collaboration led to a successful project which met requirements and was delivered on-time.
+Throughout the entirety of the project engagement, I was inspired by the passion, vision, and development capabilities of the ToneBase team. Their collaboration led to a successful project which met requirements and was delivered on-time.
 
 ## Project Management
 
@@ -35,7 +35,7 @@ The project consisted of an initial "Discovery Phase", followed by a ten day "Pl
 
 ### Discovery Phase
 
-The client posted the job to a local New Haven technology meetup group email list. I responded to the request by email and met with clients in-person twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
+The clients posted the job to a local New Haven technology meetup group email list. I responded to the request via email and met with clients in-person twice to further discuss overall product vision and scope. As a result, I prepared and delivered a "Scope of Services" document which would outline the terms of the engagement.
 
 #### Scope of Services Document
 
@@ -52,6 +52,8 @@ The document included the following sections:
   7. Terms of Participation
   8. Payment Schedule and Methods
   9. Signatures
+
+I was thankful the Terms of Participation allowed me to develop the API using open source technologies like PostgreSQL and Ruby on Rails, and release the software according to an [open source license](https://github.com/data-creative/tonebase-api/blob/master/LICENSE.md).
 
 ### Planning Phase
 
@@ -106,7 +108,7 @@ It also defined a set of permissions for each user role. These permissions speci
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-req-permissions-admin.png" alt="">
 
-> These CRUD operation mappings provided clear requirements which would directly translate into developer efforts and aid development efficiency. Also, the "Notes" column formed the basis of scenarios and use cases to facilitate and enable a successful test-driven development approach.
+> These CRUD operation mappings provided clear requirements which would directly translate into developer efforts and aid development efficiency. Also, the "Notes" column formed the basis of test scenarios and use cases which enabled a test-driven development approach.
 
 The System Functionality section further elaborated on the set of in-scope features for each role. The description of each feature included a user experience narrative, client application responsibilities (including example requests), and API server responsibilities (including example responses).
 
@@ -117,6 +119,24 @@ After compiling an inventory of feature requirements, I used a simple spreadshee
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/tonebase-dev-priorities.png" alt="">
 
 > The purple highlighted items were not originally included in project planning, but arose out of necessity during the development process. In any project, its important to leave a buffer for unplanned efforts.
+
+#### Setup
+
+I started with a document-driven development approach which [populated a list of API endpoints](https://github.com/data-creative/tonebase-api/commit/f199b9929aede8ac427106e55bc809d08b276df3) specified by the technical requirements document. Over time, I would iteratively update the API documentation as I implemented each one.
+
+Then I [configured the RSpec test suite](https://github.com/data-creative/tonebase-api/commit/a5267a1ddd24954fd9d53689ad29dd1a4e2a1166) and [deployed to a Heroku-hosted production server](https://github.com/data-creative/tonebase-api/commit/1f4ae0c62dddd2ed5c903861b41233f40cc8d1c5) as soon as possible. This enabled me to practice test-driven development and iterative deployment.
+
+#### Quick Wins
+
+After prepping the application for development of business logic, I started by [implementing](https://github.com/data-creative/tonebase-api/commit/220ef1a2c9e3768329205a2a2ce563cf97bd6ff0) tests and functionality for the "Instruments" resource. This resource was my top priority because it had straightforward attributes, but more importantly because the database architecture diagram showed it didn't depend on any other resources but many others either directly or indirectly depended on it.
+
+Then I [implemented](https://github.com/data-creative/tonebase-api/commit/c635700cfb394623e4516f2ca483c5498194ce9c) tests and functionality for advertisement-related resources because they depended on the instruments resource but had no other dependencies. After implementing these resources, I noticed commonalities among the corresponding controllers and [refactored](https://github.com/data-creative/tonebase-api/commit/c635700cfb394623e4516f2ca483c5498194ce9c#diff-834a6b4cfa87ae87e2e480a4674d916b) them into a generic [`ApiController`](https://github.com/data-creative/tonebase-api/commit/c635700cfb394623e4516f2ca483c5498194ce9c#diff-e3dabcd50af3f695337100894a51d413) from which the resource-specific controllers could inherit. The most important decision I made at this time was to also refactor shared test code into ["shared examples"](https://github.com/data-creative/tonebase-api/commit/c635700cfb394623e4516f2ca483c5498194ce9c#diff-b92771eca6fa696ee86650b591b81e21). This decision would drastically increase the pace and ease of future development, as it allowed me to write tests like `it_behaves_like "an index endpoint"` instead of writing a large file full of somewhat duplicative test code. Investing time early on to refactor tests was one of the best decisions I made during the development process.
+
+... api key authentication via request headers ...
+
+... nested endpoints ...
+
+
 
 #### Source Code
 
