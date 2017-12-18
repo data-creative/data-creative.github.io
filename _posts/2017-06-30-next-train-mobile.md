@@ -60,7 +60,7 @@ The best user feedback I have received about this app is that "It looks like it 
 
 While developing this Android app, I [learned](https://github.com/jasonmerino/react-native-simple-store/blob/2bf2d3797370c2ce92e9958165969d2db9ef4fa5/dist/index.js#L24-L63) how to use React Native's `AsyncStorage` functionality, which accesses a MongoDB-like NoSQL datastore that comes pre-installed on Android devices. Specifically, I used it to store a user's favorite transit routes so they wouldn't disappear after the user closes the app.
 
-These calls to the local filesystem require logic to handle asynchronous responses. They return Promises and can be chained. To avoid JSON parsing errors, make sure to use `JSON.stringify()` before storing the object and `JSON.parse()` after retrieving it.
+These calls to the local filesystem require logic to handle asynchronous responses. They return [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) and can be chained. To avoid JSON parsing errors, make sure to use `JSON.stringify()` before storing the object and `JSON.parse()` after retrieving it.
 
 Relevant code snippets:
 

@@ -28,6 +28,8 @@ Data published in GTFS format consists of a ZIP file which includes a number of 
 
 Example request URL: `/api/v1/trains.json?date=2017-12-17&origin=BRN&destination=NHV`
 
+> The request specifies URL parameters to denote the origin station, destination station, and date of travel.
+
 Example response:
 
 ```js
@@ -167,13 +169,12 @@ Example response:
           "departure_time": "2017-12-17T09:35:00-0500"
         }
       ]
-    },
-
+    }
   ]
 }
 ```
 
-> Very usable!
+> Then the response includes a list of trips running from the origin station to the destination station on the given day. It even includes a comprehensive list of all stops for each trip. Very usable!
 
 Besides transforming GTFS data into a more usable format for client applications, the real value of this API lies in its scalability. It should work for [any one of these](https://transitfeeds.com/feeds) 500+ GTFS-publishing transit agencies across the globe.
 
