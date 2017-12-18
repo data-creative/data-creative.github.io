@@ -13,6 +13,7 @@ technologies:
   - javascript
   - react-native
   - android
+  - android-studio
   - gradle
   - gtfs
   - git
@@ -54,3 +55,15 @@ I also noticed I usually searched for today's schedule or tomorrow's schedule, s
 The best user feedback I have received about this app is that "It looks like it was built by Google". So kudos to [Native Base](https://nativebase.io/) and [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) for providing the slick UI components and icons, respectively. Also thanks to the [React Native Date-picker](https://github.com/xgfe/react-native-datepicker) and [React Native Swipe List](https://github.com/jemise111/react-native-swipe-list-view) libraries for providing intuitive ways to pick dates and delete list items, respectively.
 
 > Note: I would consider using NativeBase components in the future, but I also have my eye on [Twitter Bootstrap components](https://react-bootstrap.github.io/introduction.html) making their way into the React Native ecosystem. Let's see how the competition unfolds.
+
+## Development Notes
+
+While developing this Android app, I [learned](https://github.com/jasonmerino/react-native-simple-store/blob/2bf2d3797370c2ce92e9958165969d2db9ef4fa5/dist/index.js#L24-L63) how to use React Native's `AsyncStorage` functionality, which accesses a MongoDB-like NoSQL datastore that comes pre-installed on Android devices. Specifically, I used it to store a user's favorite transit routes so they wouldn't disappear after the user closes the app.
+
+These calls to the local filesystem require logic to handle asynchronous responses. They return Promises and can be chained. To avoid JSON parsing errors, make sure to use `JSON.stringify()` before storing the object and `JSON.parse()` after retrieving it.
+
+Relevant code snippets:
+
+  + [Saving data](https://github.com/data-creative/NextTrainCT/blob/231a66217a135fa4c7a1230de5e21ab3c6652fb4/components/favs/New.js#L75-L81) to local storage
+  + [Retrieving data](https://github.com/data-creative/NextTrainCT/blob/231a66217a135fa4c7a1230de5e21ab3c6652fb4/components/favs/Index.js#L61-L72) from local storage
+  + [Deleting data](https://github.com/data-creative/NextTrainCT/blob/231a66217a135fa4c7a1230de5e21ab3c6652fb4/components/favs/Index.js#L74-L83) from local storage
