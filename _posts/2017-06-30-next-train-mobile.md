@@ -26,11 +26,11 @@ technologies:
 
 **NextTrain - Connecticut** is a mobile app for searching train schedules published by the [Shore Line East](http://www.shorelineeast.com/) transit agency in Connecticut.
 
+It relies on a back-end web service I created, called the <a href="{{ site.baseurl }}/open-source-application/2017/05/21/next-train-api/">Next Train API</a>, to provide train schedules in JSON format upon request.
+
 Demo:
 
 <img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/next-train-ct-android-demo.gif" alt="">
-
-It relies on a back-end web service I created, called the <a href="{{ site.baseurl }}/open-source-application/2017/05/21/next-train-api/">Next Train API</a>, to provide train schedules in JSON format upon request.
 
 The front-end mobile application is [available to download](https://play.google.com/store/apps/details?id=com.nexttrainct&hl=en) for Android via the Google Play store.
 
