@@ -17,6 +17,7 @@ technologies:
   - jbuilder
   - heroku
   - git
+  - postgresql
 ---
 
 ToneBase is a web-based information system designed to facilitate online music instruction through the posting, curation, and viewing of online videos.
