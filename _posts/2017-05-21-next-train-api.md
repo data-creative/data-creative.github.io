@@ -22,13 +22,13 @@ technologies:
 
 The **Next Train API** provides a JSON web service for any GTFS feed. Currently this back-end API powers the <a href="{{ site.baseurl }}/open-source-application/2017/06/30/next-train-mobile/">Next Train Mobile App</a> I built for Android.
 
-> If you are curious, [GTFS](https://developers.google.com/transit/gtfs/) stands for "General Transit Feed Specification", the data standard transit agencies use to publish their train schedule data. They are supposed to all publish data in a consistent format to enable a robust ecosystem of third-party developer apps.
+> If you are curious, [GTFS](https://developers.google.com/transit/gtfs/) stands for "General Transit Feed Specification", the data standard transit agencies use to publish their train schedule data. They are supposed to all publish data in a consistent format to enable a robust and interoperable ecosystem of third-party developer apps.
 
-Data published in GTFS format consists of a ZIP file which includes a number of normalized CSV files. In such a format, it's not easy for client applications to make requests for the data. So I built the API to process and store GTFS schedule data into a database, then to respond to requests with a more usable JSON format.
+Data published in GTFS format consists of a ZIP file which includes a number of normalized CSV files. In such a format, it's not easy for client applications to make requests for the data. So I built the API to process and store GTFS data into a database on a nightly or hourly basis, then to respond to on-demand requests with concise JSON formatted data.
 
 Example request URL: `/api/v1/trains.json?date=2017-12-17&origin=BRN&destination=NHV`
 
-> The request specifies URL parameters to denote the origin station, destination station, and date of travel.
+> The request URL specifies parameters to denote the origin station, destination station, and date of travel. These parameters are then used in a database query to fetch specific schedule data.
 
 Example response:
 
@@ -174,10 +174,10 @@ Example response:
 }
 ```
 
-> Then the response includes a list of trips running from the origin station to the destination station on the given day. It even includes a comprehensive list of all stops for each trip. Very usable!
+> The response includes a list of trips running from the origin station to the destination station on the given day. It even includes a comprehensive list of all stops for each trip. Very usable!
 
 Besides transforming GTFS data into a more usable format for client applications, the real value of this API lies in its scalability. It should work for [any one of these](https://transitfeeds.com/feeds) 500+ GTFS-publishing transit agencies across the globe.
 
-But the API's downside is that it depends on the publishing transit agency to be a dependable and capable partner. Unfortunately, in my experience working with GTFS data [published by](https://www.cttransit.com/about/developers) my local Connecticut transit agency, [Shore Line East](http://www.shorelineeast.com/), I have noticed multiple inconsistencies and idiosyncrasies their data quality and publishing practices. After bringing these issues to their attention, they have usually responded by fixing the issues, but along the way they have lost my confidence in their reliability. It's a shame this specific transit agency is not willing and able to collaborate with third-party developers. I think their riders and their service both suffer as a result.
+But the API's downside is that it depends on the publishing transit agency to be a dependable and capable partner. Unfortunately, in my experience working with GTFS data [published by](https://www.cttransit.com/about/developers) my local Connecticut transit agency, [Shore Line East](http://www.shorelineeast.com/), I have noticed multiple inconsistencies and idiosyncrasies in their data validation and publishing practices. After bringing these issues to their attention, they have eventually responded with fixes, but along the way they have lost my confidence. It's a shame this specific transit agency is not willing and able to collaborate with third-party developers. I think their riders and their service both suffer as a result.
 
-I encourage any interested developer to [configure and deploy](https://github.com/data-creative/next-train-api/blob/master/DEPLOYING.md) this API to your own Heroku server to consume GTFS data from your own local transit agency. All you have to do is set an environment variable called `GTFS_SOURCE_URL` to point to the GTFS feed URL (e.g. `"http://www.shorelineeast.com/google_transit.zip"`) and schedule a job (`rake gtfs:import`) to run once per day. If you do this, let me know how it goes! I'm happy to provide support.
+I encourage any interested developer to [configure and deploy](https://github.com/data-creative/next-train-api/blob/master/DEPLOYING.md) this API to your own Heroku server to consume GTFS data from your own local transit agency. All you have to do is set an environment variable called `GTFS_SOURCE_URL` to point to the GTFS feed URL (e.g. `"http://www.shorelineeast.com/google_transit.zip"`) and schedule a job (`rake gtfs:import`) to run once per hour or once per day. If you do this, let me know how it goes! I'm happy to provide support.
