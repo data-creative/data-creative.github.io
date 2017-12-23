@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ToneBase API 1.0, a Triumph of Project Planning"
+title:  "ToneBase API 1.0"
 author: MJ Rossetti
 published: true
 repo_url: https://github.com/data-creative/tonebase-api

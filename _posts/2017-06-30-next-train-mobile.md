@@ -40,13 +40,13 @@ The front-end mobile application is [available to download](https://play.google.
 
 ## Problem Statement
 
-I built this app because I found Shore Line East's online ["Trip Planner" interface](http://www.shorelineeast.com/trip-planner) to be cumbersome and painful. It involves too many clicks (a minimum of seven) and doesn't allow the user to customize his/her preferred stations. Worst of all, unless the user specifies the exact start and end times, when it returns results, it forces the user to scroll through a small modal window to find the relevant information.
+Shore Line East's online [Trip Planner](http://www.shorelineeast.com/trip-planner) does not produce an optimal user experience. It involves too many clicks (a minimum of seven). It doesn't allow the user to customize preferred stations. And when it returns results, it obscures relevant information inside a small modal window.
 
 There has to be a simpler, easier way!
 
-## Design Principles
+## Design Notes
 
-When designing the app, I prioritized simplicity of user experience. Specifically, my goal was to minimize the number of clicks required to perform a schedule search.
+When designing this app, I prioritized efficiency of the schedule search process. Specifically, my goal was to minimize the number of required clicks.
 
 I noticed from my own user behavior that I was taking the same one or two trips over and over. I assumed commuters would have the same user experience. So I allowed the user to specify favorite routes to minimize future clicking. Once a user has specified a favorite route, the route shows up automatically when they open the app, and subsequent schedule searches only involve one click!
 
@@ -54,7 +54,7 @@ I also noticed I usually searched for today's schedule or tomorrow's schedule, s
 
 The best user feedback I have received about this app is that "It looks like it was built by Google". So kudos to [Native Base](https://nativebase.io/) and [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons) for providing the slick UI components and icons, respectively. Also thanks to the [React Native Date-picker](https://github.com/xgfe/react-native-datepicker) and [React Native Swipe List](https://github.com/jemise111/react-native-swipe-list-view) libraries for providing intuitive ways to pick dates and delete list items, respectively.
 
-> Note: I would consider using NativeBase components in the future, but I also have my eye on [Twitter Bootstrap components](https://react-bootstrap.github.io/introduction.html) making their way into the React Native ecosystem. Let's see how the competition unfolds.
+> Note: I would consider using NativeBase components in the future, but I also have my eye on [Twitter Bootstrap components](https://react-bootstrap.github.io/introduction.html) making their way into the React Native ecosystem. I look forward to evaluating Twitter Bootstrap components for upcoming projects.
 
 ## Development Notes
 
