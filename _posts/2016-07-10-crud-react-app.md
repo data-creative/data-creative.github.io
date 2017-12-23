@@ -34,7 +34,7 @@ The back-end API uses [Express.js](http://expressjs.com/) to serve JSON at `/api
 
 > Reference: `app.js` and `routes/`.
 
-The API server was generated using [express-generator](https://expressjs.com/en/starter/generator.html).
+The API server was generated using [Express Generator](https://expressjs.com/en/starter/generator.html).
 
 #### Datastore
 
