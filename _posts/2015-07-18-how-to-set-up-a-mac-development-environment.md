@@ -61,7 +61,7 @@ credits:
 
 This document describes the process of configuring a new Mac OS-X development environment from scratch.
 
-Last updated: November 2017.
+Last updated: February 2018.
 
 ## System Set-up
 
@@ -134,13 +134,25 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 #
 
 alias ll="ls -lahG"
-alias gs="git status"
+
+alias gb="git branch"
 alias gd="git diff"
 alias gl="git log"
 alias glt="git log --graph --decorate --oneline --full-history --all --simplify-by-decoration"
 alias glsd="git ls-files --deleted"
 alias gpom="git pull origin master"
+alias gr="git remote -v"
+alias gs="git status"
 ````
+
+### Startup Agents
+
+Review startup agents, and remove as necessary:
+
+```sh
+launchctl list | grep -v -e 'com.apple' # list
+launchctl remove com.xyz.123.def # remove
+```
 
 ### SSH Keys
 
@@ -325,7 +337,7 @@ rbenv global 2.3.5 # to set a specific ruby version for use
 If you run into trouble, make sure you have installed xcode command line tools and these core libraries: `brew install openssl libyaml libffi`.
 
 ##### Ruby Gems
- 
+
 Install global gems, including the [bundler](http://bundler.io/) package manager:
 
 ```` sh
@@ -364,9 +376,16 @@ pip3 install flask
 
 #### Node
 
-> As a developer working on more than one node.js project, it sometimes becomes necessary to specify different node versions for each project. NVM makes switching node versions easy.
+##### NVM
 
-[Install](https://github.com/creationix/nvm#install-script) NVM:
+
+Check if NVM is installed:
+
+```sh
+command -v nvm
+```
+
+[Install NVM](https://github.com/creationix/nvm#install-script):
 
 ```` sh
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh | bash
@@ -378,8 +397,11 @@ Use NVM to check for available Node.js versions, install a specific version:
 
 ```shell
 nvm ls-remote  # checks for available versions
-nvm install 4.4.7 # installs a specific version, and automatically starts using it
+nvm install 8.9.3 # installs a specific version, and automatically starts using it
 ```
+
+
+
 
 ##### Node Packages
 
@@ -601,8 +623,15 @@ Run elasticsearch.
 elasticsearch
 ````
 
+### Phantom.js
 
-### Graphing Library
+Install phantomjs (http://phantomjs.org/):
+
+```sh
+brew install phantomjs
+```
+
+### Graphviz
 
 If using the [`rails-erd`](https://github.com/voormedia/rails-erd) gem, satisfy [`ruby-graphviz`](https://github.com/glejeune/Ruby-Graphviz) dependency by installing the [`graphviz`](http://graphviz.org/) library.
 
