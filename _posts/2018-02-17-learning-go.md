@@ -18,7 +18,13 @@ Official documentation:
 
   + [Getting Started Guide](https://golang.org/doc/code.html)
   + [Language Specification](https://golang.org/ref/spec)
+  + [Built-in Packages](https://golang.org/pkg/)
   + [Idioms and Best Practices](https://golang.org/doc/effective_go.html)
+
+Third-party resources:
+
+  + [Go By Example: Arrays](https://gobyexample.com/arrays)
+  + [Go By Example: Time](https://gobyexample.com/time)
 
 ## Installation and Setup
 
@@ -180,4 +186,72 @@ fmt.Println(s) //> "Hello World"
 ```go
 const s string = "Hello World"
 fmt.Println(s)
+```
+
+### Data Types
+
+Example data types:
+
+datatype | description
+--- | ---
+`boolean` | Standard boolean values include `true` and `false`.
+`string` | ...
+`int` | ...
+`float64` | ...
+`array` | An ordered list of values.
+`slice` | A subset of an `array`.
+`map` | An object with key-value pairs.
+`struct` | A custom data type, or "class".
+
+Checking a variable's datatype:
+
+```go
+// BUILT-IN
+
+fmt.Println(reflect.TypeOf("Hello World")) //> string
+
+fmt.Println(reflect.TypeOf(10)) //> int
+fmt.Println(reflect.TypeOf(4.5)) //> float64
+
+fmt.Println(reflect.TypeOf(true)) //> bool
+fmt.Println(reflect.TypeOf(false)) //> bool
+
+arr := [5]int{1, 2, 3, 4, 5}
+fmt.Println(reflect.TypeOf(arr)) //> [5]int
+fmt.Println(reflect.TypeOf(arr).Kind()) //> array
+
+m := map[string]string{"Washington": "DC", "San Francisco": "CA"}
+fmt.Println(reflect.TypeOf(m)) //> map[string]string
+fmt.Println(reflect.TypeOf(m).Kind()) //> map
+
+// PACKAGE-DEFINED
+
+fmt.Println(reflect.TypeOf(time.Now())) //> time.Time
+
+// CUSTOM-DEFINED
+
+type Team struct {
+  city string
+  name  string
+}
+t := Team{city: "New York", name: "Yankees"}
+fmt.Println(reflect.TypeOf(t)) //> main.Team
+```
+
+[Converting between datatypes](https://golang.org/ref/spec#Conversions):
+
+```go
+import (
+  "fmt"
+  "reflect"
+	"strconv"
+)
+
+func main()  {
+	i := 11
+	s := strconv.Itoa(i)
+
+	fmt.Println(s) //> 11
+	fmt.Println(reflect.TypeOf(s)) //> string
+}
 ```
