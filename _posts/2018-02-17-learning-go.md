@@ -24,6 +24,7 @@ Official documentation:
 Third-party resources:
 
   + [Go By Example: Arrays](https://gobyexample.com/arrays)
+  + [Go By Example: For Loops](https://gobyexample.com/for)
   + [Go By Example: Time](https://gobyexample.com/time)
 
 ## Installation and Setup
@@ -238,7 +239,7 @@ t := Team{city: "New York", name: "Yankees"}
 fmt.Println(reflect.TypeOf(t)) //> main.Team
 ```
 
-[Converting between datatypes](https://golang.org/ref/spec#Conversions):
+[Converting between numbers and strings](https://golang.org/pkg/strconv/#hdr-Numeric_Conversions):
 
 ```go
 import (
@@ -248,10 +249,185 @@ import (
 )
 
 func main()  {
-	i := 11
-	s := strconv.Itoa(i)
+  s := strconv.Itoa(11)
+  fmt.Println(s) //> 11
+  fmt.Println(reflect.TypeOf(s)) //> string
 
-	fmt.Println(s) //> 11
-	fmt.Println(reflect.TypeOf(s)) //> string
+  i, _ := strconv.Atoi("11")
+  fmt.Println(i) //> 11
+  fmt.Println(reflect.TypeOf(i)) //> integer
+}
+```
+
+#### [Booleans](https://golang.org/ref/spec#Boolean_types)
+
+```go
+true == true //> true
+true == false //> false
+```
+
+#### [Numbers](https://golang.org/ref/spec#Numeric_types)
+
+Perform numeric operations:
+
+```go
+fmt.Println(10 + 2) //> 12
+fmt.Println(10 - 2) //> 8
+fmt.Println(10 * 2) //> 20
+fmt.Println(10 / 2) //> 5
+```
+
+#### [Strings](https://golang.org/ref/spec#String_types)
+
+[String Concatenation](https://golang.org/ref/spec#String_concatenation):
+
+```go
+s := "Hello" + " " + "World"
+fmt.Println(s) //> "Hello World"
+```
+
+String Interpolation (or the closest thing to it):
+
+```go
+w := "World"
+n := 123
+f := false
+m := fmt.Sprintf("Hello %s %d %t", w, n, f) // see: https://golang.org/pkg/fmt/#hdr-Printing
+fmt.Println(m) //> "Hello World 123 false"
+```
+
+#### [Arrays](https://golang.org/ref/spec#Array_types) and [Slices](https://golang.org/ref/spec#Slice_types)
+
+Instantiate new arrays:
+
+```go
+arr1 := []string{"A", "B", "C"}
+arr2 := []int{1, 2, 3}
+```
+
+Array functions:
+
+```go
+arr := []string{"A", "B", "C"}
+len(arr) //> 3
+```
+
+[Index expressions](https://golang.org/ref/spec#Index_expressions):
+
+```go
+arr := []string{"A", "B", "C"}
+
+fmt.Println(arr[0]) //> "A"
+fmt.Println(arr[1]) //> "B"
+fmt.Println(arr[2]) //> "C"
+fmt.Println(arr[3]) //> panic: runtime error: index out of range
+fmt.Println(arr[len(arr)-1]) //> "C"
+```
+
+[Slice expressions](https://golang.org/ref/spec#Slice_expressions):
+
+```go
+arr := []string{"A", "B", "C", "D", "E", "F"}
+fmt.Println(arr[2:4]) //> [C D]
+fmt.Println(arr[2:]) //> [C D E F]
+fmt.Println(arr[:4]) //> [A B C D]
+```
+
+Adding items:
+
+```go
+arr := []string{"A", "B", "C"}
+arr = append(arr, "D")
+fmt.Println(arr) //> [A B C D]
+```
+
+Removing items:
+
+```go
+arr := []string{"A", "B", "C"}
+i := 1
+arr = append(arr[:i], arr[i+1:]...)
+	fmt.Println(arr) //> [A C]
+```
+
+Mutating items:
+
+```go
+arr := []string{"A", "B", "C"}
+arr[1] = "Z"
+fmt.Println(arr) //> [A Z C]
+```
+
+Concatenating arrays/slices:
+
+```go
+arr1 := []string{"A", "B", "C"}
+arr2 := []string{"D", "E", "F"}
+
+fmt.Println(append(arr1, arr2...)) //> [A B C D E F]
+```
+
+Iteration ([For statements with Range clause](https://golang.org/ref/spec#For_range), see also: "For Loops"):
+
+```go
+arr := []string{"A", "B", "C"}
+
+for index, element := range arr {
+  fmt.Println(i, element)
+}
+//> 0 A
+//> 1 B
+//> 2 C
+```
+
+#### [Structs](https://golang.org/ref/spec#Struct_types)
+
+Definition:
+
+```go
+type Team struct {
+  city string
+  name string
+}
+```
+
+Instantiation:
+
+```go
+t := Team{city: "New York", name: "Yankees"}
+```
+
+Accessing attributes:
+
+```go
+t := Team{city: "New York", name: "Yankees"}
+fmt.Println(t.city, t.name) //> "New York Yankees"
+```
+
+Mutating attributes:
+
+```go
+t := Team{city: "New York", name: "Yankees"}
+t.name = "Mets"
+fmt.Println(t.city, t.name) //> "New York Mets"
+```
+
+Virtual attributes (see also: "Functions"):
+
+```go
+type Team struct {
+	city string
+	name string
+}
+
+func (t *Team) fullName() string {
+  return t.city + " " + t.name
+}
+
+func main()  {
+
+	t := Team{city: "New York", name: "Yankees"}
+
+	fmt.Println(t.fullName()) //> "New York Yankees"
 }
 ```
