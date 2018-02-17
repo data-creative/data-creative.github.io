@@ -40,19 +40,6 @@ Restart terminal and create a new directory located at the `GOPATH`:
 mkdir -p $GOPATH
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Getting Started
 
 ### Programs
@@ -111,4 +98,95 @@ Alternatively execute `go install` to create an executable file within `$GOPATH/
 
 ```sh
 $GOPATH/bin/hello # or just `hello`, if you have already added `$GOPATH/bin` to your `$PATH`
+```
+
+
+## Language
+
+### [Comments](https://golang.org/ref/spec#Comments)
+
+Go uses JavaScript-like comments.
+
+```go
+// single line comment
+
+/*
+multi
+line
+comment
+*/
+```
+
+### Printing / Logging
+
+There are two ways to print. The [recommended](https://stackoverflow.com/a/14680544/670433) way involves importing the `fmt` package.
+
+```go
+println("Hello World") // one way
+
+import "fmt"
+fmt.Println("Hello World") // recommended way
+```
+
+### [Operators](https://golang.org/ref/spec#Operators)
+
+[Comparison Operators](https://golang.org/ref/spec#Comparison_operators):
+
+```go
+== // "is equal to?"
+!= // "is not equal to?"
+```
+
+[Logical Operators](https://golang.org/ref/spec#Logical_operators):
+
+```go
+&& // "and"
+|| // "or"
+! // "not"
+```
+
+
+### [Variables](https://golang.org/ref/spec#Variable_declarations)
+
+Variable declaration options, from static to dynamic typing:
+
+```go
+var s string
+s = "Hello World"
+fmt.Printf(s) //> "Hello World"
+```
+
+```go
+var s
+s = "Hello World"
+fmt.Printf(s)
+```
+
+One-liners:
+
+```go
+var s string = "Hello World"
+fmt.Printf(s) //> "Hello World"
+```
+
+```go
+var s = "Hello World"
+fmt.Printf(s) //> "Hello World"
+```
+
+```go
+s = "Hello World"
+fmt.Printf(s) //> "Hello World"
+```
+
+```go
+s := "Hello World"
+fmt.Printf(s) //> "Hello World"
+```
+
+[Constants](https://golang.org/ref/spec#Constant_expressions):
+
+```go
+const s string = "Hello World"
+fmt.Printf(s)
 ```
