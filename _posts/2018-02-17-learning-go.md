@@ -431,3 +431,78 @@ func main()  {
 	fmt.Println(t.fullName()) //> "New York Yankees"
 }
 ```
+
+### [For Statements](https://golang.org/ref/spec#For_statements)
+
+The following loops are equivalent:
+
+```go
+i := 0
+for i < 5 {
+  fmt.Println(i)
+	i++ // increments (equivalent to: `i = i + 1` and `i+=1`
+}
+```
+
+```go
+for i := 0; i < 5; i++ {
+	fmt.Println(i)
+}
+```
+
+### [Functions](https://golang.org/ref/spec#Function_declarations)
+
+Example function which declares parameter and return datatypes:
+
+```go
+// DEFINITION
+func enlarge(x int) int {
+	return x * 100
+}
+
+// INVOCATION
+enlarge(5) //> 500
+```
+
+### Conditionals
+
+#### [If Statements](https://golang.org/ref/spec#If_statements)
+
+Example with all clauses:
+```go
+val := 15
+
+if val == 3 {
+  fmt.Println("THREE")
+} else if val == 5 {
+	fmt.Println("FIVE")
+} else {
+	fmt.Println("OTHER")
+}
+```
+
+#### [Switch Statements](https://golang.org/ref/spec#Switch_statements)
+
+Switch statements with values:
+
+```go
+val := 15
+
+switch val {
+  case 0, 1, 2, 3: fmt.Println("LOW")
+  case 4, 5, 6, 7: fmt.Println("HIGH")
+  default: fmt.Println("OTHER")
+}
+```
+
+Switch statements with expressions:
+
+```go
+val := 15
+
+switch {
+  case val < 4: fmt.Println("LOW")
+  case val < 8: fmt.Println("HIGH")
+  default: fmt.Println("OTHER")
+}
+```
