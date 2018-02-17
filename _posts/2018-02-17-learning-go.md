@@ -18,6 +18,7 @@ Official documentation:
 
   + [Getting Started Guide](https://golang.org/doc/code.html)
   + [Language Specification](https://golang.org/ref/spec)
+  + [Idioms and Best Practices](https://golang.org/doc/effective_go.html)
 
 ## Installation and Setup
 
@@ -71,8 +72,7 @@ package main
 import "fmt"
 
 func main() {
-  fmt.Printf("Hello World")
-	fmt.Printf("\n")
+  fmt.Println("Hello World")
 }
 ```
 
@@ -117,17 +117,6 @@ comment
 */
 ```
 
-### Printing / Logging
-
-There are two ways to print. The [recommended](https://stackoverflow.com/a/14680544/670433) way involves importing the `fmt` package.
-
-```go
-println("Hello World") // one way
-
-import "fmt"
-fmt.Println("Hello World") // recommended way
-```
-
 ### [Operators](https://golang.org/ref/spec#Operators)
 
 [Comparison Operators](https://golang.org/ref/spec#Comparison_operators):
@@ -145,48 +134,50 @@ fmt.Println("Hello World") // recommended way
 ! // "not"
 ```
 
+### Printing / Logging
+
+There are two ways to print. The [recommended](https://stackoverflow.com/a/14680544/670433) way involves importing the `fmt` package.
+
+```go
+println("Hello World") // one way
+
+import "fmt"
+fmt.Println("Hello World") // recommended way
+```
+
+> NOTE: subsequent references to the "fmt" package assume you are importing it
+
 
 ### [Variables](https://golang.org/ref/spec#Variable_declarations)
 
-Variable declaration options, from static to dynamic typing:
+Variable declaration:
 
 ```go
 var s string
 s = "Hello World"
-fmt.Printf(s) //> "Hello World"
-```
-
-```go
-var s
-s = "Hello World"
-fmt.Printf(s)
+fmt.Println(s) //> "Hello World"
 ```
 
 One-liners:
 
 ```go
 var s string = "Hello World"
-fmt.Printf(s) //> "Hello World"
+fmt.Println(s) //> "Hello World"
 ```
 
 ```go
 var s = "Hello World"
-fmt.Printf(s) //> "Hello World"
-```
-
-```go
-s = "Hello World"
-fmt.Printf(s) //> "Hello World"
+fmt.Println(s) //> "Hello World"
 ```
 
 ```go
 s := "Hello World"
-fmt.Printf(s) //> "Hello World"
+fmt.Println(s) //> "Hello World"
 ```
 
 [Constants](https://golang.org/ref/spec#Constant_expressions):
 
 ```go
 const s string = "Hello World"
-fmt.Printf(s)
+fmt.Println(s)
 ```
