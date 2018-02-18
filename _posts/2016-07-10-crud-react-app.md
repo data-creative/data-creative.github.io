@@ -5,7 +5,7 @@ author: MJ Rossetti
 published: true
 img: react-logo.png
 categories:
- - open-source-application
+ - projects
 repo_url: https://github.com/s2t2/react-robots
 project_url: https://react-robots.herokuapp.com/
 technologies:

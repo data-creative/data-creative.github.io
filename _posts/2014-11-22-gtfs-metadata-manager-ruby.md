@@ -7,7 +7,7 @@ img: rubygems_logo_red.png
 repo_url: https://github.com/data-creative/gtfs-meta
 project_url: https://rubygems.org/gems/gtfs-meta
 categories:
- - open-source-library
+ - projects
 technologies:
  - ruby
  - rubygems

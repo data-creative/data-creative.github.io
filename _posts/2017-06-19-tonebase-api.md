@@ -8,7 +8,7 @@ project_url: https://tonebase-api.herokuapp.com/
 img: rails-logo.svg # tonebase-client-app-homepage.png # tonebase-logo.jpg
 use_img_as_post_header: true
 categories:
- - open-source-application
+ - projects
 technologies:
   - bundler
   - ruby

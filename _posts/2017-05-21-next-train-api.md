@@ -8,7 +8,7 @@ project_url: http://next-train-production.herokuapp.com/
 img: rails-logo.svg
 use_img_as_post_header: true
 categories:
- - open-source-application
+ - projects
 technologies:
   - bundler
   - ruby
@@ -20,7 +20,7 @@ technologies:
   - gtfs
 ---
 
-The **Next Train API** provides a JSON web service for any General Transit Feed Specification ([GTFS](https://developers.google.com/transit/gtfs/)) feed. By publishing transit schedule data in a consistent format like GTFS, transit agencies enable a robust and interoperable ecosystem of third-party developer applications (e.g Google Maps and <a href="{{ site.baseurl }}/open-source-application/2017/06/30/next-train-mobile/">Next Train Mobile</a>).
+The **Next Train API** provides a JSON web service for any General Transit Feed Specification ([GTFS](https://developers.google.com/transit/gtfs/)) feed. By publishing transit schedule data in a consistent format like GTFS, transit agencies enable a robust and interoperable ecosystem of third-party developer applications (e.g Google Maps and <a href="{{ site.baseurl }}/projects/2017/06/30/next-train-mobile/">Next Train Mobile</a>).
 
 ## Problem Statement
 

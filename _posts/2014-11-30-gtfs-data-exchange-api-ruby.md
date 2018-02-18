@@ -3,7 +3,7 @@ layout: post
 title:  "GTFS Data Exchange API - Ruby Library"
 author: MJ Rossetti
 categories:
- - open-source-library
+ - projects
 img: rubygems_logo_red.png
 repo_url: https://github.com/data-creative/gtfs-data-exchange-api-ruby
 project_url: https://rubygems.org/gems/gtfs_data_exchange_api

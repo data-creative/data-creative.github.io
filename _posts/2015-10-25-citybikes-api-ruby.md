@@ -3,7 +3,7 @@ layout: post
 title:  "CityBikes API - Ruby Library"
 author: MJ Rossetti
 categories:
- - open-source-library
+ - projects
 img: rubygems_logo_red.png
 repo_url: https://github.com/data-creative/citybikes-api-ruby
 project_url: https://rubygems.org/gems/citybikes_api
