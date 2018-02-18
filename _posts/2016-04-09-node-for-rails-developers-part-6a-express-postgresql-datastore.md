@@ -7,7 +7,7 @@ img: nodejs-logo-green.png
 repo_url: https://github.com/data-creative/express-on-rails-starter-app/
 project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
- - process-documentation
+ - reference-docs
 technologies:
  - git
  - node.js
@@ -20,7 +20,7 @@ subtitle: "Part 6a: PostgreSQL Datastore"
 ---
 
 > This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*.
-  After [enabling basic navigation](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
+  After [enabling basic navigation](/reference-docs/2016/04/09/node-for-rails-developers-part-5-express-views/), it's time to enable database functionality. This post describes the process of connecting the application to a *PostgreSQL* database.
 
 <hr>
 
@@ -28,7 +28,7 @@ subtitle: "Part 6a: PostgreSQL Datastore"
 
 ### Installing *PostgreSQL*
 
-Follow [these instructions](http://data-creative.info/process-documentation/2015/07/18/how-to-set-up-a-mac-development-environment/#postgresql) to install *PostgreSQL* on your local machine using *Homebrew*, if necessary. Many *Rails* developers should already have *PostgreSQL* installed.
+Follow [these instructions](http://data-creative.info/reference-docs/2015/07/18/how-to-set-up-a-mac-development-environment/#postgresql) to install *PostgreSQL* on your local machine using *Homebrew*, if necessary. Many *Rails* developers should already have *PostgreSQL* installed.
 
 ### Creating a New Database User
 
@@ -458,4 +458,4 @@ At this point you should be able to use the front-end interface to create, read,
 ![robots app index page screenshot with new robot](/assets/img/posts/express-robots-index-with-created-robot.png)
 
 
-Nice job. After a few more steps, we'll be ready to [push this application to production](/process-documentation/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).
+Nice job. After a few more steps, we'll be ready to [push this application to production](/reference-docs/2016/04/09/node-for-rails-developers-part-7-deploying-node-app-to-heroku/).

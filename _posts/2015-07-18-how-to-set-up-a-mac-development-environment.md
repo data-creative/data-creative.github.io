@@ -3,7 +3,7 @@ layout: post
 title:  "How to set up a Mac OS-X development environment"
 author: MJ Rossetti
 categories:
- - process-documentation
+ - reference-docs
 img: macbook-air-side.png
 use_img_as_post_header: true
 tags: none
@@ -419,7 +419,7 @@ npm install express-generator -g
 npm install react-native-cli -g
 ````
 
-> see also: [react-native android development environment setup guide ](http://data-creative.info/process-documentation/2016/07/22/react-native-android-dev-env-setup-from-scratch/)
+> see also: [react-native android development environment setup guide ](http://data-creative.info/reference-docs/2016/07/22/react-native-android-dev-env-setup-from-scratch/)
 
 #### Bower
 

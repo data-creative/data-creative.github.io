@@ -5,7 +5,7 @@ author: MJ Rossetti
 published: true
 img: react-native-logo.png
 categories:
- - process-documentation
+ - reference-docs
 #repo_url: "________________"
 #project_url: "________________"
 technologies:

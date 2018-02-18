@@ -3,7 +3,7 @@ layout: post
 title:  "How to deploy a Ruby on Rails application to AWS EC2 using OpsWorks"
 author: MJ Rossetti
 categories:
- - process-documentation
+ - reference-docs
 img: amazon-web-services-logo.png
 tags: devops
 published: false

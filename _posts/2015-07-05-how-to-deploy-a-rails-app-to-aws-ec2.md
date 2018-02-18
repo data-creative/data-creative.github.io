@@ -3,7 +3,7 @@ layout: post
 title:  "How to deploy a Ruby on Rails app to AWS EC2"
 author: MJ Rossetti
 categories:
- - process-documentation
+ - reference-docs
 img: amazon-web-services-logo.png
 tags: none
 published: false
@@ -40,4 +40,4 @@ BitBucket | git@bitbucket.org:ORG_NAME/APP_NAME.git | https://bitbucket.org/ORG_
 
 ### Server
 
-Ensure existance of a fresh AWS EC2 instance. See [how to launch an AWS EC2 instance](process-documentation/2015/07/05/how-to-launch-an-aws-ec2-instance.html) for instructions.
+Ensure existance of a fresh AWS EC2 instance. See [how to launch an AWS EC2 instance](reference-docs/2015/07/05/how-to-launch-an-aws-ec2-instance.html) for instructions.

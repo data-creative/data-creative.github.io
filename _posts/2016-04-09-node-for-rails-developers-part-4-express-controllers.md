@@ -7,7 +7,7 @@ img: nodejs-logo-green.png
 repo_url: https://github.com/data-creative/express-on-rails-starter-app/
 project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
- - process-documentation
+ - reference-docs
 technologies:
  - git
  - node.js
@@ -20,7 +20,7 @@ subtitle: "Part 4: Express Controllers"
 
 ---
 
-> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/process-documentation/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [configuring our application](/reference-docs/2016/04/09/node-for-rails-developers-part-3-express-configuration/), we're ready to add controllers and routing logic.
 
 <hr>
 
@@ -164,4 +164,4 @@ router.post('/robots/:id/destroy', function(req, res, next) {
 module.exports = router;
 ````
 
-This controller logic enables basic application navigation and flash messaging, even though database connectivity has not yet been established. Each call to `res.redirect()` or `res.render()`references the name of an *EJS* view file. Let's [create these views](/process-documentation/2016/04/09/node-for-rails-developers-part-5-express-views/) now.
+This controller logic enables basic application navigation and flash messaging, even though database connectivity has not yet been established. Each call to `res.redirect()` or `res.render()`references the name of an *EJS* view file. Let's [create these views](/reference-docs/2016/04/09/node-for-rails-developers-part-5-express-views/) now.

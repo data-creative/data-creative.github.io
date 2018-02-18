@@ -5,7 +5,7 @@ author: MJ Rossetti
 published: true
 img: go-logo.png
 categories:
- - reference-materials
+ - reference-docs
 technologies:
   - go
   - git

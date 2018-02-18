@@ -7,7 +7,7 @@ img: nodejs-logo-green.png
 repo_url: https://github.com/data-creative/express-on-rails-starter-app/
 project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
- - process-documentation
+ - reference-docs
 technologies:
  - git
  - node.js
@@ -19,7 +19,7 @@ subtitle: "Part 5: Express Views"
 
 ---
 
-> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [creating the application's controllers](/reference-docs/2016/04/09/node-for-rails-developers-part-4-express-controllers/), its time to create the views. After following along to the end of this post, the goal is to have a working navigable application.
 
 <hr>
 
@@ -294,5 +294,5 @@ At this point, you should be able to click around the application without breaki
 
 It's time to enhance this application's functionality by connecting a datastore. Choose your own adventure (6a or 6b):
 
- + [Part 6a (*PostgreSQL* Datastore)](/process-documentation/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/)
- + [Part 6b (*MongoDB* Datastore)](/process-documentation/2016/04/09/node-for-rails-developers-part-6b-express-mongodb-datastore/)
+ + [Part 6a (*PostgreSQL* Datastore)](/reference-docs/2016/04/09/node-for-rails-developers-part-6a-express-postgresql-datastore/)
+ + [Part 6b (*MongoDB* Datastore)](/reference-docs/2016/04/09/node-for-rails-developers-part-6b-express-mongodb-datastore/)
