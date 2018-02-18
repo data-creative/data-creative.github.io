@@ -348,7 +348,7 @@ Removing items:
 arr := []string{"A", "B", "C"}
 i := 1
 arr = append(arr[:i], arr[i+1:]...)
-	fmt.Println(arr) //> [A C]
+fmt.Println(arr) //> [A C]
 ```
 
 Mutating items:
@@ -417,8 +417,8 @@ Virtual attributes (see also: "Functions"):
 
 ```go
 type Team struct {
-	city string
-	name string
+  city string
+  name string
 }
 
 func (t *Team) fullName() string {
@@ -426,10 +426,8 @@ func (t *Team) fullName() string {
 }
 
 func main()  {
-
-	t := Team{city: "New York", name: "Yankees"}
-
-	fmt.Println(t.fullName()) //> "New York Yankees"
+  t := Team{city: "New York", name: "Yankees"}
+  fmt.Println(t.fullName()) //> "New York Yankees"
 }
 ```
 
@@ -438,18 +436,20 @@ func main()  {
 The following loops are equivalent:
 
 ```go
-i := 0
-for i < 5 {
+for i := 0; i < 5; i++ {
   fmt.Println(i)
-	i++ // increments (equivalent to: `i = i + 1` and `i+=1`
 }
 ```
 
 ```go
-for i := 0; i < 5; i++ {
-	fmt.Println(i)
+i := 0
+for i < 5 {
+  fmt.Println(i)
+  i++ // i = i + 1 // i+=1 // increment
 }
 ```
+
+
 
 ### [Functions](https://golang.org/ref/spec#Function_declarations)
 
@@ -458,7 +458,7 @@ Example function which declares parameter and return datatypes:
 ```go
 // DEFINITION
 func enlarge(x int) int {
-	return x * 100
+  return x * 100
 }
 
 // INVOCATION
@@ -476,9 +476,9 @@ val := 15
 if val == 3 {
   fmt.Println("THREE")
 } else if val == 5 {
-	fmt.Println("FIVE")
+  fmt.Println("FIVE")
 } else {
-	fmt.Println("OTHER")
+  fmt.Println("OTHER")
 }
 ```
 
