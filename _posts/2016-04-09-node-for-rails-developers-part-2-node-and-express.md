@@ -13,6 +13,7 @@ technologies:
  - node.js
  - npm
  - express.js
+ - homebrew
 series: node-js-for-rails-developers
 subtitle: "Part 2: Node and Express"
 ---

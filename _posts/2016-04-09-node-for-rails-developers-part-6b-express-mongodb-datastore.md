@@ -15,6 +15,7 @@ technologies:
  - express.js
  - twitter-bootstrap
  - mongodb
+ - homebrew
 series: node-js-for-rails-developers
 subtitle: "Part 6b: MongoDB Datastore"
 ---

@@ -15,6 +15,7 @@ technologies:
  - express.js
  - twitter-bootstrap
  - postgresql
+ - homebrew
 series: node-js-for-rails-developers
 subtitle: "Part 6a: PostgreSQL Datastore"
 ---
