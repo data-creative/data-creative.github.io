@@ -35,7 +35,7 @@
     {% for item in sorted_categories %}
       <li style="font-weight:normal; padding-left:0; padding-right:0;">
 
-        <a href="{{home_path_prefix}}blog?cat={{item}}" title="filter posts matching this category">{{item}}</a>
+        <a href="{{site.baseurl}}/blog?cat={{item}}" title="filter posts matching this category">{{item}}</a>
       </li>
     {% endfor %}
   </ul>
@@ -57,7 +57,7 @@
     {% assign sorted_technologies = post.technologies | sort %}
     {% for item in sorted_technologies %}
       <li style="font-weight:normal; padding-left:0; padding-right:0;">
-        <a href="{{home_path_prefix}}blog?tech={{item}}" title="filter posts matching this technology">{{item}}</a>
+        <a href="{{site.basurl}}/blog?tech={{item}}" title="filter posts matching this technology">{{item}}</a>
       </li>
     {% endfor %}
   </ul>
