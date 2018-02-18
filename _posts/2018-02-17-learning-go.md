@@ -192,14 +192,14 @@ fmt.Println(s)
 
 ### Data Types
 
-Example data types:
+Common data types:
 
 datatype | description
 --- | ---
-`boolean` | Standard boolean values include `true` and `false`.
-`string` | ...
-`int` | ...
-`float64` | ...
+`boolean` | Either `true` or `false`.
+`string` | Textual information.
+`int` | A whole number.
+`float64` | A decimal number.
 `array` | An ordered list of values.
 `slice` | A subset of an `array`.
 `map` | An object with key-value pairs.
@@ -208,35 +208,43 @@ datatype | description
 Checking a variable's datatype:
 
 ```go
-// BUILT-IN
-
 fmt.Println(reflect.TypeOf("Hello World")) //> string
-
 fmt.Println(reflect.TypeOf(10)) //> int
 fmt.Println(reflect.TypeOf(4.5)) //> float64
-
 fmt.Println(reflect.TypeOf(true)) //> bool
 fmt.Println(reflect.TypeOf(false)) //> bool
+```
 
+```go
 arr := [5]int{1, 2, 3, 4, 5}
+
 fmt.Println(reflect.TypeOf(arr)) //> [5]int
 fmt.Println(reflect.TypeOf(arr).Kind()) //> array
+```
 
+```go
 m := map[string]string{"Washington": "DC", "San Francisco": "CA"}
+
 fmt.Println(reflect.TypeOf(m)) //> map[string]string
 fmt.Println(reflect.TypeOf(m).Kind()) //> map
+```
 
-// PACKAGE-DEFINED
+```go
+import time
 
-fmt.Println(reflect.TypeOf(time.Now())) //> time.Time
+t := time.Now()
 
-// CUSTOM-DEFINED
+fmt.Println(reflect.TypeOf(t)) //> time.Time
+```
 
+```go
 type Team struct {
   city string
   name  string
 }
+
 t := Team{city: "New York", name: "Yankees"}
+
 fmt.Println(reflect.TypeOf(t)) //> main.Team
 ```
 
@@ -246,17 +254,15 @@ fmt.Println(reflect.TypeOf(t)) //> main.Team
 import (
   "fmt"
   "reflect"
-	"strconv"
+  "strconv"
 )
 
 func main()  {
   s := strconv.Itoa(11)
-  fmt.Println(s) //> 11
-  fmt.Println(reflect.TypeOf(s)) //> string
-
   i, _ := strconv.Atoi("11")
-  fmt.Println(i) //> 11
-  fmt.Println(reflect.TypeOf(i)) //> integer
+
+  fmt.Println(s, reflect.TypeOf(s)) //> 11 string
+  fmt.Println(i, reflect.TypeOf(i)) //> 11 integer
 }
 ```
 
@@ -433,13 +439,7 @@ func main()  {
 
 ### [For Statements](https://golang.org/ref/spec#For_statements)
 
-The following loops are equivalent:
-
-```go
-for i := 0; i < 5; i++ {
-  fmt.Println(i)
-}
-```
+Verbose way:
 
 ```go
 i := 0
@@ -449,11 +449,17 @@ for i < 5 {
 }
 ```
 
+Condensed way:
 
+```go
+for i := 0; i < 5; i++ {
+  fmt.Println(i)
+}
+```
 
 ### [Functions](https://golang.org/ref/spec#Function_declarations)
 
-Example function which declares parameter and return datatypes:
+Example function takes an integer parameter `x`, and returns an integer:
 
 ```go
 // DEFINITION
