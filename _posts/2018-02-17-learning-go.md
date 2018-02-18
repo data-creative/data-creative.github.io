@@ -26,6 +26,7 @@ Third-party resources:
   + [Go By Example: Arrays](https://gobyexample.com/arrays)
   + [Go By Example: For Loops](https://gobyexample.com/for)
   + [Go By Example: Time](https://gobyexample.com/time)
+  + [Learn Go in an Hour (video)](https://www.youtube.com/watch?v=CF9S4QZuV30)
 
 ## Installation and Setup
 
@@ -505,4 +506,18 @@ switch {
   case val < 8: fmt.Println("HIGH")
   default: fmt.Println("OTHER")
 }
+```
+
+### [Errors](https://golang.org/ref/spec#Errors)
+
+Raising errors:
+
+```go
+panic("OOPS")
+```
+
+Handling errors:
+
+```go
+// todo: not the most straightforward...
 ```
