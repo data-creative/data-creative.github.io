@@ -28,7 +28,7 @@
                 console.log("SELECTED CATEGORY:", selectedCat);
                 var $selectedPosts = $( "div.post[data-categories*='"+selectedCat+"']" );
                 var $unselectedPosts = $( "div.post:not([data-categories*='"+selectedCat+"'])" );
-                var suggestedCatLinkTagStr = "<a href='/blog?cat=data-visualization'><code>data-visualization</code></a>";
+                var suggestedCatLinkTagStr = "<a href='/blog?cat=projects'><code>projects</code></a>";
                 var errorMessageContent = "Sorry, found no posts matching the selected category, <code>" + selectedCat + "</code>. </br> Why don't you try " + suggestedCatLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
                 var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected category, <code>" + selectedCat + "</code>."
             };

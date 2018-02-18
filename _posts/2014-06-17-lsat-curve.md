@@ -3,7 +3,7 @@ layout: post
 title:  "LSAT Curve"
 author: MJ Rossetti
 categories:
- - data-visualization
+ - projects
 img: lsat-curve.png
 repo_url: https://github.com/s2t2/lsat-curve
 project_url: http://s2t2.github.io/lsat-curve/

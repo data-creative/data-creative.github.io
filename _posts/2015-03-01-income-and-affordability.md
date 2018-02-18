@@ -3,7 +3,7 @@ layout: post
 title:  "US Income and Affordability"
 author: MJ Rossetti
 categories:
- - data-visualization
+ - projects
 img: income-and-affordability-map.png
 repo_url: https://github.com/data-creative/us-income-and-affordability
 project_url: http://data-creative.info/us-income-and-affordability/
