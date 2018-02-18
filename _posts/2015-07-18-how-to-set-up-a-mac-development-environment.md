@@ -10,7 +10,7 @@ tags: none
 published: true
 icon_class: none
 technologies:
- - mac os-x
+ - mac-os-x
  - chrome
  - atom
  - homebrew

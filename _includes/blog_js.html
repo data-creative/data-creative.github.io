@@ -15,24 +15,27 @@
 
             var allPostsLinkTagStr = "<a href='/blog'>all posts</a>";
 
-            if (validTech == true) {
+            var posts = Array.from(document.getElementsByClassName("post"))
+
+            if (validTech) {
                 var selectedTech = requestedTech.trim().toLowerCase();
                 console.log("SELECTED TECH:", selectedTech);
-                var $selectedPosts = $( "div.post[data-technologies*='"+selectedTech+"']" );
-                var $unselectedPosts = $( "div.post:not([data-technologies*='"+selectedTech+"'])" );
+                var selectedPosts = posts.filter(function(p){ return p.dataset.technologies.split(" ").includes(selectedTech) })
+                var unselectedPosts = posts.filter(function(p){ return !p.dataset.technologies.split(" ").includes(selectedTech) })
                 var suggestedTechLinkTagStr = "<a href='/blog?tech=ruby'><code>ruby</code></a>";
                 var errorMessageContent = "Sorry, found no posts matching the selected technology, <code>" + selectedTech + "</code>. </br> Why don't you try " + suggestedTechLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
-                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected technology, <code>" + selectedTech + "</code>."
-            } else if (validCat == true) {
+                var successMessageContent = "Found " + selectedPosts.length + " posts matching the selected technology, <code>" + selectedTech + "</code>."
+            }
+            else if (validCat == true) {
                 var selectedCat = requestedCat.trim().toLowerCase();
                 console.log("SELECTED CATEGORY:", selectedCat);
-                var $selectedPosts = $( "div.post[data-categories*='"+selectedCat+"']" );
-                var $unselectedPosts = $( "div.post:not([data-categories*='"+selectedCat+"'])" );
+                var selectedPosts = posts.filter(function(p){ return p.dataset.categories.split(" ").includes(selectedCat) })
+                var unselectedPosts = posts.filter(function(p){ return !p.dataset.categories.split(" ").includes(selectedCat) })
                 var suggestedCatLinkTagStr = "<a href='/blog?cat=projects'><code>projects</code></a>";
                 var errorMessageContent = "Sorry, found no posts matching the selected category, <code>" + selectedCat + "</code>. </br> Why don't you try " + suggestedCatLinkTagStr + " instead? Or "+allPostsLinkTagStr+"..."
-                var successMessageContent = "Found " + $selectedPosts.length + " posts matching the selected category, <code>" + selectedCat + "</code>."
+                var successMessageContent = "Found " + selectedPosts.length + " posts matching the selected category, <code>" + selectedCat + "</code>."
             };
-            console.log("SELECTED:", $selectedPosts.length, "UNSELECTED:", $unselectedPosts.length);
+            console.log("SELECTED:", selectedPosts.length, "UNSELECTED:", unselectedPosts.length);
 
             // UPDATE RESPONSE MESSAGE
 
@@ -40,7 +43,7 @@
                 .classed("text-center",1)
                 .style("margin-bottom", "2em");
 
-            if ( $selectedPosts.length == 0 ) {
+            if ( selectedPosts.length == 0 ) {
                 console.log("OOPS, NO MATCHING POSTS");
                 responseMessage.html(errorMessageContent);
             } else {
@@ -49,41 +52,31 @@
 
             // KEEP SELECTED POSTS ONLY
 
-            $unselectedPosts.each(function(i, el){
-                el.remove();
+            unselectedPosts.forEach(function(el){
+              el.remove();
             });
 
             // RE-STYLE REMAINING POSTS (see /_includes/post_list for initial styles)
 
-            var liClassListA = "col-lg-5 col-sm-6";
-            var imgClassListA = liClassListA+" col-lg-offset-2";
-
-            var classListB = "col-lg-5 col-sm-6";
-            var liClassListB = classListB+" col-lg-offset-1 col-sm-push-6";
-            var imgClassListB = classListB+" col-sm-pull-6";
-
-            $selectedPosts.each(function(i, el){
-                console.log(el.classList);
-                $(this).removeClass("content-section-a content-section-b"); // clear both striping classes
+            selectedPosts.forEach(function(el, i){
+                // clear both striping classes
+                el.classList.remove("content-section-a")
+                el.classList.remove("content-section-b")
 
                 if (i % 2) {
-                    console.log("B",i)
-                    $(this).addClass("content-section-b");
-                    $(this).find(".post_list_item")
-                        .removeClass()
-                        .addClass(liClassListB);
-                    $(this).find(".post_list_image")
-                        .removeClass()
-                        .addClass(imgClassListB);
+                    //console.log("SECTION B", i)
+                    el.classList.add("content-section-b");
+                    var listItem = el.getElementsByClassName("post_list_item")[0]
+                    listItem.className = "post_list_item col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6"
+                    var listImage = el.getElementsByClassName("post_list_image")[0]
+                    listImage.className = "post_list_image col-lg-5 col-sm-pull-6  col-sm-6"
                 } else {
-                    console.log("A",i)
-                    $(this).addClass("content-section-a");
-                    $(this).find(".post_list_item")
-                        .removeClass()
-                        .addClass(liClassListA);
-                    $(this).find(".post_list_image")
-                        .removeClass()
-                        .addClass(imgClassListA);
+                    //console.log("SECTION A", i)
+                    el.classList.add("content-section-a");
+                    var listItem = el.getElementsByClassName("post_list_item")[0]
+                    listItem.className = "post_list_item col-lg-5 col-sm-6"
+                    var listImage = el.getElementsByClassName("post_list_image")[0]
+                    listImage.className = "post_list_image col-lg-5 col-lg-offset-2 col-sm-6"
                 };
             });
 
