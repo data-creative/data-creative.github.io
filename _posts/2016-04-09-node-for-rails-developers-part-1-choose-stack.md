@@ -7,7 +7,7 @@ img: nodejs-logo-green.png
 repo_url: https://github.com/data-creative/express-on-rails-starter-app/
 project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
- - process-documentation
+ - reference-docs
 technologies:
  - node.js
  - express.js
@@ -63,4 +63,4 @@ For the front-end framework, unless you're already familiar with *Angular*, let'
   + **E** stands for *EJS*, a simple and familiar view template engine.
   + **N** stands for *Node.js*, which runs *JavaScript* as a server-side programming language.
 
-Enough discussion. let's [get started](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/) with *Node* and *Express*.
+Enough discussion. let's [get started](/reference-docs/2016/04/09/node-for-rails-developers-part-2-node-and-express/) with *Node* and *Express*.

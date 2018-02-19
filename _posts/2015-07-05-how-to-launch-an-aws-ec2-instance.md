@@ -3,7 +3,7 @@ layout: post
 title:  "How to launch a server using AWS EC2"
 author: MJ Rossetti
 categories:
- - process-documentation
+ - reference-docs
 img: amazon-web-services-logo.png
 tags: none
 published: false

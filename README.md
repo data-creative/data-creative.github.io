@@ -22,8 +22,8 @@ GET http://data-creative.info/blog/?tech=amazon-web-services
 Filter blog posts by category. Specify the name of one category using the url parameter, `cat`, replacing spaces with dashes as necessary.
 
 ```sh
-GET http://data-creative.info/blog/?cat=open-source-library
-GET http://data-creative.info/blog/?cat=process-documentation
+GET http://data-creative.info/blog/?cat=projects
+GET http://data-creative.info/blog/?cat=reference-docs
 ```
 
 ## Contributing

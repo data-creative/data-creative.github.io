@@ -7,7 +7,7 @@ img: nodejs-logo-green.png
 repo_url: https://github.com/data-creative/express-on-rails-starter-app/
 project_url: https://express-on-rails-starter.herokuapp.com/
 categories:
- - process-documentation
+ - reference-docs
 technologies:
  - git
  - node.js
@@ -17,7 +17,7 @@ series: node-js-for-rails-developers
 subtitle: "Part 3: Configuring Express"
 ---
 
-> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/process-documentation/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
+> This post is part of a [series](/series/{{ page.series }}) for *Rails* developers who want to get started with *Node.js*. After [generating a new application](/reference-docs/2016/04/09/node-for-rails-developers-part-2-node-and-express/), we're ready to configure it according to *Rails*-friendly conventions.
 
 <hr>
 
@@ -180,4 +180,4 @@ npm install moment-timezone --save
 
 > NOTE: Passing the `--save` option automatically registers the module as a dependency in the application's `package.json` file.
 
-OK, now we're ready to use these modules in our [controllers and views](/process-documentation/2016/04/09/node-for-rails-developers-part-4-express-controllers/).
+OK, now we're ready to use these modules in our [controllers and views](/reference-docs/2016/04/09/node-for-rails-developers-part-4-express-controllers/).

@@ -8,7 +8,7 @@ project_url: https://play.google.com/store/apps/details?id=com.nexttrainct&hl=en
 img: react-native-logo.png
 use_img_as_post_header: true
 categories:
- - open-source-application
+ - projects
 technologies:
   - javascript
   - react-native
@@ -26,7 +26,7 @@ technologies:
 
 **NextTrain - Connecticut** is a mobile app for searching train schedules published by the [Shore Line East](http://www.shorelineeast.com/) transit agency in Connecticut.
 
-It relies on a back-end web service I created, called the <a href="{{ site.baseurl }}/open-source-application/2017/05/21/next-train-api/">Next Train API</a>, to provide train schedules in JSON format upon request.
+It relies on a back-end web service I created, called the <a href="{{ site.baseurl }}/projects/2017/05/21/next-train-api/">Next Train API</a>, to provide train schedules in JSON format upon request.
 
 Demo:
 

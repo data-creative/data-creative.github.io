@@ -7,7 +7,7 @@ img: rubygems_logo_red.png
 repo_url: https://github.com/debate-watch/twenty_sixteen
 project_url: https://rubygems.org/gems/twenty_sixteen
 categories:
- - open-source-library
+ - projects
 technologies:
  - ruby
  - rubygems

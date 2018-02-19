@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="{{ home_path_prefix }}#{{ 'home' }}">
+        <a class="navbar-brand page-scroll" href="/">
           {{ site.title }}
         </a>
     </div>
@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a class="page-scroll" href="{{ home_path_prefix }}#about">About</a>
+          <a class="page-scroll" href="{{ site.baseurl }}/landing">About</a>
         </li>
 
         <li class="dropdown">
@@ -29,16 +29,16 @@
 
           <ul class="dropdown-menu">
             {% for post in site.categories["services"] reversed %}
-            <li><a class="page-scroll" href="{{ home_path_prefix }}#{{ post.identifier }}">{{ post.title }}</a></li>
+            <li><a class="page-scroll" href="{{ site.baseurl }}/landing#{{ post.identifier }}">{{ post.title }}</a></li>
             {% endfor %}
           </ul>
         </li>
 
         <li>
-          <a class="page-scroll" href="{{ home_path_prefix }}#contact">Contact</a>
+          <a class="page-scroll" href="{{ site.baseurl }}/landing#contact">Contact</a>
         </li>
         <li>
-          <a href="/blog">Blog</a>
+          <a href="{{ site.baseurl }}/blog">Blog</a>
         </li>
       </ul>
     </div>

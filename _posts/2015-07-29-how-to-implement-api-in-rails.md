@@ -3,7 +3,7 @@ layout: post
 title:  "How to implement an API using Ruby on Rails"
 author: MJ Rossetti
 categories:
- - process-documentation
+ - reference-docs
 img: rails-logo.svg
 tags: none
 published: false

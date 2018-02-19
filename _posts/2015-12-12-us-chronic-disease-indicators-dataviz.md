@@ -3,7 +3,7 @@ layout: post
 title:  "US Chronic Disease Indicators"
 author: MJ Rossetti
 categories:
- - data-visualization
+ - projects
 img: us-chronic-disease-indicators.png
 repo_url: https://github.com/data-creative/us-chronic-disease-indicators
 project_url: http://data-creative.info/us-chronic-disease-indicators/

@@ -3,7 +3,7 @@ layout: post
 title:  "Branford Station (a GTFS Data Client)"
 author: MJ Rossetti
 categories:
- - open-source-application
+ - projects
 img: gtfs-data-client-map.png
 repo_url: https://github.com/data-creative/branford-station
 project_url: https://branford-station.herokuapp.com/

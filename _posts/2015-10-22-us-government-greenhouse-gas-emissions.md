@@ -3,7 +3,7 @@ layout: post
 title:  "US Government Greenhouse Gas Emissions"
 author: MJ Rossetti
 categories:
- - data-visualization
+ - projects
 img: us-government-greenhouse-gas-emissions-by-agency.png
 repo_url: https://github.com/data-creative/us-gov-greenhouse-gas-emissions
 project_url: http://data-creative.info/us-gov-greenhouse-gas-emissions/

@@ -3,7 +3,7 @@ layout: post
 title:  "US State Legislature Compositions"
 author: MJ Rossetti
 categories:
- - data-visualization
+ - projects
 img: state-legislature-compositions.png
 repo_url: https://github.com/data-creative/us-state-legislature-compositions
 project_url: http://data-creative.info/us-state-legislature-compositions/

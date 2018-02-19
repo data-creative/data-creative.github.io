@@ -7,7 +7,7 @@ img: rubygems_logo_red.png
 repo_url: https://github.com/data-creative/github-contributions-api-ruby
 project_url: https://rubygems.org/gems/github_contributions_api
 categories:
- - open-source-library
+ - projects
 technologies:
  - ruby
  - rubygems
