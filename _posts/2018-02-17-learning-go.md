@@ -305,14 +305,14 @@ fmt.Println(m) //> "Hello World 123 false"
 
 #### [Arrays](https://golang.org/ref/spec#Array_types) and [Slices](https://golang.org/ref/spec#Slice_types)
 
-Instantiate new arrays:
+New array:
 
 ```go
 arr1 := []string{"A", "B", "C"}
 arr2 := []int{1, 2, 3}
 ```
 
-Array functions:
+Array length:
 
 ```go
 arr := []string{"A", "B", "C"}
@@ -380,7 +380,7 @@ Iteration ([For statements with Range clause](https://golang.org/ref/spec#For_ra
 arr := []string{"A", "B", "C"}
 
 for index, element := range arr {
-  fmt.Println(i, element)
+  fmt.Println(index, element)
 }
 //> 0 A
 //> 1 B
