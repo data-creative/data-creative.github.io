@@ -42,7 +42,7 @@ In addition to providing model creation abilities, Keras also provides example d
 
 ![some handwritten numbers from the dataset](https://upload.wikimedia.org/wikipedia/commons/2/27/MnistExamples.png)
 
-Keras provides an easy way to load this dataset, and split it into different batches for testing and training purposes, respectively.
+Keras provides an easy way to load this dataset, and split it into different batches for training and testing purposes, respectively.
 
 ```py
 from keras.datasets import mnist
@@ -50,11 +50,11 @@ from keras.datasets import mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 ```
 
-While developing the model, I learned how important it is to pre-process the data into a format in which the model expects. For this specific MNIST use case, each pixel in the input image represents a number on the greyscale from 0 to 255 (I guess that's how grayscale works :-D). Models like inputs between 0 and 1, so it is necessary to re-scale the inputs. Also, the input data needs to be flattened from a pixel grid representation into a single linear list. And the output data needs to be separated into categories representing each of ten possible outcomes.
+While developing the model, I learned how important it is to pre-process the data into a format the model expects. For this specific MNIST use case, each input image represents a grid of pixels, each with its own grayscale value from 0 to 255. We need to re-scale these values so they fall between 0 and 1 (the model's preferred input range), and we need to flatten each input from a two-dimensional grid into a one-dimensional list. Finally, we need to classify the output values into categories representing each of the ten possible outcomes (digits from zero to nine).
 
 ```py
 # flatten each 28x28 pixel grid into a single layer
-h,w = 28,28 #> 784
+h, w = 28, 28
 x_train = x_train.reshape(60000, h * w) #> 6000 entries of 784 size items
 x_test = x_test.reshape(10000, h * w) #> 10000 entries of 784 size items
 
@@ -69,8 +69,7 @@ y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
 ```
 
-After preparing the training data, the model is ready to use it!
-
+After preparing the data, we are ready to use it to train the model.
 
 ```py
 history = model.fit(x_train, y_train, epochs=3, verbose=1, validation_data=(x_test, y_test) )
@@ -85,14 +84,14 @@ history = model.fit(x_train, y_train, epochs=3, verbose=1, validation_data=(x_te
 #
 ```
 
-After training the model, Keras provides a way to evaluate its accuracy against the test dataset. This simple model acheives a prediction accuracy of over 96%.
+After training the model, Keras provides a way to evaluate its accuracy against the entire test dataset. This simple model acheives a prediction accuracy of over 96%.
 
 ```py
 score = model.evaluate(x_test, y_test)
 #> [0.1044726008746773, 0.9672]
 ```
 
-Once satisfied with the performance of your trained model, you can use it to make prediction on some specific image from the test dataset.
+Once satisfied with the performance of the trained model, we can use it to predict the classification of any given image.
 
 ```py
 test_img = x_test[37] #> (784,)
@@ -100,3 +99,5 @@ test_img.reshape((1,784)) #> (1, 784)
 prediction = model.predict_classes(test_img)
 predicted_value = prediction[0] #> the number 6!
 ```
+
+There are other use cases for machine learning models besides classifying handwritten digits, and I'm excited to explore them.
