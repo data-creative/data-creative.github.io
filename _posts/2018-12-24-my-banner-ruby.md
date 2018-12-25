@@ -28,8 +28,6 @@ As a university-level instructor, I use [Google Calendar](https://calendar.googl
 
 ### Solution
 
-This ruby library contains scripts to process a user's schedule information from the [Ellucian Banner](https://www.ellucian.com/solutions/ellucian-banner) information system to generate calendar events and gradebook files for each scheduled class.
+The "MyBanner" ruby library contains scripts to process a user's schedule information from the [Ellucian Banner](https://www.ellucian.com/solutions/ellucian-banner) information system to generate calendar events and gradebook files for each scheduled class.
 
-At this point I've only tested the program on faculty schedules, but it should work for student schedules as well. As long as your school uses the Banner information system, this program should work for you too!
-
-[Star the repo]({{ page.repo_url }}/stargazers) if you find it helpful.
+At this point I've only tested the program on faculty schedules, but it should work for student schedules as well. As long as your school uses the Banner information system, this program should work for you too. Try it out, and [star the repo]({{ page.repo_url }}/stargazers) if you find it helpful.
