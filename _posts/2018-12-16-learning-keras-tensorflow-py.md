@@ -100,4 +100,4 @@ prediction = model.predict_classes(test_img)
 predicted_value = prediction[0] #> the number 6!
 ```
 
-There are other use cases for machine learning models besides classifying handwritten digits, and I'm excited to explore them.
+There are many other use cases for machine learning models besides classifying handwritten digits, and I'm excited to further explore them.
