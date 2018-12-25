@@ -24,7 +24,6 @@ In the advent of distributed computing and GPUs and the release of [TensorFlow](
 
 With the help of some tutorials on Lynda.com, I set off to learn how to create a neural network of my own using a Python package called [Keras](https://keras.io/). Keras provides a high-level interface which makes it easy to build, train, test, and use neural networks.
 
-Not knowing whether my computer could handle the computational requirements of a neural network, I restricted the scale of my network (in terms of number of layers), and partially developed the model in the cloud using Azure Notebooks. It turns out my laptop was able to manage this small-scale network.
 
 ```py
 from keras.models import Sequential
