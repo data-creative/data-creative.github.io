@@ -19,6 +19,7 @@ technologies:
  - google-calendar
  - google-drive
  - google-sheets
+ - travis-ci
 ---
 
 ### Problem Statement
@@ -29,5 +30,43 @@ As a university-level instructor, I use [Google Calendar](https://calendar.googl
 ### Solution
 
 The "MyBanner" ruby library contains scripts to process a user's schedule information from the [Ellucian Banner](https://www.ellucian.com/solutions/ellucian-banner) information system to generate calendar events and gradebook files for each scheduled class.
+
+The process of getting schedule information from Banner would be a lot easier if they made some APIs available, but in the meantime this program gets the data it needs by parsing one of the system's HTML schedule pages into a more structured format.
+
+Example schedule page:
+
+<img class="img-responsive" src="{{ site.base_url }}/assets/img/posts/my-banner-schedule-html.png" alt="">
+
+Example parsed output:
+
+```rb
+{
+  :title=>"Intro to Programming",
+  :crn=>123456,
+  :course=>"INFO 101",
+  :section=>20,
+  :status=>"OPEN",
+  :registration=>"May 01, 2018 - Nov 02, 2018",
+  :college=>"School of Business and Technology",
+  :department=>"Information Systems",
+  :part_of_term=>"C04",
+  :credits=>1.5,
+  :levels=>["Graduate", "Juris Doctor", "Undergraduate"],
+  :campus=>"Main Campus",
+  :override=>"No",
+  :enrollment_counts=>{:maximum=>50, :actual=>45, :remaining=>5},
+  :scheduled_meeting_times=>{
+    :type=>"Lecture",
+    :time=>"11:00 am - 12:20 pm",
+    :days=>"TR",
+    :where=>"Science Building 111",
+    :date_range=>"Oct 29, 2018 - Dec 18, 2018",
+    :schedule_type=>"Lecture",
+    :instructors=>["Polly Professor"]
+  }
+}
+```
+
+After parsing the schedule data into this more usable format, the program is able to automatically compile a list of meetings for each class and create calendar events for each meeting.
 
 At this point I've only tested the program on faculty schedules, but it should work for student schedules as well. As long as your school uses the Banner information system, this program should work for you too. Try it out, and [star the repo]({{ page.repo_url }}/stargazers) if you find it helpful.

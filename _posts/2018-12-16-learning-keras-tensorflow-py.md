@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Neural Networks with Tensorflow and Keras"
+title:  "Neural Networks in Python with Keras and TensorFlow"
 author: MJ Rossetti
 published: true
 img: python-logo.png
@@ -20,7 +20,7 @@ technologies:
  - azure-notebooks
 ---
 
-With the advent of distributed computing and GPUs and the release of [TensorFlow](https://www.tensorflow.org/), machine learning and deep learning solutions are becoming more accessible to the ordinary developer.
+In the advent of distributed computing and GPUs and the release of [TensorFlow](https://www.tensorflow.org/), machine learning and deep learning solutions are becoming more accessible to the ordinary developer.
 
 With the help of some tutorials on Lynda.com, I set off to learn how to create a neural network of my own using a Python package called [Keras](https://keras.io/). Keras provides a high-level interface which makes it easy to build, train, test, and use neural networks.
 
@@ -38,7 +38,7 @@ model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accur
 model.summary()
 ```
 
-In addition to providing model creation abilities, Keras also provides example datasets, like the [MNIST database of hand-written numbers](https://en.wikipedia.org/wiki/MNIST_database), which I used for my first model. The goal of this model is to process any image from the dataset and predict which digit (0-9) the image represents.
+In addition to providing model creation abilities, Keras also provides example datasets, like the [MNIST database of hand-written numbers](https://en.wikipedia.org/wiki/MNIST_database), which I used for my first model. The goal of this model was to process any image from the dataset and predict which digit (0-9) the image represents.
 
 ![some handwritten numbers from the dataset](https://upload.wikimedia.org/wikipedia/commons/2/27/MnistExamples.png)
 
@@ -50,7 +50,7 @@ from keras.datasets import mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 ```
 
-While developing the model, I learned how important it is to pre-process the data into a format the model expects. For this specific MNIST use case, each input image represents a grid of pixels, each with its own grayscale value from 0 to 255. We need to re-scale these values so they fall between 0 and 1 (the model's preferred input range), and we need to flatten each input from a two-dimensional grid into a one-dimensional list. Finally, we need to classify the output values into categories representing each of the ten possible outcomes (digits from zero to nine).
+While developing the model, I learned how important it is to pre-process the data into a format the model expects. For this specific MNIST use case, each input image represents a grid of pixels, each with its own grayscale value from 0 to 255. We need to re-scale these values so they fall between 0 and 1 (the model's preferred input range), and we need to flatten each input from a two-dimensional grid into a one-dimensional list. Finally, we need to separate the output values into categories representing each of the ten possible outcomes (digits from zero to nine).
 
 ```py
 # flatten each 28x28 pixel grid into a single layer
@@ -65,6 +65,7 @@ x_train = x_train / 255.0
 x_test = x_test / 255.0
 
 # separate each output number into one of ten bins (digits 0-9)
+from keras.utils.np_utils import to_categorical
 y_train = to_categorical(y_train, 10)
 y_test = to_categorical(y_test, 10)
 ```
@@ -84,14 +85,14 @@ history = model.fit(x_train, y_train, epochs=3, verbose=1, validation_data=(x_te
 #
 ```
 
-After training the model, Keras provides a way to evaluate its accuracy against the entire test dataset. This simple model acheives a prediction accuracy of over 96%.
+After training the model, Keras provides a way to evaluate its accuracy against the entire test dataset.
 
 ```py
 score = model.evaluate(x_test, y_test)
 #> [0.1044726008746773, 0.9672]
 ```
 
-Once satisfied with the performance of the trained model, we can use it to predict the classification of any given image.
+This simple model acheives a prediction accuracy of over 96%. Once satisfied with the performance of the trained model, we can use it to predict the classification of any given image.
 
 ```py
 test_img = x_test[37] #> (784,)
@@ -100,4 +101,4 @@ prediction = model.predict_classes(test_img)
 predicted_value = prediction[0] #> the number 6!
 ```
 
-There are many other use cases for machine learning models besides classifying handwritten digits, and I'm excited to further explore them.
+There are many other use cases for machine learning models besides classifying handwritten digits, and I'm excited to explore them further.
