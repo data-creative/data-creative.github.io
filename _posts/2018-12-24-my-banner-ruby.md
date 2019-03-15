@@ -31,7 +31,7 @@ As a university-level instructor, I use [Google Calendar](https://calendar.googl
 
 The "MyBanner" ruby library contains scripts to process a user's schedule information from the [Ellucian Banner](https://www.ellucian.com/solutions/ellucian-banner) information system to generate calendar events and gradebook files for each scheduled class.
 
-The process of getting schedule information from Banner would be a lot easier if they made some APIs available, but in the meantime this program gets the data it needs by parsing one of the system's HTML schedule pages into a more structured format.
+I didn't see any APIs available, so this program gets the data by parsing one of the system's HTML schedule pages into a more structured format.
 
 Example schedule page:
 
