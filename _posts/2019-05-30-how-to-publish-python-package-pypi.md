@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Building and Releasing a Python Package to the Python Package Index"
+title:  "Publishing a Python Package to the Python Package Index (PyPI)"
 author: MJ Rossetti
 published: true
 img: python-logo.png
 repo_url: https://github.com/s2t2/game-utils-py
 project_url: https://pypi.org/project/s2t2-game-utils/
 categories:
- - projects
+ - reference-docs
 technologies:
  - python
  - pip
