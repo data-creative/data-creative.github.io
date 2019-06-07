@@ -96,10 +96,10 @@ setup(
 Create and activate a virtual environment:
 
 ```sh
-conda create -n twine-env python=3.7 # first time only
+conda create -n twine-env python=3.7 # (first time only)
 conda activate twine-env
 
-pip install twine
+pip install twine # (first time only)
 ```
 
 ### Building
