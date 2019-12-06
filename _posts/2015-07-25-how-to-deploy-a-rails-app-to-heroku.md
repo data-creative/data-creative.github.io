@@ -66,7 +66,7 @@ Specify buildpacks in a **.buildpacks** file:
     https://github.com/heroku/heroku-buildpack-nodejs
     https://github.com/heroku/heroku-buildpack-ruby
 
-> NOTE: the practice of setting BUILDPACK_URL is [deprecated](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack). The preferred method is `heroku buildpacks:set https://github.com/ddollar/heroku-buildpack-multi.git`. todo: test this out.
+> NOTE: the practice of setting BUILDPACK_URL is [deprecated](https://devcenter.heroku.com/articles/buildpacks#using-a-custom-buildpack). The preferred method is `heroku buildpacks:set https://github.com/ddollar/heroku-buildpack-multi.git`.
 
 ## Deployment
 
